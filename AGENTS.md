@@ -55,31 +55,35 @@ repo/
 - **Monorepo**: pnpm Catalogs + Turborepo
 - **Lint/Formatter**: Biome
 - **CI/CD**: GitHub Actions
+- **TypeScript**: JSDoc によるドキュメント記述（全パッケージ共通）
+- **Validation**: Zod（全パッケージ共通）
 
 ### フロントエンド
 
 - **Framework**: React
+- **Router**: React Router（Loader / Action によるデータフェッチ・ミューテーション）
+- **Architecture**: Feature-Sliced Design（FSD）
 - **UI**: shadcn/ui
 - **State Management**: TanStack Query
 - **API Client**: Orval (OpenAPIから自動生成)
-- **Validation**: Zod
 
 ### バックエンド
 
 - **Runtime**: Bun
 - **Framework**: Hono
 - **Logging**: Pino
-- **Middleware**: trace_id, request_id, レート制限
+- **Middleware**: trace_id, request_id, レート制限, CORS, エラーハンドリング
 
 ### ドメイン・DB・インフラ
 
-- **Architecture**: DDD Lite
+- **Architecture**: DDD Lite（戦術パターン：Entity / Value Object / Repository / Domain Service）
 - **DB**: PostgreSQL / Prisma
 - **Infrastructure**: AWS (S3, CloudFront, Lambda) / Terraform
 
 ### テスト
 
 - **Unit Test**: Vitest
+- **API Test**: REST Client
 - **E2E Test**: Playwright
 
 ## コア原則
@@ -100,10 +104,12 @@ repo/
 
 すべての実装はID（uc-xxx, api-xxx 等）で紐づける。
 
-### 4. ID 命名規則
+### 4. ID 命名・ファイル命名規則
 
-`{layer}-{domain}-{nnn}-{action}`
-例：`uc-upload-001`, `api-upload-001-create-url`
+すべてファイル名もこのID命名規則（`{layer}-{domain}-{nnn}-{action}`）に従い、`{ID}.md` 形式で作成・管理する。
+
+- **Layer 例**: `uc` (Gherkin), `api` (OpenAPI), `db` (Database), `sec` (Security), `req` (Requirement), `eas` (EARS), `arch` (Architecture), `seq` (Sequence)
+- **命名例**：`uc-upload-001`, `api-upload-001-create-url`
 
 ### 5. 関心の分離
 
@@ -120,13 +126,17 @@ repo/
 
 フロント、API、ストレージ、非同期処理の各層で防御を実装する。
 
+### 8. 言語規約 (Language Rule)
+
+**原則として日本語**で記述する
+
 ## 開発フロー
 
 1. **要件定義 (requirements)**: ビジネス要件・非機能要件の整理
 2. **ユースケース定義 (Gherkin)**: ユーザー視点の振る舞い定義とID付与 (uc-xxx)
 3. **仕様厳密化 (EARS)**: 条件・例外の明確化
 4. **セキュリティ仕様定義 (specs/security)**: 脅威モデル、アップロード制約、スキャン等の定義
-5. **UI設計 (Figma/docs)**: 画面一覧、コンポーネント設計 (shadcn/ui)
+5. **UI設計 (docs)**: 画面一覧、コンポーネント設計 (shadcn/ui)
 6. **シーケンス設計 (docs/sequence)**: API呼び出し順、非同期処理、外部連携の定義
 7. **API設計 (OpenAPI)**: リクエスト/レスポンス、エラー、セキュリティ反映
 8. **DB設計 (ER図 + DDL)**: データ構造、インデックス、冪等性制御の設計
@@ -137,6 +147,31 @@ repo/
 13. **Frontend実装**: UI実装、状態管理、API連携
 14. **検証**: E2Eテスト、セキュリティテストによる仕様適合確認
 15. **デプロイ (Terraform)**: インフラ構築と環境反映
+
+## 開発規約
+
+### ブランチ戦略 (GitHub Flow)
+
+- **mainブランチ**: 常にデプロイ可能な状態を維持する。
+- **トピックブランチ**: `main`からブランチを作成し、機能開発やバグ修正を行う。
+  - 命名規則: `feature/issue-id`, `fix/issue-id`, `docs/issue-id` など。
+
+### コミットメッセージ規約 (Conventional Commits)
+
+以下の形式を採用する：
+`<type>(<scope>): <subject>`
+
+- **type**:
+  - `feat`: 新機能の開発
+  - `fix`: バグの修正
+  - `docs`: ドキュメントの変更
+  - `style`: コードの動作に影響しないフォーマット等の変更
+  - `refactor`: リファクタリング
+  - `perf`: パフォーマンスの改善
+  - `test`: テストの追加・修正
+  - `chore`: ビルドプロセスやライブラリの更新など
+- **scope**: 変更範囲（例: `frontend`, `backend`, `domain`, `specs` など。任意）
+- **subject**: 変更内容の簡潔な要約（原則日本語）
 
 ## テスト戦略
 
@@ -161,8 +196,11 @@ repo/
 
 ## ロギング・観測性
 
-- すべてのリクエストに trace_id を付与し、全レイヤで引き継ぐ。
-- ログは構造化（JSON）し、Pino 等を用いて出力する。
+- trace_id は Frontend で生成（UUID v4）し、全リクエストのヘッダー `X-Trace-ID` に付与する。
+- Backend middleware で受け取り、全レイヤのログに引き継ぐ。
+- ログは Pino で構造化（JSON）出力し、CloudWatch Logs に集約する。
+- 障害調査は CloudWatch Logs Insights で trace_id をキーに横断検索する。
+- DBへのログ保存は行わない。
 
 ## アンチパターン
 

@@ -1,0 +1,16 @@
+{
+  "recommendations": [
+    "biomejs.biome",
+    "EditorConfig.EditorConfig",
+    "hashicorp.terraform",
+    "usernamehw.errorlens",
+    "mhutchie.git-graph",
+    "GitHub.vscode-github-actions",
+    "wix.vscode-import-cost",
+    "vitest.explorer",
+    "bierner.markdown-mermaid",
+    "humao.rest-client",
+    "vstirbu.vscode-mermaid-preview",
+    "mermaidchart.vscode-mermaid-chart"
+  ]
+}

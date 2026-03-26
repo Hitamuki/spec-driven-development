@@ -1,0 +1,15 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+catalogs:
+  default:
+    typescript: "^5.4.0"
+    biome: "^1.7.0"
+    turbo: "latest"
+  # You can add more catalogs here as needed
+  react:
+    react: "^19.0.0"
+    react-dom: "^19.0.0"
+    "@types/react": "^19.0.0"
+    "@types/react-dom": "^19.0.0"
