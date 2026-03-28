@@ -3,17 +3,26 @@
 ## 概要
 
 本システムは、画像アップロード機能を中心としたSPA構成とし、
-仕様駆動開発（Spec Driven Development）およびモノレポ構成を採用する。
+モノレポ構成を採用する。
 
 ## 目的
 
-本リポジトリは **Spec Driven Development（仕様駆動開発）** を採用する。
 すべての実装は **specs を唯一の真実（Single Source of Truth）** とし、そこから導出される。
 
 ## ディレクトリ構成
 
 ```txt
 repo/
+├── specs/
+│   └── requirements/             # ビジネス要件・非機能要件 (req-*)
+│   └── common/                   # 全体構造・設計思想
+│   ├── interaction/              # 相互作用設計（シーケンス図等）
+│   ├── api/                      # API設計書 (api-*)
+│   ├── ui/                       # UI/UX・画面遷移・ワイヤーフレーム
+│   ├── db/                       # DB設計・ER図
+│   └── infra/                    # インフラ詳細設計
+├── docs/
+│   └── ADR/                      # 意思決定記録
 ├── apps/
 │   ├── frontend/                 # React SPA（UI層：ユーザー体験の実装）
 │   │   ├── src/
@@ -22,29 +31,17 @@ repo/
 │       ├── src/
 │       └── tests/                # API単体テスト（ルーティング / ミドルウェア）
 ├── packages/
-│   ├── api/                      # API（Orvalによる型生成）
+│   ├── api/                      # API Client（Orvalによる型・Client生成）
 │   ├── db/                       # DBアクセス層（Prisma / Repository）
 │   ├── domain/                   # ドメイン層（ビジネスロジックの中核）
 │   ├── infra/                    # IaC（Terraform）
 │   ├── ui/                       # 共通UI（shadcn/uiベース）
 │   └── shared/                   # 横断的関心事（trace_id / logger / config）
-├── specs/                        # 実装を拘束する「機械可読な契約」
-│   ├── requirements/             # 要件（ビジネス・非機能）
-│   ├── gherkin/                  # ユースケース（振る舞い）
-│   ├── ears/                     # 厳密仕様（条件分岐・例外）
-│   ├── api/                      # OpenAPI
-│   ├── db/                       # DB仕様
-│   └── security/                 # セキュリティ仕様
-├── docs/                         # 人間の理解・意思決定の記録
-│   ├── architecture/             # 全体構造・設計思想
-│   ├── sequence/                 # 時系列設計（Mermaid）
-│   ├── ADR/                      # ADR（意思決定記録）
-│   └── ...                       # その他設計ドキュメント
 ├── tests/                        # 横断的テスト（仕様検証）
 │   ├── api/                      # APIテスト（OpenAPI準拠）
 │   ├── e2e/                      # ユースケーステスト
 │   └── security/                 # 攻撃再現テスト
-└── AGENTS.md                     # AI開発ルール（本ファイル）
+└── AGENTS.md                     # AI開発ルール
 ```
 
 ## 技術構成
@@ -90,26 +87,27 @@ repo/
 
 ### 1. Specs First
 
-実装前に必ず specs を定義する。
-
-- 禁止事項：specsなしでコードを書く、docsのみで仕様を定義する。
+いかなる設計・実装よりも先に、`specs/` で「期待される振る舞い」を定義する。
+**「仕様（What）が未定義の設計（How）」および「設計が未定義の実装」を禁止する。**
 
 ### 2. Single Source of Truth
 
-仕様は必ず specs にのみ存在する。
+`specs/` はシステムの挙動における唯一の真実である。
+最終的な成果物（コード）は、`specs/` で定義された振る舞いを完全に満たさなければならない。
 
-- docsに「真実としての仕様」を書いてはいけない。
+### 3. ID・ファイル命名規則
 
-### 3. Traceability（トレーサビリティ）
+原則として、ドメインに紐づく機能仕様は以下のID命名規則（`{layer}{nnn}-{domain}-{action}`）に従い、`{ID}.md` 形式で管理する。
+ただし、システム全体に横断的に関わる設計（全体アーキテクチャ、ER図、セキュリティ基本方針など）については、この規則の例外とし、内容を端的に表す名称を許容する。
 
-すべての実装はID（uc-xxx, api-xxx 等）で紐づける。
+- **Layer 例 (ドメイン単位)**: `api` (OpenAPI), `req` (Requirement)
+- **Layer 例 (全体・共通)**: アーキテクチャ, ER図
+- **命名例（ドメイン）**：`req001-upload`, `api001-upload-create`
+- **命名例（全体・共通）**：`ER図`, `システム構成図`
 
-### 4. ID 命名・ファイル命名規則
+### 4. Traceability（トレーサビリティ）
 
-すべてファイル名もこのID命名規則（`{layer}-{domain}-{nnn}-{action}`）に従い、`{ID}.md` 形式で作成・管理する。
-
-- **Layer 例**: `uc` (Gherkin), `api` (OpenAPI), `db` (Database), `sec` (Security), `req` (Requirement), `eas` (EARS), `arch` (Architecture), `seq` (Sequence)
-- **命名例**：`uc-upload-001`, `api-upload-001-create-url`
+すべての設計ドキュメント、実装、テストコードは、起点となる Spec ID（`req*`）および Design ID（`api*`, `infra*`）と相互に紐付かなければならない。
 
 ### 5. 関心の分離
 
@@ -120,7 +118,7 @@ repo/
 
 ### 6. Security First
 
-セキュリティは後付け禁止。specs/security に定義し、domain/policy で強制する。
+セキュリティは後付け禁止。domain/policy で強制する。
 
 ### 7. 多層防御 (Defense in Depth)
 
@@ -132,21 +130,43 @@ repo/
 
 ## 開発フロー
 
-1. **要件定義 (requirements)**: ビジネス要件・非機能要件の整理
-2. **ユースケース定義 (Gherkin)**: ユーザー視点の振る舞い定義とID付与 (uc-xxx)
-3. **仕様厳密化 (EARS)**: 条件・例外の明確化
-4. **セキュリティ仕様定義 (specs/security)**: 脅威モデル、アップロード制約、スキャン等の定義
-5. **UI設計 (docs)**: 画面一覧、コンポーネント設計 (shadcn/ui)
-6. **シーケンス設計 (docs/sequence)**: API呼び出し順、非同期処理、外部連携の定義
-7. **API設計 (OpenAPI)**: リクエスト/レスポンス、エラー、セキュリティ反映
-8. **DB設計 (ER図 + DDL)**: データ構造、インデックス、冪等性制御の設計
-9. **型生成 (Orval)**: フロント/バック共通型の自動生成
-10. **TDD (テスト先行)**: ユースケース単位でのテスト作成（セキュリティテスト含む）
-11. **Domain実装**: ビジネスロジックの実装とセキュリティポリシーの適用
-12. **Backend実装**: ルーティング、ミドルウェア（trace_id等）の実装
-13. **Frontend実装**: UI実装、状態管理、API連携
-14. **検証**: E2Eテスト、セキュリティテストによる仕様適合確認
-15. **デプロイ (Terraform)**: インフラ構築と環境反映
+```mermaid
+graph TD
+
+    %% ビジネスサイド（クライアント主導）
+    REQ["要件定義（機能 / 非機能 / As-Is / To-Be / 制約など）"]
+
+    %%エンジニアリング（開発者主導）
+    subgraph Phase_Design ["設計"]
+        INT["相互作用設計"]
+        UI["UI"]
+        API["API（OpenAPI含む）"]
+        DB["DB（ER図 / Prisma）"]
+        INFRA["インフラ設計"]
+        SEC["セキュリティ"]
+    end
+
+    subgraph Phase_Dev ["開発・テスト"]
+        GEN["コード生成"]
+        TDD["TDD"]
+        IMP["実装"]
+        VLD["検証（E2E / API / Security）"]
+    end
+
+    DEP["デプロイ"]
+    OPS["運用"]
+
+    REQ --> Phase_Design
+
+    INT --> UI & API & DB & INFRA & SEC
+  
+    Phase_Design --> Phase_Dev
+    API & DB & INFRA --> GEN
+    GEN --> TDD --> IMP --> VLD
+
+    Phase_Dev --> DEP
+    DEP --> OPS
+```
 
 ## 開発規約
 

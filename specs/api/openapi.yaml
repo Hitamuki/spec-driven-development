@@ -1,0 +1,125 @@
+openapi: 3.0.0
+info:
+  title: Image Upload API
+  version: 1.0.0
+  description: API for uploading and managing images with S3.
+
+paths:
+  /api/v1/images/presigned-url:
+    post:
+      summary: Get a presigned URL for S3 upload
+      operationId: getPresignedUrl
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fileName:
+                  type: string
+                fileSize:
+                  type: integer
+                contentType:
+                  type: string
+              required: [fileName, fileSize, contentType]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uploadUrl:
+                    type: string
+                  key:
+                    type: string
+        '400':
+          description: Validation error
+        '409':
+          description: Upload limit reached
+        '429':
+          description: Rate limit exceeded
+
+  /api/v1/images/complete:
+    post:
+      summary: Notify backend that upload to S3 is complete
+      operationId: completeUpload
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                key:
+                  type: string
+                fileName:
+                  type: string
+                fileSize:
+                  type: integer
+                contentType:
+                  type: string
+              required: [key, fileName, fileSize, contentType]
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  url:
+                    type: string
+        '404':
+          description: File not found on S3
+        '422':
+          description: Magic number validation failed
+
+  /api/v1/images:
+    get:
+      summary: List uploaded images (metadata only)
+      operationId: listImages
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    fileName:
+                      type: string
+                    createdAt:
+                      type: string
+                      format: date-time
+
+  /api/v1/images/{id}:
+    get:
+      summary: Get a viewing presigned URL for an image
+      operationId: getImage
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+        '404':
+          description: Image not found
