@@ -9,16 +9,16 @@ ia001-upload
 
 ## 関連仕様・設計
 
-| 種別 | ドキュメント |
-|---|---|
-| 要件 | [req001-upload](/requirements/req001-upload/) |
-| UI | [scr001-upload](/ui/scr001-upload/) |
-| API | [api001-upload](/api/images/api001-upload/) |
-| API | [api002-upload](/api/images/api002-upload/) |
-| API | [api003-upload](/api/images/api003-upload/) |
-| API | [api004-upload](/api/images/api004-upload/) |
-| インフラ | [infra001-upload](/infra/infra001-upload/) |
-| セキュリティ | [sec001-upload](/security/sec001-upload/) |
+| 種別         | ドキュメント                                           |
+| ------------ | ------------------------------------------------------ |
+| 要件         | [req001-upload]({{< relref "req001-upload.md" >}})     |
+| UI           | [scr001-upload]({{< relref "scr001-upload.md" >}})     |
+| API          | [api001-upload]({{< relref "api001-upload.md" >}})     |
+| API          | [api002-upload]({{< relref "api002-upload.md" >}})     |
+| API          | [api003-upload]({{< relref "api003-upload.md" >}})     |
+| API          | [api004-upload]({{< relref "api004-upload.md" >}})     |
+| インフラ     | [infra001-upload]({{< relref "infra001-upload.md" >}}) |
+| セキュリティ | [sec001-upload]({{< relref "sec001-upload.md" >}})     |
 
 ---
 
@@ -46,7 +46,9 @@ graph LR
 
 ---
 
-## シーケンス: 画像アップロード
+## シーケンス
+
+### 画像アップロード
 
 ```mermaid
 sequenceDiagram
@@ -85,7 +87,7 @@ sequenceDiagram
 
 ---
 
-## シーケンス: 画像閲覧
+### 画像閲覧
 
 ```mermaid
 sequenceDiagram
@@ -116,10 +118,10 @@ sequenceDiagram
 
 ## エラーフロー
 
-| 発生箇所 | 条件 | 挙動 |
-|---|---|---|
-| クライアントバリデーション | サイズ超過・形式違反 | リクエスト送信せずエラー表示（→ ui001-upload） |
-| Presigned URL 発行 | 枚数上限・レート超過 | 409 / 429 を受けてエラー表示（→ api001-upload） |
-| S3 PUT | 有効期限切れ | Presigned URL 発行から再試行 |
-| S3 PUT / API呼び出し | ネットワークエラー | アップロードを中断し、item-4 に再試行を促すメッセージを表示 |
-| マジックナンバー検証失敗 | バイナリ不一致 | S3ファイル削除・422 返却（→ api002-upload） |
+| 発生箇所                   | 条件                 | 挙動                                                        |
+| -------------------------- | -------------------- | ----------------------------------------------------------- |
+| クライアントバリデーション | サイズ超過・形式違反 | リクエスト送信せずエラー表示（→ ui001-upload）              |
+| Presigned URL 発行         | 枚数上限・レート超過 | 409 / 429 を受けてエラー表示（→ api001-upload）             |
+| S3 PUT                     | 有効期限切れ         | Presigned URL 発行から再試行                                |
+| S3 PUT / API呼び出し       | ネットワークエラー   | アップロードを中断し、item-4 に再試行を促すメッセージを表示 |
+| マジックナンバー検証失敗   | バイナリ不一致       | S3ファイル削除・422 返却（→ api002-upload）                 |

@@ -1,0 +1,567 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" style="background: transparent; background-color: transparent;" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1526px" height="982px" viewBox="-0.5 -0.5 1526 982" content="&lt;mxfile&gt;&lt;diagram name=&quot;ページ-1&quot; id=&quot;4gK27RyxZ6mg0Irk2s-6&quot;&gt;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&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <g>
+            <path d="M 66.86 159.69 L 73.16 159.69 C 77.27 159.69 80.95 158.28 83.04 155.02 C 83.06 154.99 83.07 154.95 83.09 154.92 C 84.72 151.75 85 147.33 83.32 143.98 C 83.3 143.95 83.29 143.93 83.28 143.91 C 81.57 141.05 78.69 139.14 75.07 138.29 C 74.76 135.99 73.84 133.04 71.1 131.49 C 71.06 131.46 71.01 131.44 70.96 131.42 C 68.85 130.57 67.01 130.55 65.52 131.08 C 64.64 131.38 63.94 131.88 63.31 132.42 C 61.56 128.79 58.77 125.44 54.81 123.75 C 54.8 123.74 54.79 123.74 54.78 123.73 C 53.11 123.09 51.48 122.73 49.92 122.6 L 49.92 122.6 C 45.24 122.2 41.14 123.87 38.37 126.33 C 38.36 126.33 38.35 126.34 38.34 126.35 C 34.25 130.26 33.07 134.45 33.18 138.51 C 31.35 139.17 29.55 140.03 28.23 141.37 C 28.21 141.39 28.19 141.41 28.17 141.43 C 26.16 143.77 25 147.11 25.4 150.78 C 25.4 150.81 25.41 150.83 25.41 150.85 C 25.91 153.72 27.56 155.95 29.55 157.43 C 31.55 158.91 33.88 159.69 36 159.69 L 42.72 159.69 L 42.72 157.42 L 36 157.42 C 34.46 157.42 32.51 156.8 30.9 155.61 C 29.3 154.43 28.05 152.72 27.66 150.49 C 27.34 147.48 28.3 144.79 29.87 142.94 C 30.95 141.85 32.75 140.97 34.65 140.36 C 35.15 140.2 35.47 139.72 35.43 139.19 C 35.15 135.33 35.96 131.77 39.89 128.01 C 42.99 125.28 48.07 123.59 53.94 125.84 C 57.71 127.46 60.45 130.99 61.92 134.74 C 62.23 135.53 63.28 135.71 63.84 135.06 C 64.54 134.23 65.32 133.55 66.27 133.22 C 67.2 132.89 68.36 132.86 70.04 133.51 C 71.99 134.67 72.77 137.33 72.93 139.28 C 72.98 139.79 73.36 140.21 73.86 140.3 C 77.36 140.93 79.81 142.57 81.3 145.04 C 82.52 147.51 82.33 151.38 81.09 153.83 C 79.48 156.31 76.75 157.42 73.16 157.42 L 66.86 157.42 Z M 59.44 157.42 L 50.11 157.42 L 50.11 159.69 L 59.44 159.69 Z M 46.53 137.39 C 46.23 137.39 45.95 137.51 45.74 137.72 L 38.65 144.81 L 40.25 146.41 L 45.41 141.26 L 45.41 159.69 L 47.67 159.69 L 47.67 141.28 L 52.77 146.41 L 54.38 144.81 L 47.35 137.72 C 47.13 137.51 46.83 137.39 46.53 137.39 Z M 63.07 179.8 C 62.77 179.8 62.49 179.68 62.28 179.47 L 55.19 172.38 L 56.79 170.78 L 61.95 175.93 L 61.95 157.5 L 64.22 157.5 L 64.22 175.91 L 69.31 170.78 L 70.92 172.38 L 63.89 179.46 C 63.67 179.68 63.38 179.8 63.07 179.8 Z" fill="#232f3e" stroke="none" pointer-events="all" style="fill: light-dark(rgb(35, 47, 62), rgb(189, 199, 212));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="54.5" y="155">
+                    Internet
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 30.49 298.27 C 31.17 284.75 41.9 273.97 55 273.97 C 59.43 273.97 63.77 275.22 67.55 277.58 C 74.57 281.95 79.07 289.79 79.51 298.27 Z M 41.63 257.2 C 41.63 249.77 47.63 243.73 55 243.73 C 62.37 243.73 68.37 249.77 68.37 257.2 C 68.37 264.63 62.37 270.67 55 270.67 C 47.63 270.67 41.63 264.63 41.63 257.2 Z M 69 275.26 C 66.63 273.79 64.07 272.72 61.41 272.05 C 67.11 269.55 71.1 263.84 71.1 257.2 C 71.1 248.27 63.88 241 55 241 C 46.12 241 38.9 248.27 38.9 257.2 C 38.9 263.85 42.9 269.57 48.61 272.06 C 36.65 275.07 27.73 286.27 27.73 299.64 C 27.73 300.39 28.34 301 29.09 301 L 80.91 301 C 81.66 301 82.27 300.39 82.27 299.64 C 82.27 289.71 77.18 280.37 69 275.26 Z" fill="#232f3e" stroke="none" pointer-events="all" style="fill: light-dark(rgb(35, 47, 62), rgb(189, 199, 212));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(0, 0, 0), rgb(237, 237, 237));">
+                <text x="54.5" y="316.5">
+                    ユーザー(Browser)
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 145 29 L 145 1 L 1525 1 L 1525 29" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(232, 245, 233), rgb(21, 33, 22)); stroke: light-dark(rgb(46, 125, 50), rgb(100, 168, 104));"/>
+            <path d="M 145 29 L 145 981 L 1525 981 L 1525 29" fill="none" stroke="#2e7d32" stroke-width="2" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(46, 125, 50), rgb(100, 168, 104));"/>
+            <path d="M 145 29 L 1525 29" fill="none" stroke="#2e7d32" stroke-width="2" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(46, 125, 50), rgb(100, 168, 104));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="12px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="834.5" y="19.5">
+                    ap-northeast-1 (東京リージョン)
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 205 161 L 265 161 L 265 221 L 205 221 Z" fill="#8c4fff" stroke="none" pointer-events="all" style="fill: light-dark(rgb(140, 79, 255), rgb(177, 125, 255));"/>
+            <path d="M 247.96 201.39 C 247.96 199.97 246.81 198.82 245.39 198.82 C 243.97 198.82 242.82 199.97 242.82 201.39 C 242.82 202.81 243.97 203.96 245.39 203.96 C 246.81 203.96 247.96 202.81 247.96 201.39 Z M 249.68 201.39 C 249.68 203.75 247.75 205.68 245.39 205.68 C 243.03 205.68 241.1 203.75 241.1 201.39 C 241.1 199.03 243.03 197.11 245.39 197.11 C 247.75 197.11 249.68 199.03 249.68 201.39 Z M 226.76 189.02 C 226.76 187.6 225.61 186.45 224.19 186.45 C 222.77 186.45 221.62 187.6 221.62 189.02 C 221.62 190.44 222.77 191.59 224.19 191.59 C 225.61 191.59 226.76 190.44 226.76 189.02 Z M 228.48 189.02 C 228.48 191.38 226.56 193.31 224.19 193.31 C 221.83 193.31 219.91 191.38 219.91 189.02 C 219.91 186.66 221.83 184.74 224.19 184.74 C 226.56 184.74 228.48 186.66 228.48 189.02 Z M 234.77 175.58 C 234.77 177 235.92 178.15 237.34 178.15 C 238.76 178.15 239.91 177 239.91 175.58 C 239.91 174.16 238.76 173.01 237.34 173.01 C 235.92 173.01 234.77 174.16 234.77 175.58 Z M 233.05 175.58 C 233.05 173.21 234.98 171.29 237.34 171.29 C 239.7 171.29 241.63 173.21 241.63 175.58 C 241.63 177.94 239.7 179.86 237.34 179.86 C 234.98 179.86 233.05 177.94 233.05 175.58 Z M 257.29 191 C 257.29 183.05 253.02 175.7 246.15 171.72 C 244.92 171.97 243.73 172.31 242.24 172.85 L 241.66 171.24 C 242.44 170.96 243.13 170.73 243.8 170.54 C 241.04 169.35 238.04 168.71 235 168.71 C 233.55 168.71 232.13 168.86 230.74 169.14 C 231.74 169.73 232.64 170.31 233.51 170.97 L 232.47 172.34 C 231.25 171.41 229.98 170.62 228.31 169.75 C 219.9 172.4 213.83 179.82 212.87 188.54 C 214.64 188.18 216.33 187.99 218.21 187.94 L 218.25 189.65 C 216.28 189.7 214.59 189.91 212.74 190.32 C 212.73 190.55 212.71 190.78 212.71 191 C 212.71 198.42 216.39 205.26 222.42 209.38 C 221.35 206.19 220.81 203.16 220.81 200.21 C 220.81 198.53 221.1 197.14 221.41 195.68 C 221.48 195.34 221.55 195 221.62 194.64 L 223.31 194.97 C 223.23 195.34 223.16 195.69 223.09 196.03 C 222.79 197.47 222.53 198.7 222.53 200.21 C 222.53 203.56 223.26 207.02 224.76 210.79 C 227.95 212.44 231.39 213.29 235 213.29 C 237.36 213.29 239.67 212.91 241.87 212.18 C 242.73 210.48 243.37 208.87 243.91 207.03 L 245.55 207.51 C 245.16 208.85 244.71 210.07 244.18 211.29 C 245.56 210.67 246.87 209.9 248.1 209 C 247.8 208.28 247.49 207.56 247.14 206.86 L 248.67 206.09 C 248.97 206.69 249.24 207.3 249.5 207.91 C 254.46 203.66 257.29 197.57 257.29 191 Z M 259 191 C 259 198.48 255.6 205.4 249.68 209.98 C 248.21 211.12 246.62 212.07 244.93 212.83 C 244.22 213.16 243.49 213.46 242.75 213.71 C 240.28 214.57 237.67 215 235 215 C 231.06 215 227.14 214.02 223.68 212.16 C 215.86 207.98 211 199.87 211 191 C 211 190.41 211.02 189.96 211.05 189.55 C 211.63 179.54 218.51 170.87 228.14 168 C 230.34 167.34 232.65 167 235 167 C 239.12 167 243.18 168.06 246.73 170.07 C 254.3 174.31 259 182.33 259 191 Z M 232.7 178.54 L 231.57 177.25 C 229.65 178.92 228.15 180.7 226.41 183.39 L 227.85 184.33 C 229.5 181.78 230.91 180.1 232.7 178.54 Z M 230.09 189.65 L 229.54 191.27 C 233.47 192.62 236.91 194.78 240.34 198.06 L 241.53 196.82 C 237.9 193.36 234.27 191.09 230.09 189.65 Z M 241.55 179.57 C 244.77 184.48 246.58 189.86 246.94 195.58 L 245.22 195.68 C 244.89 190.27 243.17 185.16 240.12 180.51 Z" fill="#6b37cc" stroke="none" pointer-events="all" style="fill: light-dark(rgb(107, 55, 204), rgb(197, 152, 255));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="234.5" y="188.5">
+                    Amazon
+                </text>
+                <text x="234.5" y="200.5">
+                    CloudFront
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="165" y="226" width="140" height="20" fill="none" stroke="none" pointer-events="all"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="234.5" y="240.5">
+                    CDN / SPA配信 / APIルーティング
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 205 341 L 265 341 L 265 401 L 205 401 Z" fill="#3f8624" stroke="none" pointer-events="all" style="fill: light-dark(rgb(63, 134, 36), rgb(99, 160, 76));"/>
+            <path d="M 252.91 373.48 L 253.24 371.16 C 256.27 372.98 256.31 373.73 256.31 373.75 C 256.31 373.76 255.79 374.19 252.91 373.48 Z M 251.24 373.02 C 246 371.43 238.69 368.08 235.74 366.68 C 235.74 366.67 235.74 366.66 235.74 366.65 C 235.74 365.51 234.82 364.59 233.68 364.59 C 232.54 364.59 231.62 365.51 231.62 366.65 C 231.62 367.78 232.54 368.71 233.68 368.71 C 234.18 368.71 234.63 368.52 234.99 368.22 C 238.47 369.87 245.72 373.17 251 374.73 L 248.91 389.48 C 248.9 389.52 248.9 389.56 248.9 389.6 C 248.9 390.9 243.15 393.29 233.76 393.29 C 224.27 393.29 218.46 390.9 218.46 389.6 C 218.46 389.56 218.45 389.52 218.45 389.49 L 214.08 357.59 C 217.86 360.19 225.99 361.57 233.76 361.57 C 241.53 361.57 249.64 360.2 253.43 357.61 Z M 213.62 354.27 C 213.68 353.14 220.16 348.71 233.76 348.71 C 247.36 348.71 253.84 353.14 253.91 354.27 L 253.91 354.65 C 253.16 357.18 244.76 359.86 233.76 359.86 C 222.75 359.86 214.34 357.17 213.62 354.64 Z M 255.62 354.29 C 255.62 351.32 247.11 347 233.76 347 C 220.42 347 211.91 351.32 211.91 354.29 L 211.99 354.93 L 216.74 389.67 C 216.86 393.55 227.22 395 233.76 395 C 241.88 395 250.5 393.13 250.61 389.67 L 252.67 375.19 C 253.81 375.46 254.75 375.6 255.51 375.6 C 256.52 375.6 257.21 375.35 257.62 374.86 C 257.96 374.45 258.09 373.96 258 373.43 C 257.77 372.25 256.37 370.97 253.5 369.33 L 255.53 354.97 Z" fill="#2d6b1a" stroke="none" pointer-events="all" style="fill: light-dark(rgb(45, 107, 26), rgb(125, 178, 108));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="234.5" y="368.5">
+                    S3
+                </text>
+                <text x="234.5" y="380.5">
+                    (Static Assets)
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="175" y="406" width="120" height="20" fill="none" stroke="none" pointer-events="all"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="234.5" y="420.5">
+                    HTML / JS / CSS
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 205 501 L 265 501 L 265 561 L 205 561 Z" fill="#3f8624" stroke="none" pointer-events="all" style="fill: light-dark(rgb(63, 134, 36), rgb(99, 160, 76));"/>
+            <path d="M 252.91 533.48 L 253.24 531.16 C 256.27 532.98 256.31 533.73 256.31 533.75 C 256.31 533.76 255.79 534.19 252.91 533.48 Z M 251.24 533.02 C 246 531.43 238.69 528.08 235.74 526.68 C 235.74 526.67 235.74 526.66 235.74 526.65 C 235.74 525.51 234.82 524.59 233.68 524.59 C 232.54 524.59 231.62 525.51 231.62 526.65 C 231.62 527.78 232.54 528.71 233.68 528.71 C 234.18 528.71 234.63 528.52 234.99 528.22 C 238.47 529.87 245.72 533.17 251 534.73 L 248.91 549.48 C 248.9 549.52 248.9 549.56 248.9 549.6 C 248.9 550.9 243.15 553.29 233.76 553.29 C 224.27 553.29 218.46 550.9 218.46 549.6 C 218.46 549.56 218.45 549.52 218.45 549.49 L 214.08 517.59 C 217.86 520.19 225.99 521.57 233.76 521.57 C 241.53 521.57 249.64 520.2 253.43 517.61 Z M 213.62 514.27 C 213.68 513.14 220.16 508.71 233.76 508.71 C 247.36 508.71 253.84 513.14 253.91 514.27 L 253.91 514.65 C 253.16 517.18 244.76 519.86 233.76 519.86 C 222.75 519.86 214.34 517.17 213.62 514.64 Z M 255.62 514.29 C 255.62 511.32 247.11 507 233.76 507 C 220.42 507 211.91 511.32 211.91 514.29 L 211.99 514.93 L 216.74 549.67 C 216.86 553.55 227.22 555 233.76 555 C 241.88 555 250.5 553.13 250.61 549.67 L 252.67 535.19 C 253.81 535.46 254.75 535.6 255.51 535.6 C 256.52 535.6 257.21 535.35 257.62 534.86 C 257.96 534.45 258.09 533.96 258 533.43 C 257.77 532.25 256.37 530.97 253.5 529.33 L 255.53 514.97 Z" fill="#2d6b1a" stroke="none" pointer-events="all" style="fill: light-dark(rgb(45, 107, 26), rgb(125, 178, 108));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="234.5" y="522.5">
+                    S3
+                </text>
+                <text x="234.5" y="534.5">
+                    (Image
+                </text>
+                <text x="234.5" y="546.5">
+                    Storage)
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="175" y="566" width="120" height="20" fill="none" stroke="none" pointer-events="all"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="234.5" y="580.5">
+                    アップロード画像
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 365 109 L 365 81 L 1465 81 L 1465 109" fill="#e3f2fd" stroke="#1565c0" stroke-width="2" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(227, 242, 253), rgb(20, 33, 42)); stroke: light-dark(rgb(21, 101, 192), rgb(99, 168, 246));"/>
+            <path d="M 365 109 L 365 941 L 1465 941 L 1465 109" fill="none" stroke="#1565c0" stroke-width="2" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(21, 101, 192), rgb(99, 168, 246));"/>
+            <path d="M 365 109 L 1465 109" fill="none" stroke="#1565c0" stroke-width="2" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(21, 101, 192), rgb(99, 168, 246));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="914.5" y="99">
+                    VPC (10.0.0.0/16)
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 395 165 L 395 141 L 875 141 L 875 165" fill="#e8eaf6" stroke="#3949ab" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(232, 234, 246), rgb(33, 35, 45)); stroke: light-dark(rgb(57, 73, 171), rgb(154, 168, 252));"/>
+            <path d="M 395 165 L 395 401 L 875 401 L 875 165" fill="none" stroke="#3949ab" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(57, 73, 171), rgb(154, 168, 252));"/>
+            <path d="M 395 165 L 875 165" fill="none" stroke="#3949ab" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(57, 73, 171), rgb(154, 168, 252));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="634.5" y="156.5">
+                    Public Subnet (10.0.1.0/24)  AZ: ap-northeast-1a
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 435 221 L 495 221 L 495 281 L 435 281 Z" fill="#8c4fff" stroke="none" pointer-events="all" style="fill: light-dark(rgb(140, 79, 255), rgb(177, 125, 255));"/>
+            <path d="M 465 227 C 451.77 227 441 237.77 441 251 C 441 264.23 451.77 275 465 275 C 478.23 275 489 264.23 489 251 C 489 237.77 478.23 227 465 227 Z M 465 272.82 C 452.97 272.82 443.18 263.03 443.18 251 C 443.18 238.97 452.97 229.18 465 229.18 C 477.03 229.18 486.82 238.97 486.82 251 C 486.82 263.03 477.03 272.82 465 272.82 Z M 479.22 257.55 L 477.55 257.55 L 477.55 253.86 C 477.55 253.26 477.06 252.77 476.45 252.77 L 473.73 252.77 L 473.73 249.09 C 473.73 248.49 473.24 248 472.64 248 L 466.09 248 L 466.09 245.41 L 472.64 245.41 C 473.24 245.41 473.73 244.92 473.73 244.32 L 473.73 235.73 C 473.73 235.12 473.24 234.64 472.64 234.64 L 457.36 234.64 C 456.76 234.64 456.27 235.12 456.27 235.73 L 456.27 244.32 C 456.27 244.92 456.76 245.41 457.36 245.41 L 463.91 245.41 L 463.91 248 L 457.36 248 C 456.76 248 456.27 248.49 456.27 249.09 L 456.27 252.77 L 453.55 252.77 C 452.94 252.77 452.46 253.26 452.46 253.86 L 452.46 257.55 L 450.78 257.55 C 450.18 257.55 449.69 258.03 449.69 258.64 L 449.69 263.41 C 449.69 264.01 450.18 264.5 450.78 264.5 L 455.46 264.5 C 456.06 264.5 456.55 264.01 456.55 263.41 L 456.55 258.64 C 456.55 258.03 456.06 257.55 455.46 257.55 L 454.64 257.55 L 454.64 254.95 L 459.14 254.95 L 459.14 257.55 L 458.32 257.55 C 457.72 257.55 457.23 258.03 457.23 258.64 L 457.23 263.41 C 457.23 264.01 457.72 264.5 458.32 264.5 L 463.09 264.5 C 463.69 264.5 464.18 264.01 464.18 263.41 L 464.18 258.64 C 464.18 258.03 463.69 257.55 463.09 257.55 L 461.32 257.55 L 461.32 253.86 C 461.32 253.26 460.83 252.77 460.23 252.77 L 458.46 252.77 L 458.46 250.18 L 471.55 250.18 L 471.55 252.77 L 469.77 252.77 C 469.17 252.77 468.68 253.26 468.68 253.86 L 468.68 257.55 L 466.91 257.55 C 466.31 257.55 465.82 258.03 465.82 258.64 L 465.82 263.41 C 465.82 264.01 466.31 264.5 466.91 264.5 L 471.68 264.5 C 472.28 264.5 472.77 264.01 472.77 263.41 L 472.77 258.64 C 472.77 258.03 472.28 257.55 471.68 257.55 L 470.86 257.55 L 470.86 254.95 L 475.36 254.95 L 475.36 257.55 L 474.48 257.55 C 473.88 257.55 473.39 258.03 473.39 258.64 L 473.39 263.41 C 473.39 264.01 473.88 264.5 474.48 264.5 L 479.22 264.5 C 479.82 264.5 480.31 264.01 480.31 263.41 L 480.31 258.64 C 480.31 258.03 479.82 257.55 479.22 257.55 Z M 458.46 243.23 L 458.46 236.82 L 471.55 236.82 L 471.55 243.23 Z M 451.87 262.32 L 451.87 259.73 L 454.36 259.73 L 454.36 262.32 Z M 459.41 262.32 L 459.41 259.73 L 462 259.73 L 462 262.32 Z M 468 262.32 L 468 259.73 L 470.59 259.73 L 470.59 262.32 Z M 475.57 262.32 L 475.57 259.73 L 478.13 259.73 L 478.13 262.32 Z" fill="#6b37cc" stroke="none" pointer-events="all" style="fill: light-dark(rgb(107, 55, 204), rgb(197, 152, 255));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="464.5" y="248.5">
+                    Application
+                </text>
+                <text x="464.5" y="260.5">
+                    Load Balancer
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 595 221 L 655 221 L 655 281 L 595 281 Z" fill="#8c4fff" stroke="none" pointer-events="all" style="fill: light-dark(rgb(140, 79, 255), rgb(177, 125, 255));"/>
+            <path d="M 613.68 264 L 613.68 260.91 L 615.62 262.45 Z M 613.27 257.78 C 612.94 257.52 612.49 257.47 612.12 257.65 C 611.74 257.84 611.5 258.22 611.5 258.64 L 611.5 266.27 C 611.5 266.69 611.74 267.07 612.12 267.26 C 612.27 267.33 612.43 267.36 612.59 267.36 C 612.83 267.36 613.08 267.28 613.27 267.12 L 618.05 263.31 C 618.3 263.1 618.45 262.79 618.45 262.45 C 618.45 262.12 618.3 261.81 618.05 261.6 Z M 639.45 254.09 L 639.45 249.81 L 641.59 251.95 Z M 643.91 251.18 L 639.13 246.41 C 638.82 246.1 638.36 246 637.95 246.17 C 637.54 246.34 637.27 246.74 637.27 247.18 L 637.27 250.86 L 628.95 250.86 L 628.95 240.5 C 628.95 239.9 628.47 239.41 627.86 239.41 L 619.47 239.41 L 619.47 241.59 L 626.77 241.59 L 626.77 250.86 L 619.27 250.86 L 619.27 253.04 L 626.77 253.04 L 626.77 262.32 L 619.47 262.32 L 619.47 264.5 L 627.86 264.5 C 628.47 264.5 628.95 264.01 628.95 263.41 L 628.95 253.04 L 637.27 253.04 L 637.27 256.73 C 637.27 257.17 637.54 257.57 637.95 257.74 C 638.08 257.79 638.22 257.82 638.36 257.82 C 638.65 257.82 638.93 257.71 639.13 257.5 L 643.91 252.73 C 644.33 252.3 644.33 251.61 643.91 251.18 Z M 613.68 253.5 L 613.68 250.41 L 615.62 251.95 Z M 613.27 247.28 C 612.94 247.02 612.49 246.97 612.12 247.15 C 611.74 247.34 611.5 247.72 611.5 248.14 L 611.5 255.77 C 611.5 256.19 611.74 256.57 612.12 256.76 C 612.27 256.83 612.43 256.86 612.59 256.86 C 612.83 256.86 613.08 256.78 613.27 256.62 L 618.05 252.81 C 618.3 252.6 618.45 252.29 618.45 251.95 C 618.45 251.62 618.3 251.31 618.05 251.1 Z M 613.68 242.05 L 613.68 238.95 L 615.62 240.5 Z M 613.27 235.83 C 612.94 235.57 612.49 235.52 612.12 235.7 C 611.74 235.88 611.5 236.26 611.5 236.68 L 611.5 244.32 C 611.5 244.74 611.74 245.12 612.12 245.3 C 612.27 245.37 612.43 245.41 612.59 245.41 C 612.83 245.41 613.08 245.33 613.27 245.17 L 618.05 241.35 C 618.3 241.14 618.45 240.83 618.45 240.5 C 618.45 240.17 618.3 239.86 618.05 239.65 Z M 625 272.82 C 612.97 272.82 603.18 263.03 603.18 251 C 603.18 238.97 612.97 229.18 625 229.18 C 637.03 229.18 646.82 238.97 646.82 251 C 646.82 263.03 637.03 272.82 625 272.82 Z M 625 227 C 611.77 227 601 237.77 601 251 C 601 264.23 611.77 275 625 275 C 638.23 275 649 264.23 649 251 C 649 237.77 638.23 227 625 227 Z" fill="#6b37cc" stroke="none" pointer-events="all" style="fill: light-dark(rgb(107, 55, 204), rgb(197, 152, 255));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="624.5" y="254.5">
+                    NAT Gateway
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 755 221 L 815 221 L 815 281 L 755 281 Z" fill="#8c4fff" stroke="none" pointer-events="all" style="fill: light-dark(rgb(140, 79, 255), rgb(177, 125, 255));"/>
+            <path d="M 795.36 263.27 L 793.72 263.27 L 793.72 243.95 C 793.72 243.52 793.47 243.13 793.08 242.95 L 792.98 242.9 C 790.78 241.91 788.51 240.89 785.24 240.89 C 781.83 240.89 779.32 241.99 776.85 243.22 C 776.47 243.4 776.24 243.78 776.24 244.2 L 776.24 263.27 L 774.64 263.27 L 774.64 242.65 C 777.3 240.48 781.14 239.25 785.25 239.25 C 789.08 239.25 792.73 240.34 795.36 242.25 Z M 785.25 237.06 C 780.42 237.06 775.89 238.61 772.82 241.32 C 772.59 241.53 772.45 241.83 772.45 242.14 L 772.45 264.36 C 772.45 264.97 772.94 265.46 773.55 265.46 L 777.33 265.46 C 777.94 265.46 778.43 264.97 778.43 264.36 L 778.43 244.88 C 780.52 243.87 782.56 243.07 785.24 243.07 C 787.8 243.07 789.65 243.81 791.54 244.65 L 791.54 264.36 C 791.54 264.97 792.02 265.46 792.63 265.46 L 796.45 265.46 C 797.06 265.46 797.55 264.97 797.55 264.36 L 797.55 241.71 C 797.55 241.38 797.39 241.06 797.13 240.86 C 794.1 238.45 789.77 237.06 785.25 237.06 Z M 785 272.81 C 772.97 272.81 763.19 263.03 763.19 251 C 763.19 238.97 772.97 229.19 785 229.19 C 797.03 229.19 806.81 238.97 806.81 251 C 806.81 263.03 797.03 272.81 785 272.81 Z M 785 227 C 771.77 227 761 237.77 761 251 C 761 264.23 771.77 275 785 275 C 798.23 275 809 264.23 809 251 C 809 237.77 798.23 227 785 227 Z" fill="#6b37cc" stroke="none" pointer-events="all" style="fill: light-dark(rgb(107, 55, 204), rgb(197, 152, 255));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="784.5" y="248.5">
+                    Internet
+                </text>
+                <text x="784.5" y="260.5">
+                    Gateway
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 395 485 L 395 461 L 875 461 L 875 485" fill="#fff3e0" stroke="#e65100" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(255, 243, 224), rgb(36, 26, 9)); stroke: light-dark(rgb(230, 81, 0), rgb(251, 123, 53));"/>
+            <path d="M 395 485 L 395 681 L 875 681 L 875 485" fill="none" stroke="#e65100" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(230, 81, 0), rgb(251, 123, 53));"/>
+            <path d="M 395 485 L 875 485" fill="none" stroke="#e65100" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(230, 81, 0), rgb(251, 123, 53));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="634.5" y="476.5">
+                    Private Subnet - App (10.0.2.0/24)  AZ: ap-northeast-1a
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 455 531 L 515 531 L 515 591 L 455 591 Z" fill="#e7157b" stroke="none" pointer-events="all" style="fill: light-dark(rgb(231, 21, 123), rgb(255, 129, 217));"/>
+            <path d="M 474.74 583.29 L 464.1 583.29 L 475.87 558.68 L 481.2 569.66 Z M 476.64 556.33 C 476.49 556.04 476.19 555.85 475.87 555.85 L 475.86 555.85 C 475.53 555.85 475.23 556.04 475.09 556.34 L 461.96 583.77 C 461.84 584.04 461.85 584.35 462.01 584.6 C 462.17 584.85 462.44 585 462.74 585 L 475.29 585 C 475.62 585 475.92 584.81 476.06 584.51 L 482.93 570.02 C 483.04 569.79 483.04 569.52 482.93 569.28 Z M 506.45 583.29 L 495.87 583.29 L 478.91 547.77 C 478.77 547.48 478.46 547.29 478.13 547.29 L 471.21 547.29 L 471.22 538.71 L 484.78 538.71 L 501.67 574.22 C 501.81 574.52 502.11 574.71 502.44 574.71 L 506.45 574.71 Z M 507.31 573 L 502.99 573 L 486.1 537.49 C 485.96 537.19 485.66 537 485.32 537 L 470.36 537 C 469.89 537 469.5 537.38 469.5 537.86 L 469.49 548.14 C 469.49 548.37 469.58 548.59 469.75 548.75 C 469.91 548.91 470.12 549 470.35 549 L 477.59 549 L 494.56 584.51 C 494.7 584.81 495 585 495.33 585 L 507.31 585 C 507.78 585 508.16 584.62 508.16 584.14 L 508.16 573.86 C 508.16 573.38 507.78 573 507.31 573 Z" fill="#c01068" stroke="none" pointer-events="all" style="fill: light-dark(rgb(192, 16, 104), rgb(255, 148, 223));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="484.5" y="558.5">
+                    AWS Lambda
+                </text>
+                <text x="484.5" y="570.5">
+                    (Hono / Bun)
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="425" y="596" width="120" height="50" fill="none" stroke="none" pointer-events="all"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="484.5" y="610.5">
+                    APIバックエンド
+                </text>
+                <text x="484.5" y="621.5">
+                    trace_id / request_id
+                </text>
+                <text x="484.5" y="632.5">
+                    レート制限 / CORS
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 395 755 L 395 731 L 875 731 L 875 755" fill="#f3e5f5" stroke="#6a1b9a" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(243, 229, 245), rgb(45, 33, 47)); stroke: light-dark(rgb(106, 27, 154), rgb(237, 169, 255));"/>
+            <path d="M 395 755 L 395 911 L 875 911 L 875 755" fill="none" stroke="#6a1b9a" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(106, 27, 154), rgb(237, 169, 255));"/>
+            <path d="M 395 755 L 875 755" fill="none" stroke="#6a1b9a" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(106, 27, 154), rgb(237, 169, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="634.5" y="746.5">
+                    Private Subnet - DB (10.0.3.0/24)  AZ: ap-northeast-1a / 1c (Multi-AZ)
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 455 791 L 515 791 L 515 851 L 455 851 Z" fill="#2e73b8" stroke="none" pointer-events="all" style="fill: light-dark(rgb(46, 115, 184), rgb(95, 155, 214));"/>
+            <path d="M 463.93 798.71 L 471.89 806.68 L 470.68 807.89 L 462.71 799.93 L 462.71 806.43 L 461 806.43 L 461 797.86 C 461 797.38 461.38 797 461.86 797 L 470.43 797 L 470.43 798.71 Z M 509 797.86 L 509 806.43 L 507.29 806.43 L 507.29 799.93 L 499.32 807.89 L 498.11 806.68 L 506.07 798.71 L 499.57 798.71 L 499.57 797 L 508.14 797 C 508.62 797 509 797.38 509 797.86 Z M 507.29 835.57 L 509 835.57 L 509 844.14 C 509 844.62 508.62 845 508.14 845 L 499.57 845 L 499.57 843.29 L 506.07 843.29 L 498.11 835.32 L 499.32 834.11 L 507.29 842.07 Z M 506.86 820.33 C 506.86 817.48 503.57 814.67 498.07 812.81 L 498.62 811.18 C 504.94 813.32 508.57 816.66 508.57 820.33 C 508.57 824 504.94 827.33 498.62 829.47 L 498.07 827.84 C 503.57 825.98 506.86 823.17 506.86 820.33 Z M 463.19 820.33 C 463.19 823.05 466.27 825.79 471.42 827.65 L 470.83 829.26 C 464.89 827.11 461.48 823.86 461.48 820.33 C 461.48 816.79 464.89 813.54 470.83 811.39 L 471.42 813.01 C 466.27 814.86 463.19 817.6 463.19 820.33 Z M 471.89 835.32 L 463.93 843.29 L 470.43 843.29 L 470.43 845 L 461.86 845 C 461.38 845 461 844.62 461 844.14 L 461 835.57 L 462.71 835.57 L 462.71 842.07 L 470.68 834.11 Z M 485 813.53 C 478.87 813.53 475.57 811.95 475.57 811.3 C 475.57 810.66 478.87 809.07 485 809.07 C 491.12 809.07 494.43 810.66 494.43 811.3 C 494.43 811.95 491.12 813.53 485 813.53 Z M 485.02 820.17 C 479.16 820.17 475.57 818.57 475.57 817.7 L 475.57 813.53 C 477.68 814.69 481.43 815.25 485 815.25 C 488.57 815.25 492.32 814.69 494.43 813.53 L 494.43 817.7 C 494.43 818.57 490.86 820.17 485.02 820.17 Z M 485.02 826.71 C 479.16 826.71 475.57 825.11 475.57 824.24 L 475.57 820.02 C 477.66 821.25 481.35 821.88 485.02 821.88 C 488.68 821.88 492.35 821.25 494.43 820.03 L 494.43 824.24 C 494.43 825.11 490.86 826.71 485.02 826.71 Z M 485 832.59 C 478.9 832.59 475.57 830.95 475.57 830.1 L 475.57 826.57 C 477.66 827.79 481.35 828.43 485.02 828.43 C 488.68 828.43 492.35 827.8 494.43 826.57 L 494.43 830.1 C 494.43 830.95 491.1 832.59 485 832.59 Z M 485 807.36 C 479.63 807.36 473.86 808.59 473.86 811.3 L 473.86 830.1 C 473.86 832.86 479.46 834.3 485 834.3 C 490.54 834.3 496.14 832.86 496.14 830.1 L 496.14 811.3 C 496.14 808.59 490.37 807.36 485 807.36 Z" fill="#1a5a9a" stroke="none" pointer-events="all" style="fill: light-dark(rgb(26, 90, 154), rgb(120, 175, 230));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="484.5" y="818.5">
+                    Amazon RDS
+                </text>
+                <text x="484.5" y="830.5">
+                    (PostgreSQL)
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="425" y="856" width="120" height="35" fill="none" stroke="none" pointer-events="all"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="484.5" y="870.5">
+                    Prisma ORM
+                </text>
+                <text x="484.5" y="881.5">
+                    Multi-AZ Standby
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 615 791 L 675 791 L 675 851 L 615 851 Z" fill="#90a4ae" stroke="none" pointer-events="all" style="fill: light-dark(rgb(144, 164, 174), rgb(85, 102, 110));"/>
+            <path d="M 623.93 798.71 L 631.89 806.68 L 630.68 807.89 L 622.71 799.93 L 622.71 806.43 L 621 806.43 L 621 797.86 C 621 797.38 621.38 797 621.86 797 L 630.43 797 L 630.43 798.71 Z M 669 797.86 L 669 806.43 L 667.29 806.43 L 667.29 799.93 L 659.32 807.89 L 658.11 806.68 L 666.07 798.71 L 659.57 798.71 L 659.57 797 L 668.14 797 C 668.62 797 669 797.38 669 797.86 Z M 667.29 835.57 L 669 835.57 L 669 844.14 C 669 844.62 668.62 845 668.14 845 L 659.57 845 L 659.57 843.29 L 666.07 843.29 L 658.11 835.32 L 659.32 834.11 L 667.29 842.07 Z M 666.86 820.33 C 666.86 817.48 663.57 814.67 658.07 812.81 L 658.62 811.18 C 664.94 813.32 668.57 816.66 668.57 820.33 C 668.57 824 664.94 827.33 658.62 829.47 L 658.07 827.84 C 663.57 825.98 666.86 823.17 666.86 820.33 Z M 623.19 820.33 C 623.19 823.05 626.27 825.79 631.42 827.65 L 630.83 829.26 C 624.89 827.11 621.48 823.86 621.48 820.33 C 621.48 816.79 624.89 813.54 630.83 811.39 L 631.42 813.01 C 626.27 814.86 623.19 817.6 623.19 820.33 Z M 631.89 835.32 L 623.93 843.29 L 630.43 843.29 L 630.43 845 L 621.86 845 C 621.38 845 621 844.62 621 844.14 L 621 835.57 L 622.71 835.57 L 622.71 842.07 L 630.68 834.11 Z M 645 813.53 C 638.87 813.53 635.57 811.95 635.57 811.3 C 635.57 810.66 638.87 809.07 645 809.07 C 651.12 809.07 654.43 810.66 654.43 811.3 C 654.43 811.95 651.12 813.53 645 813.53 Z M 645.02 820.17 C 639.16 820.17 635.57 818.57 635.57 817.7 L 635.57 813.53 C 637.68 814.69 641.43 815.25 645 815.25 C 648.57 815.25 652.32 814.69 654.43 813.53 L 654.43 817.7 C 654.43 818.57 650.86 820.17 645.02 820.17 Z M 645.02 826.71 C 639.16 826.71 635.57 825.11 635.57 824.24 L 635.57 820.02 C 637.66 821.25 641.35 821.88 645.02 821.88 C 648.68 821.88 652.35 821.25 654.43 820.03 L 654.43 824.24 C 654.43 825.11 650.86 826.71 645.02 826.71 Z M 645 832.59 C 638.9 832.59 635.57 830.95 635.57 830.1 L 635.57 826.57 C 637.66 827.79 641.35 828.43 645.02 828.43 C 648.68 828.43 652.35 827.8 654.43 826.57 L 654.43 830.1 C 654.43 830.95 651.1 832.59 645 832.59 Z M 645 807.36 C 639.63 807.36 633.86 808.59 633.86 811.3 L 633.86 830.1 C 633.86 832.86 639.46 834.3 645 834.3 C 650.54 834.3 656.14 832.86 656.14 830.1 L 656.14 811.3 C 656.14 808.59 650.37 807.36 645 807.36 Z" fill="#607d8b" stroke="none" pointer-events="all" style="fill: light-dark(rgb(96, 125, 139), rgb(114, 139, 151));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="644.5" y="818.5">
+                    RDS Standby
+                </text>
+                <text x="644.5" y="830.5">
+                    (1c)
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 515 821 L 607.7 821" fill="none" stroke="#6a1b9a" stroke-width="1.5" stroke-miterlimit="10" stroke-dasharray="4.5 4.5" pointer-events="stroke" style="stroke: light-dark(rgb(106, 27, 154), rgb(237, 169, 255));"/>
+            <path d="M 613.32 821 L 605.82 824.75 L 607.7 821 L 605.82 817.25 Z" fill="#6a1b9a" stroke="#6a1b9a" stroke-width="1.5" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(106, 27, 154), rgb(237, 169, 255)); stroke: light-dark(rgb(106, 27, 154), rgb(237, 169, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <rect fill="#ffffff" stroke="none" x="510" y="815" width="111" height="14" stroke-width="0" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212));"/>
+                <text x="564.5" y="825">
+                    同期レプリケーション
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 965 165 L 965 141 L 1425 141 L 1425 165" fill="#fce4ec" stroke="#c62828" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(252, 228, 236), rgb(52, 31, 38)); stroke: light-dark(rgb(198, 40, 40), rgb(255, 145, 145));"/>
+            <path d="M 965 165 L 965 901 L 1425 901 L 1425 165" fill="none" stroke="#c62828" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(198, 40, 40), rgb(255, 145, 145));"/>
+            <path d="M 965 165 L 1425 165" fill="none" stroke="#c62828" stroke-miterlimit="10" pointer-events="none" style="stroke: light-dark(rgb(198, 40, 40), rgb(255, 145, 145));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="1194.5" y="156.5">
+                    Observability
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 1025 221 L 1085 221 L 1085 281 L 1025 281 Z" fill="#e7157b" stroke="none" pointer-events="all" style="fill: light-dark(rgb(231, 21, 123), rgb(255, 129, 217));"/>
+            <path d="M 1049.99 229.79 C 1047.24 229.85 1044.49 230.81 1042.16 232.86 C 1042.14 232.88 1042.12 232.9 1042.1 232.91 C 1038.33 236.83 1037.84 240.04 1037.99 242.93 C 1035.79 243.43 1033.68 245.21 1032.33 248.19 C 1032.32 248.21 1032.31 248.24 1032.3 248.27 C 1031 252.11 1032.2 254.73 1032.97 256.41 C 1032.99 256.45 1033.01 256.49 1033.03 256.52 C 1034.84 259.37 1037.17 260.75 1039.51 260.75 C 1039.51 260.75 1039.52 260.75 1039.52 260.75 L 1049.53 260.69 L 1049.52 258.83 L 1039.52 258.89 C 1037.89 258.89 1036.21 258.01 1034.64 255.57 C 1033.86 253.89 1032.97 252.15 1034.06 248.91 C 1035.38 246.02 1037.4 244.67 1038.99 244.58 C 1039.52 244.55 1039.91 244.09 1039.87 243.56 C 1039.6 240.65 1039.63 238.19 1043.42 234.24 C 1046.46 231.57 1050.21 231.09 1053.66 232.18 C 1056.65 233.31 1059.37 235.77 1060.74 239.72 C 1060.98 240.44 1061.94 240.57 1062.38 239.95 C 1063.58 238.24 1065.47 237.66 1067.56 239.06 C 1069.04 240.12 1069.43 241.75 1069.52 243.5 C 1069.55 243.94 1069.89 244.31 1070.33 244.37 C 1072.97 244.72 1075.01 246.13 1076.15 248.1 C 1076.95 249.81 1077.07 252.23 1076.55 254.08 C 1075.65 256.27 1074.77 257 1073.41 257.78 L 1074.33 259.39 C 1075.89 258.5 1077.27 257.28 1078.3 254.73 C 1078.32 254.7 1078.33 254.67 1078.34 254.64 C 1079 252.32 1078.89 249.53 1077.82 247.28 C 1077.81 247.26 1077.8 247.24 1077.79 247.22 C 1076.47 244.89 1074.11 243.26 1071.24 242.69 C 1071.04 240.87 1070.5 238.87 1068.63 237.54 C 1068.62 237.53 1068.61 237.53 1068.61 237.53 C 1066.29 235.96 1063.7 236.34 1061.9 237.86 C 1060.23 234.15 1057.43 231.61 1054.29 230.43 C 1054.27 230.43 1054.26 230.42 1054.24 230.42 C 1053.25 230.1 1052.21 229.9 1051.17 229.82 L 1051.17 229.82 C 1050.78 229.79 1050.39 229.78 1049.99 229.79 Z M 1062.42 245.55 C 1056.93 245.55 1052.45 250.03 1052.45 255.52 C 1052.45 261.01 1056.93 265.48 1062.42 265.48 C 1063.92 265.48 1065.35 265.14 1066.63 264.54 L 1073.04 270.95 C 1073.05 270.96 1073.06 270.97 1073.06 270.97 C 1073.69 271.57 1074.46 272.01 1075.31 272.11 C 1076.17 272.22 1077.09 271.95 1077.85 271.34 C 1077.91 271.29 1077.96 271.24 1078.01 271.18 C 1078.53 270.49 1078.9 269.72 1078.94 268.89 C 1078.99 268.06 1078.67 267.21 1078.04 266.53 C 1078.03 266.52 1078.02 266.51 1078.01 266.5 L 1071.38 259.85 C 1072.02 258.54 1072.38 257.07 1072.38 255.52 C 1072.38 250.03 1067.91 245.55 1062.42 245.55 Z M 1062.42 247.41 C 1066.9 247.41 1070.52 251.03 1070.52 255.52 C 1070.52 260 1066.9 263.62 1062.42 263.62 C 1057.93 263.62 1054.31 260 1054.31 255.52 C 1054.31 251.03 1057.93 247.41 1062.42 247.41 Z M 1059.66 257.81 C 1058.85 257.23 1058.32 256.28 1058.32 255.19 C 1058.32 253.41 1059.75 251.98 1061.54 251.98 C 1062.26 251.98 1062.92 252.21 1063.45 252.61 L 1064.57 251.13 C 1063.72 250.5 1062.67 250.12 1061.54 250.12 C 1058.75 250.12 1056.46 252.4 1056.46 255.19 C 1056.46 256.86 1057.27 258.34 1058.52 259.27 Z M 1070.39 261.48 L 1076.67 267.79 C 1077.02 268.17 1077.1 268.45 1077.08 268.79 C 1077.07 269.1 1076.88 269.5 1076.58 269.92 C 1076.2 270.2 1075.87 270.31 1075.54 270.26 C 1075.17 270.22 1074.75 270.01 1074.34 269.62 L 1068.28 263.56 C 1069.08 262.98 1069.79 262.28 1070.39 261.48 Z" fill="#c01068" stroke="none" pointer-events="all" style="fill: light-dark(rgb(192, 16, 104), rgb(255, 148, 223));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="1054.5" y="248.5">
+                    CloudWatch
+                </text>
+                <text x="1054.5" y="260.5">
+                    Logs
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="985" y="286" width="140" height="35" fill="none" stroke="none" pointer-events="all"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="1054.5" y="300.5">
+                    Pino 構造化ログ (JSON)
+                </text>
+                <text x="1054.5" y="311.5">
+                    X-Trace-ID で集約
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 1225 221 L 1285 221 L 1285 281 L 1225 281 Z" fill="#ad1457" stroke="none" pointer-events="all" style="fill: light-dark(rgb(173, 20, 87), rgb(255, 155, 213));"/>
+            <path d="M 1249.99 229.79 C 1247.24 229.85 1244.49 230.81 1242.16 232.86 C 1242.14 232.88 1242.12 232.9 1242.1 232.91 C 1238.33 236.83 1237.84 240.04 1237.99 242.93 C 1235.79 243.43 1233.68 245.21 1232.33 248.19 C 1232.32 248.21 1232.31 248.24 1232.3 248.27 C 1231 252.11 1232.2 254.73 1232.97 256.41 C 1232.99 256.45 1233.01 256.49 1233.03 256.52 C 1234.84 259.37 1237.17 260.75 1239.51 260.75 C 1239.51 260.75 1239.52 260.75 1239.52 260.75 L 1249.53 260.69 L 1249.52 258.83 L 1239.52 258.89 C 1237.89 258.89 1236.21 258.01 1234.64 255.57 C 1233.86 253.89 1232.97 252.15 1234.06 248.91 C 1235.38 246.02 1237.4 244.67 1238.99 244.58 C 1239.52 244.55 1239.91 244.09 1239.87 243.56 C 1239.6 240.65 1239.63 238.19 1243.42 234.24 C 1246.46 231.57 1250.21 231.09 1253.66 232.18 C 1256.65 233.31 1259.37 235.77 1260.74 239.72 C 1260.98 240.44 1261.94 240.57 1262.38 239.95 C 1263.58 238.24 1265.47 237.66 1267.56 239.06 C 1269.04 240.12 1269.43 241.75 1269.52 243.5 C 1269.55 243.94 1269.89 244.31 1270.33 244.37 C 1272.97 244.72 1275.01 246.13 1276.15 248.1 C 1276.95 249.81 1277.07 252.23 1276.55 254.08 C 1275.65 256.27 1274.77 257 1273.41 257.78 L 1274.33 259.39 C 1275.89 258.5 1277.27 257.28 1278.3 254.73 C 1278.32 254.7 1278.33 254.67 1278.34 254.64 C 1279 252.32 1278.89 249.53 1277.82 247.28 C 1277.81 247.26 1277.8 247.24 1277.79 247.22 C 1276.47 244.89 1274.11 243.26 1271.24 242.69 C 1271.04 240.87 1270.5 238.87 1268.63 237.54 C 1268.62 237.53 1268.61 237.53 1268.61 237.53 C 1266.29 235.96 1263.7 236.34 1261.9 237.86 C 1260.23 234.15 1257.43 231.61 1254.29 230.43 C 1254.27 230.43 1254.26 230.42 1254.24 230.42 C 1253.25 230.1 1252.21 229.9 1251.17 229.82 L 1251.17 229.82 C 1250.78 229.79 1250.39 229.78 1249.99 229.79 Z M 1262.42 245.55 C 1256.93 245.55 1252.45 250.03 1252.45 255.52 C 1252.45 261.01 1256.93 265.48 1262.42 265.48 C 1263.92 265.48 1265.35 265.14 1266.63 264.54 L 1273.04 270.95 C 1273.05 270.96 1273.06 270.97 1273.06 270.97 C 1273.69 271.57 1274.46 272.01 1275.31 272.11 C 1276.17 272.22 1277.09 271.95 1277.85 271.34 C 1277.91 271.29 1277.96 271.24 1278.01 271.18 C 1278.53 270.49 1278.9 269.72 1278.94 268.89 C 1278.99 268.06 1278.67 267.21 1278.04 266.53 C 1278.03 266.52 1278.02 266.51 1278.01 266.5 L 1271.38 259.85 C 1272.02 258.54 1272.38 257.07 1272.38 255.52 C 1272.38 250.03 1267.91 245.55 1262.42 245.55 Z M 1262.42 247.41 C 1266.9 247.41 1270.52 251.03 1270.52 255.52 C 1270.52 260 1266.9 263.62 1262.42 263.62 C 1257.93 263.62 1254.31 260 1254.31 255.52 C 1254.31 251.03 1257.93 247.41 1262.42 247.41 Z M 1259.66 257.81 C 1258.85 257.23 1258.32 256.28 1258.32 255.19 C 1258.32 253.41 1259.75 251.98 1261.54 251.98 C 1262.26 251.98 1262.92 252.21 1263.45 252.61 L 1264.57 251.13 C 1263.72 250.5 1262.67 250.12 1261.54 250.12 C 1258.75 250.12 1256.46 252.4 1256.46 255.19 C 1256.46 256.86 1257.27 258.34 1258.52 259.27 Z M 1270.39 261.48 L 1276.67 267.79 C 1277.02 268.17 1277.1 268.45 1277.08 268.79 C 1277.07 269.1 1276.88 269.5 1276.58 269.92 C 1276.2 270.2 1275.87 270.31 1275.54 270.26 C 1275.17 270.22 1274.75 270.01 1274.34 269.62 L 1268.28 263.56 C 1269.08 262.98 1269.79 262.28 1270.39 261.48 Z" fill="#880e4f" stroke="none" pointer-events="all" style="fill: light-dark(rgb(136, 14, 79), rgb(255, 172, 228));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="1254.5" y="248.5">
+                    CloudWatch
+                </text>
+                <text x="1254.5" y="260.5">
+                    Logs Insights
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="1195" y="286" width="120" height="35" fill="none" stroke="none" pointer-events="all"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="1254.5" y="300.5">
+                    trace_id で横断検索
+                </text>
+                <text x="1254.5" y="311.5">
+                    障害調査
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 1025 401 L 1085 401 L 1085 461 L 1025 461 Z" fill="#b71c1c" stroke="none" pointer-events="all" style="fill: light-dark(rgb(183, 28, 28), rgb(255, 156, 156));"/>
+            <path d="M 1049.99 409.79 C 1047.24 409.85 1044.49 410.81 1042.16 412.86 C 1042.14 412.88 1042.12 412.9 1042.1 412.91 C 1038.33 416.83 1037.84 420.04 1037.99 422.93 C 1035.79 423.43 1033.68 425.21 1032.33 428.19 C 1032.32 428.21 1032.31 428.24 1032.3 428.27 C 1031 432.11 1032.2 434.73 1032.97 436.41 C 1032.99 436.45 1033.01 436.49 1033.03 436.52 C 1034.84 439.37 1037.17 440.75 1039.51 440.75 C 1039.51 440.75 1039.52 440.75 1039.52 440.75 L 1049.53 440.69 L 1049.52 438.83 L 1039.52 438.89 C 1037.89 438.89 1036.21 438.01 1034.64 435.57 C 1033.86 433.89 1032.97 432.15 1034.06 428.91 C 1035.38 426.02 1037.4 424.67 1038.99 424.58 C 1039.52 424.55 1039.91 424.09 1039.87 423.56 C 1039.6 420.65 1039.63 418.19 1043.42 414.24 C 1046.46 411.57 1050.21 411.09 1053.66 412.18 C 1056.65 413.31 1059.37 415.77 1060.74 419.72 C 1060.98 420.44 1061.94 420.57 1062.38 419.95 C 1063.58 418.24 1065.47 417.66 1067.56 419.06 C 1069.04 420.12 1069.43 421.75 1069.52 423.5 C 1069.55 423.94 1069.89 424.31 1070.33 424.37 C 1072.97 424.72 1075.01 426.13 1076.15 428.1 C 1076.95 429.81 1077.07 432.23 1076.55 434.08 C 1075.65 436.27 1074.77 437 1073.41 437.78 L 1074.33 439.39 C 1075.89 438.5 1077.27 437.28 1078.3 434.73 C 1078.32 434.7 1078.33 434.67 1078.34 434.64 C 1079 432.32 1078.89 429.53 1077.82 427.28 C 1077.81 427.26 1077.8 427.24 1077.79 427.22 C 1076.47 424.89 1074.11 423.26 1071.24 422.69 C 1071.04 420.87 1070.5 418.87 1068.63 417.54 C 1068.62 417.53 1068.61 417.53 1068.61 417.53 C 1066.29 415.96 1063.7 416.34 1061.9 417.86 C 1060.23 414.15 1057.43 411.61 1054.29 410.43 C 1054.27 410.43 1054.26 410.42 1054.24 410.42 C 1053.25 410.1 1052.21 409.9 1051.17 409.82 L 1051.17 409.82 C 1050.78 409.79 1050.39 409.78 1049.99 409.79 Z M 1062.42 425.55 C 1056.93 425.55 1052.45 430.03 1052.45 435.52 C 1052.45 441.01 1056.93 445.48 1062.42 445.48 C 1063.92 445.48 1065.35 445.14 1066.63 444.54 L 1073.04 450.95 C 1073.05 450.96 1073.06 450.97 1073.06 450.97 C 1073.69 451.57 1074.46 452.01 1075.31 452.11 C 1076.17 452.22 1077.09 451.95 1077.85 451.34 C 1077.91 451.29 1077.96 451.24 1078.01 451.18 C 1078.53 450.49 1078.9 449.72 1078.94 448.89 C 1078.99 448.06 1078.67 447.21 1078.04 446.53 C 1078.03 446.52 1078.02 446.51 1078.01 446.5 L 1071.38 439.85 C 1072.02 438.54 1072.38 437.07 1072.38 435.52 C 1072.38 430.03 1067.91 425.55 1062.42 425.55 Z M 1062.42 427.41 C 1066.9 427.41 1070.52 431.03 1070.52 435.52 C 1070.52 440 1066.9 443.62 1062.42 443.62 C 1057.93 443.62 1054.31 440 1054.31 435.52 C 1054.31 431.03 1057.93 427.41 1062.42 427.41 Z M 1059.66 437.81 C 1058.85 437.23 1058.32 436.28 1058.32 435.19 C 1058.32 433.41 1059.75 431.98 1061.54 431.98 C 1062.26 431.98 1062.92 432.21 1063.45 432.61 L 1064.57 431.13 C 1063.72 430.5 1062.67 430.12 1061.54 430.12 C 1058.75 430.12 1056.46 432.4 1056.46 435.19 C 1056.46 436.86 1057.27 438.34 1058.52 439.27 Z M 1070.39 441.48 L 1076.67 447.79 C 1077.02 448.17 1077.1 448.45 1077.08 448.79 C 1077.07 449.1 1076.88 449.5 1076.58 449.92 C 1076.2 450.2 1075.87 450.31 1075.54 450.26 C 1075.17 450.22 1074.75 450.01 1074.34 449.62 L 1068.28 443.56 C 1069.08 442.98 1069.79 442.28 1070.39 441.48 Z" fill="#7f0000" stroke="none" pointer-events="all" style="fill: light-dark(rgb(127, 0, 0), rgb(255, 191, 191));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="1054.5" y="428.5">
+                    CloudWatch
+                </text>
+                <text x="1054.5" y="440.5">
+                    Alarms
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 1225 401 L 1285 401 L 1285 461 L 1225 461 Z" fill="#e7157b" stroke="none" pointer-events="all" style="fill: light-dark(rgb(231, 21, 123), rgb(255, 129, 217));"/>
+            <path d="M 1261.11 433.42 L 1259.36 433.42 L 1259.36 445.54 L 1255.87 445.54 L 1255.87 436.88 L 1254.13 436.88 L 1254.13 445.54 L 1250.64 445.54 L 1250.64 439.48 L 1248.89 439.48 L 1248.89 445.54 L 1247.15 445.54 L 1247.15 447.27 L 1262.85 447.27 L 1262.85 445.54 L 1261.11 445.54 Z M 1268.09 439.91 C 1268.09 432.99 1262.41 427.36 1255.44 427.36 C 1248.46 427.36 1242.78 432.99 1242.78 439.91 C 1242.78 446.83 1248.46 452.46 1255.44 452.46 C 1262.41 452.46 1268.09 446.83 1268.09 439.91 Z M 1269.84 439.91 C 1269.84 447.79 1263.38 454.19 1255.44 454.19 C 1247.5 454.19 1241.04 447.79 1241.04 439.91 C 1241.04 432.04 1247.5 425.63 1255.44 425.63 C 1263.38 425.63 1269.84 432.04 1269.84 439.91 Z M 1279 430.37 C 1279 435.31 1276.27 438.52 1271.5 439.18 L 1271.26 437.46 C 1274 437.08 1277.25 435.55 1277.25 430.37 C 1277.25 425.51 1273.55 423.75 1270.44 423.13 C 1270.05 423.06 1269.76 422.73 1269.74 422.33 C 1269.54 418.78 1267.43 417.19 1265.44 417.19 C 1264.18 417.19 1263.01 417.77 1262.23 418.8 C 1262.04 419.05 1261.72 419.17 1261.4 419.13 C 1261.09 419.08 1260.83 418.87 1260.72 418.57 C 1260.01 416.68 1258.96 415.03 1257.69 413.8 C 1254.34 410.56 1249.75 409.68 1245.43 411.45 C 1241.83 412.91 1239.02 417.11 1239.02 421.02 C 1239.02 421.46 1239.05 421.9 1239.1 422.32 C 1239.15 422.76 1238.87 423.16 1238.44 423.27 C 1236.31 423.79 1232.75 425.4 1232.75 430.3 C 1232.75 430.49 1232.76 430.65 1232.76 430.83 C 1232.92 433.7 1235.42 436.34 1238.84 437.25 L 1238.39 438.92 C 1234.25 437.82 1231.22 434.54 1231.02 430.92 C 1231.01 430.72 1231 430.52 1231 430.3 C 1231 424.64 1234.96 422.54 1237.3 421.79 C 1237.28 421.54 1237.27 421.28 1237.27 421.02 C 1237.27 416.39 1240.49 411.58 1244.76 409.85 C 1249.75 407.81 1255.04 408.82 1258.91 412.56 C 1260.07 413.69 1261.07 415.11 1261.83 416.73 C 1262.85 415.91 1264.11 415.46 1265.44 415.46 C 1268.12 415.46 1270.93 417.36 1271.42 421.58 C 1276.32 422.76 1279 425.86 1279 430.37 Z" fill="#c01068" stroke="none" pointer-events="all" style="fill: light-dark(rgb(192, 16, 104), rgb(255, 148, 223));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="1254.5" y="434.5">
+                    AWS X-Ray
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="1195" y="466" width="120" height="20" fill="none" stroke="none" pointer-events="all"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="1254.5" y="480.5">
+                    分散トレーシング
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 1125 581 L 1185 581 L 1185 641 L 1125 641 Z" fill="#dd344c" stroke="none" pointer-events="all" style="fill: light-dark(rgb(221, 52, 76), rgb(255, 127, 147));"/>
+            <path d="M 1133.05 611.86 L 1131 611.86 L 1131 610.14 L 1133.06 610.14 C 1133.23 605.81 1134.63 601.68 1137.18 598.16 L 1138.57 599.17 C 1136.24 602.39 1134.94 606.17 1134.77 610.14 L 1137 610.14 L 1137 611.86 L 1134.77 611.86 C 1134.93 615.85 1136.22 619.65 1138.57 622.89 L 1137.18 623.9 C 1134.62 620.37 1133.21 616.22 1133.05 611.86 Z M 1167.87 628.85 C 1164.34 631.4 1160.2 632.81 1155.86 632.98 L 1155.86 635 L 1154.14 635 L 1154.14 632.98 C 1149.8 632.81 1145.66 631.4 1142.13 628.85 L 1143.14 627.46 C 1146.37 629.8 1150.16 631.1 1154.14 631.26 L 1154.14 629 L 1155.86 629 L 1155.86 631.26 C 1159.84 631.1 1163.63 629.8 1166.86 627.46 Z M 1142.13 593.21 C 1145.66 590.66 1149.8 589.25 1154.14 589.09 L 1154.14 587 L 1155.86 587 L 1155.86 589.09 C 1160.2 589.25 1164.34 590.66 1167.87 593.21 L 1166.86 594.6 C 1163.63 592.26 1159.84 590.97 1155.86 590.8 L 1155.86 593 L 1154.14 593 L 1154.14 590.8 C 1150.16 590.97 1146.37 592.26 1143.14 594.6 Z M 1179 610.14 L 1179 611.86 L 1176.94 611.86 C 1176.79 616.22 1175.38 620.37 1172.82 623.9 L 1171.43 622.89 C 1173.78 619.65 1175.07 615.85 1175.23 611.86 L 1173 611.86 L 1173 610.14 L 1175.23 610.14 C 1175.06 606.17 1173.76 602.39 1171.43 599.17 L 1172.82 598.16 C 1175.36 601.68 1176.77 605.81 1176.94 610.14 Z M 1167.83 596.99 L 1174.55 590.27 L 1175.77 591.48 L 1169.05 598.2 Z M 1142.17 625.08 L 1135.45 631.8 L 1134.23 630.59 L 1140.95 623.87 Z M 1144.07 601.29 L 1131.35 588.57 L 1132.57 587.35 L 1145.29 600.07 Z M 1165.89 620.68 L 1178.65 633.43 L 1177.43 634.65 L 1164.68 621.89 Z M 1147.85 611.63 C 1147.92 611.52 1147.99 611.4 1148.06 611.29 C 1149.5 609.02 1149.09 605.93 1148.63 604.07 C 1149.87 604.88 1150.98 606.56 1151.36 607.26 C 1151.52 607.56 1151.84 607.74 1152.18 607.71 C 1152.52 607.68 1152.81 607.46 1152.92 607.14 C 1154.2 603.51 1153.55 600.79 1152.65 599.02 C 1153.74 599.66 1154.59 600.57 1155.15 601.74 C 1156.36 604.26 1156.09 607.71 1154.44 610.74 C 1152.19 614.89 1152.64 619.23 1153.15 621.57 C 1151.87 621.02 1150.72 620.39 1149.73 619.7 C 1147.14 617.89 1146.31 614.35 1147.85 611.63 Z M 1159.37 611.34 C 1159.31 611.69 1159.48 612.04 1159.78 612.22 C 1160.09 612.4 1160.47 612.37 1160.75 612.15 C 1160.82 612.09 1162.23 610.93 1162.91 608.12 C 1163.73 609.31 1164.58 611.72 1163.44 616.15 C 1162.31 620.52 1156.95 621.75 1155.04 622.05 C 1154.58 620.4 1153.64 615.8 1155.95 611.56 C 1157.58 608.55 1158.02 605.15 1157.2 602.34 C 1158.75 604.17 1160.06 607.03 1159.37 611.34 Z M 1146.36 610.79 C 1144.39 614.27 1145.44 618.8 1148.75 621.11 C 1150.25 622.15 1152.07 623.06 1154.15 623.81 C 1154.25 623.84 1154.34 623.86 1154.44 623.86 C 1154.46 623.86 1154.47 623.85 1154.49 623.85 L 1154.49 623.85 C 1154.86 623.83 1163.42 623.08 1165.1 616.57 C 1167.26 608.2 1162.93 605.72 1162.75 605.62 C 1162.5 605.48 1162.19 605.48 1161.94 605.61 C 1161.68 605.74 1161.51 606 1161.49 606.28 C 1161.42 606.86 1161.33 607.38 1161.21 607.83 C 1160.62 601.26 1155.41 598.58 1154.36 598.11 C 1153.28 597.28 1151.96 596.71 1150.44 596.44 C 1150.06 596.37 1149.68 596.57 1149.52 596.92 C 1149.35 597.27 1149.45 597.69 1149.74 597.94 C 1149.87 598.05 1152.54 600.37 1151.78 604.78 C 1150.79 603.47 1149.2 601.9 1147.34 601.9 C 1147.06 601.9 1146.79 602.04 1146.63 602.27 C 1146.47 602.5 1146.44 602.8 1146.54 603.06 C 1146.56 603.11 1148.3 607.71 1146.61 610.37 C 1146.53 610.51 1146.44 610.65 1146.36 610.79 Z" fill="#aa1b2e" stroke="none" pointer-events="all" style="fill: light-dark(rgb(170, 27, 46), rgb(255, 159, 175));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="1154.5" y="614.5">
+                    AWS WAF
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="1095" y="646" width="120" height="35" fill="none" stroke="none" pointer-events="all"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="1154.5" y="660.5">
+                    レート制限 / IP制限
+                </text>
+                <text x="1154.5" y="671.5">
+                    SQLi / XSS防御
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 1125 761 L 1185 761 L 1185 821 L 1125 821 Z" fill="#dd344c" stroke="none" pointer-events="all" style="fill: light-dark(rgb(221, 52, 76), rgb(255, 127, 147));"/>
+            <path d="M 1153.94 793.88 C 1153.94 794.47 1154.41 794.94 1155 794.94 C 1155.59 794.94 1156.06 794.47 1156.06 793.88 C 1156.06 793.29 1155.59 792.82 1155 792.82 C 1154.41 792.82 1153.94 793.29 1153.94 793.88 Z M 1152.22 793.88 C 1152.22 792.35 1153.47 791.1 1155 791.1 C 1156.53 791.1 1157.78 792.35 1157.78 793.88 C 1157.78 795.11 1156.97 796.14 1155.86 796.51 L 1155.86 798.71 L 1154.14 798.71 L 1154.14 796.51 C 1153.03 796.14 1152.22 795.11 1152.22 793.88 Z M 1162.71 789.29 L 1147.29 789.29 L 1147.29 800.43 L 1162.71 800.43 L 1162.71 797.86 L 1160.14 797.86 L 1160.14 796.14 L 1162.71 796.14 L 1162.71 793.57 L 1160.14 793.57 L 1160.14 791.86 L 1162.71 791.86 Z M 1149.86 787.57 L 1160.14 787.57 L 1160.14 783.29 C 1160.14 781.04 1157.69 779 1155 779 L 1155 779 C 1153.69 779 1152.37 779.49 1151.37 780.35 C 1150.41 781.17 1149.86 782.25 1149.86 783.29 Z M 1161.86 783.29 L 1161.86 787.57 L 1163.57 787.57 C 1164.05 787.57 1164.43 787.96 1164.43 788.43 L 1164.43 801.29 C 1164.43 801.76 1164.05 802.14 1163.57 802.14 L 1146.43 802.14 C 1145.95 802.14 1145.57 801.76 1145.57 801.29 L 1145.57 788.43 C 1145.57 787.96 1145.95 787.57 1146.43 787.57 L 1148.14 787.57 L 1148.14 783.29 C 1148.14 781.74 1148.91 780.2 1150.25 779.05 C 1151.56 777.93 1153.29 777.29 1155 777.29 L 1155 777.29 C 1158.66 777.29 1161.86 780.09 1161.86 783.29 Z M 1137.18 803.9 L 1138.57 802.89 C 1136.22 799.65 1134.93 795.85 1134.77 791.86 L 1137 791.86 L 1137 790.14 L 1134.77 790.14 C 1134.94 786.17 1136.24 782.39 1138.57 779.17 L 1137.18 778.16 C 1134.63 781.68 1133.23 785.81 1133.06 790.14 L 1131 790.14 L 1131 791.86 L 1133.05 791.86 C 1133.21 796.22 1134.62 800.37 1137.18 803.9 Z M 1166.86 807.46 C 1163.63 809.8 1159.84 811.1 1155.86 811.26 L 1155.86 809 L 1154.14 809 L 1154.14 811.26 C 1150.16 811.1 1146.37 809.8 1143.14 807.46 L 1142.13 808.85 C 1145.66 811.4 1149.8 812.81 1154.14 812.98 L 1154.14 815 L 1155.86 815 L 1155.86 812.98 C 1160.2 812.81 1164.34 811.4 1167.87 808.85 Z M 1143.14 774.6 C 1146.37 772.26 1150.16 770.97 1154.14 770.8 L 1154.14 773 L 1155.86 773 L 1155.86 770.8 C 1159.84 770.97 1163.63 772.26 1166.86 774.6 L 1167.87 773.21 C 1164.34 770.66 1160.2 769.25 1155.86 769.09 L 1155.86 767 L 1154.14 767 L 1154.14 769.09 C 1149.8 769.25 1145.66 770.66 1142.13 773.21 Z M 1176.94 790.14 C 1176.77 785.81 1175.36 781.68 1172.82 778.16 L 1171.43 779.17 C 1173.76 782.39 1175.06 786.17 1175.23 790.14 L 1173 790.14 L 1173 791.86 L 1175.23 791.86 C 1175.07 795.85 1173.78 799.65 1171.43 802.89 L 1172.82 803.9 C 1175.38 800.37 1176.78 796.22 1176.94 791.86 L 1179 791.86 L 1179 790.14 Z M 1169.05 778.2 L 1175.77 771.48 L 1174.55 770.27 L 1167.83 776.99 Z M 1140.95 803.87 L 1134.23 810.59 L 1135.45 811.8 L 1142.17 805.08 Z M 1145.29 780.07 L 1132.56 767.35 L 1131.35 768.57 L 1144.07 781.29 Z M 1167.17 801.95 L 1178.65 813.43 L 1177.43 814.65 L 1165.95 803.17 Z" fill="#aa1b2e" stroke="none" pointer-events="all" style="fill: light-dark(rgb(170, 27, 46), rgb(255, 159, 175));"/>
+        </g>
+        <g>
+            <g fill="#ffffff" font-family="&quot;Helvetica&quot;" font-weight="bold" text-anchor="middle" font-size="10px" style="fill: light-dark(rgb(255, 255, 255), rgb(18, 18, 18));">
+                <text x="1154.5" y="788.5">
+                    Secrets
+                </text>
+                <text x="1154.5" y="800.5">
+                    Manager
+                </text>
+            </g>
+        </g>
+        <g>
+            <rect x="1085" y="826" width="140" height="20" fill="none" stroke="none" pointer-events="all"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="9px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <text x="1154.5" y="840.5">
+                    DB認証情報 / APIキー
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 1085 251 L 1217.7 251" fill="none" stroke="#ad1457" stroke-width="1.5" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(173, 20, 87), rgb(255, 155, 213));"/>
+            <path d="M 1223.32 251 L 1215.82 254.75 L 1217.7 251 L 1215.82 247.25 Z" fill="#ad1457" stroke="#ad1457" stroke-width="1.5" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(173, 20, 87), rgb(255, 155, 213)); stroke: light-dark(rgb(173, 20, 87), rgb(255, 155, 213));"/>
+        </g>
+        <g>
+            <path d="M 1055 281 L 1055 393.7" fill="none" stroke="#b71c1c" stroke-width="1.5" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(183, 28, 28), rgb(255, 156, 156));"/>
+            <path d="M 1055 399.32 L 1051.25 391.82 L 1055 393.7 L 1058.75 391.82 Z" fill="#b71c1c" stroke="#b71c1c" stroke-width="1.5" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(183, 28, 28), rgb(255, 156, 156)); stroke: light-dark(rgb(183, 28, 28), rgb(255, 156, 156));"/>
+        </g>
+        <g>
+            <path d="M 465 281 L 465 396 Q 465 406 475 406 L 480 406 Q 485 406 485 416 L 485 522.76" fill="none" stroke="#e7157b" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(231, 21, 123), rgb(255, 129, 217));"/>
+            <path d="M 485 528.76 L 481 520.76 L 485 522.76 L 489 520.76 Z" fill="#e7157b" stroke="#e7157b" stroke-width="2" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(231, 21, 123), rgb(255, 129, 217)); stroke: light-dark(rgb(231, 21, 123), rgb(255, 129, 217));"/>
+        </g>
+        <g>
+            <path d="M 485 591 L 485 783.7" fill="none" stroke="#2e73b8" stroke-width="1.5" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(46, 115, 184), rgb(95, 155, 214));"/>
+            <path d="M 485 789.32 L 481.25 781.82 L 485 783.7 L 488.75 781.82 Z" fill="#2e73b8" stroke="#2e73b8" stroke-width="1.5" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(46, 115, 184), rgb(95, 155, 214)); stroke: light-dark(rgb(46, 115, 184), rgb(95, 155, 214));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <rect fill="#ffffff" stroke="none" x="468" y="685" width="36" height="14" stroke-width="0" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212));"/>
+                <text x="484.5" y="695">
+                    Prisma
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 515 561 L 1045 561 Q 1055 561 1055 551 L 1055 288.3" fill="none" stroke="#e7157b" stroke-width="1.5" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(231, 21, 123), rgb(255, 129, 217));"/>
+            <path d="M 1055 282.68 L 1058.75 290.18 L 1055 288.3 L 1051.25 290.18 Z" fill="#e7157b" stroke="#e7157b" stroke-width="1.5" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(231, 21, 123), rgb(255, 129, 217)); stroke: light-dark(rgb(231, 21, 123), rgb(255, 129, 217));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <rect fill="#ffffff" stroke="none" x="890" y="555" width="72" height="14" stroke-width="0" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212));"/>
+                <text x="924.5" y="565">
+                    Pino / trace_id
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 515 561 L 1245 561 Q 1255 561 1255 551 L 1255 468.3" fill="none" stroke="#e7157b" stroke-width="1.5" stroke-miterlimit="10" stroke-dasharray="4.5 4.5" pointer-events="stroke" style="stroke: light-dark(rgb(231, 21, 123), rgb(255, 129, 217));"/>
+            <path d="M 1255 462.68 L 1258.75 470.18 L 1255 468.3 L 1251.25 470.18 Z" fill="#e7157b" stroke="#e7157b" stroke-width="1.5" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(231, 21, 123), rgb(255, 129, 217)); stroke: light-dark(rgb(231, 21, 123), rgb(255, 129, 217));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <rect fill="#ffffff" stroke="none" x="913" y="555" width="45" height="14" stroke-width="0" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212));"/>
+                <text x="934.5" y="565">
+                    トレース
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 515 561 L 1145 561 Q 1155 561 1155 571 L 1155 753.7" fill="none" stroke="#dd344c" stroke-width="1.5" stroke-miterlimit="10" stroke-dasharray="4.5 4.5" pointer-events="stroke" style="stroke: light-dark(rgb(221, 52, 76), rgb(255, 127, 147));"/>
+            <path d="M 1155 759.32 L 1151.25 751.82 L 1155 753.7 L 1158.75 751.82 Z" fill="#dd344c" stroke="#dd344c" stroke-width="1.5" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(221, 52, 76), rgb(255, 127, 147)); stroke: light-dark(rgb(221, 52, 76), rgb(255, 127, 147));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <rect fill="#ffffff" stroke="none" x="902" y="555" width="68" height="14" stroke-width="0" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212));"/>
+                <text x="934.5" y="565">
+                    認証情報取得
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 235 221 L 235 333.7" fill="none" stroke="#3f8624" stroke-width="1.5" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(63, 134, 36), rgb(99, 160, 76));"/>
+            <path d="M 235 339.32 L 231.25 331.82 L 235 333.7 L 238.75 331.82 Z" fill="#3f8624" stroke="#3f8624" stroke-width="1.5" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(63, 134, 36), rgb(99, 160, 76)); stroke: light-dark(rgb(63, 134, 36), rgb(99, 160, 76));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <rect fill="#ffffff" stroke="none" x="204" y="275" width="63" height="14" stroke-width="0" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212));"/>
+                <text x="234.5" y="285">
+                    Origin (SPA)
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 265 191 L 425 191 Q 435 191 435 201 L 435 212.76" fill="none" stroke="#e7157b" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(231, 21, 123), rgb(255, 129, 217));"/>
+            <path d="M 435 218.76 L 431 210.76 L 435 212.76 L 439 210.76 Z" fill="#e7157b" stroke="#e7157b" stroke-width="2" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(231, 21, 123), rgb(255, 129, 217)); stroke: light-dark(rgb(231, 21, 123), rgb(255, 129, 217));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <rect fill="#ffffff" stroke="none" x="352" y="185" width="27" height="14" stroke-width="0" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212));"/>
+                <text x="364.5" y="195">
+                    /api/*
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 455 531 L 455 521 Q 455 511 445 511 L 272.3 511" fill="none" stroke="#3f8624" stroke-width="1.5" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(63, 134, 36), rgb(99, 160, 76));"/>
+            <path d="M 266.68 511 L 274.18 507.25 L 272.3 511 L 274.18 514.75 Z" fill="#3f8624" stroke="#3f8624" stroke-width="1.5" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(63, 134, 36), rgb(99, 160, 76)); stroke: light-dark(rgb(63, 134, 36), rgb(99, 160, 76));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <rect fill="#ffffff" stroke="none" x="321" y="505" width="99" height="14" stroke-width="0" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212));"/>
+                <text x="369.5" y="515">
+                    Presigned URL発行
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 1155 581 L 1155 551 Q 1155 541 1145 541 L 1115 541 Q 1105 541 1095 541 L 245 541 Q 235 541 235 531 L 235 228.3" fill="none" stroke="#dd344c" stroke-width="1.5" stroke-miterlimit="10" stroke-dasharray="4.5 4.5" pointer-events="stroke" style="stroke: light-dark(rgb(221, 52, 76), rgb(255, 127, 147));"/>
+            <path d="M 235 222.68 L 238.75 230.18 L 235 228.3 L 231.25 230.18 Z" fill="#dd344c" stroke="#dd344c" stroke-width="1.5" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(221, 52, 76), rgb(255, 127, 147)); stroke: light-dark(rgb(221, 52, 76), rgb(255, 127, 147));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <rect fill="#ffffff" stroke="none" x="544" y="535" width="24" height="14" stroke-width="0" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212));"/>
+                <text x="554.5" y="545">
+                    保護
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 85 151 L 135 151 Q 145 151 145 161 L 145 181 Q 145 191 155 191 L 196.76 191" fill="none" stroke="#0066cc" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 102, 204), rgb(86, 174, 255));"/>
+            <path d="M 202.76 191 L 194.76 195 L 196.76 191 L 194.76 187 Z" fill="#0066cc" stroke="#0066cc" stroke-width="2" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 102, 204), rgb(86, 174, 255)); stroke: light-dark(rgb(0, 102, 204), rgb(86, 174, 255));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <rect fill="#ffffff" stroke="none" x="127" y="165" width="38" height="14" stroke-width="0" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212));"/>
+                <text x="144.5" y="175">
+                    HTTPS
+                </text>
+            </g>
+        </g>
+        <g>
+            <path d="M 82.27 271 L 225 271 Q 235 271 235 261 L 235 229.24" fill="none" stroke="#0066cc" stroke-width="2" stroke-miterlimit="10" pointer-events="stroke" style="stroke: light-dark(rgb(0, 102, 204), rgb(86, 174, 255));"/>
+            <path d="M 235 223.24 L 239 231.24 L 235 229.24 L 231 231.24 Z" fill="#0066cc" stroke="#0066cc" stroke-width="2" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 102, 204), rgb(86, 174, 255)); stroke: light-dark(rgb(0, 102, 204), rgb(86, 174, 255));"/>
+        </g>
+        <g>
+            <path d="M 55 301 L 55 511 Q 55 521 65 521 L 197.7 521" fill="none" stroke="#ff6600" stroke-width="1.5" stroke-miterlimit="10" stroke-dasharray="4.5 4.5" pointer-events="stroke" style="stroke: light-dark(rgb(255, 102, 0), rgb(237, 106, 18));"/>
+            <path d="M 203.32 521 L 195.82 524.75 L 197.7 521 L 195.82 517.25 Z" fill="#ff6600" stroke="#ff6600" stroke-width="1.5" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(255, 102, 0), rgb(237, 106, 18)); stroke: light-dark(rgb(255, 102, 0), rgb(237, 106, 18));"/>
+        </g>
+        <g>
+            <g fill="#000000" font-family="&quot;Helvetica&quot;" text-anchor="middle" font-size="11px" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));">
+                <rect fill="#ffffff" stroke="none" x="1" y="480" width="109" height="14" stroke-width="0" style="fill: light-dark(#ffffff, var(--ge-dark-color, #121212));"/>
+                <text x="54.5" y="490">
+                    PUT (Presigned URL)
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

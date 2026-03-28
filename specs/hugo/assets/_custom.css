@@ -1,0 +1,39 @@
+/* 余白を極力削減 */
+.container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 右サイドTOCを非表示 */
+.book-toc {
+  display: none;
+}
+
+/* 左メニュー内TOC */
+.book-toc-inline nav {
+  padding: 0 1rem;
+}
+
+.book-toc-inline nav ul {
+  list-style: none;
+  padding-left: 0.75rem;
+  margin: 0;
+}
+
+.book-toc-inline nav > ul {
+  padding-left: 0;
+}
+
+.book-toc-inline nav ul li a {
+  font-size: 0.8rem;
+  opacity: 0.75;
+  display: block;
+  padding: 0.15rem 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.book-toc-inline nav ul li a:hover {
+  opacity: 1;
+}

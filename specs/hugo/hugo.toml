@@ -4,5 +4,5 @@ title = "設計書"
 theme = "book"
 
 [params]
-  BookToC = true
+  BookToC = false
   BookSection = "*"

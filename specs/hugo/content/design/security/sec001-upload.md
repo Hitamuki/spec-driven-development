@@ -9,15 +9,16 @@ sec001-upload
 
 ## 関連仕様・設計
 
-- [req001-upload](/requirements/req001-upload/)
-- [ia001-upload](/interaction/ia001-upload/)
-- [セキュリティ設計指針](/common/セキュリティ設計指針/)
+- [req001-upload]({{< relref "req001-upload.md" >}})
+- [ia001-upload]({{< relref "ia001-upload.md" >}})
+- [セキュリティ設計指針]({{< relref "セキュリティ設計指針.md" >}})
 
 ## 概要
 
 画像アップロード時における脅威と、それに対する具体的な防御策を定義する。
 
 ## セキュリティ要件
+...
 
 ### 1. 多層防御 (Defense in Depth)
 

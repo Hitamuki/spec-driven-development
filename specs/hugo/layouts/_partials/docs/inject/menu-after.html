@@ -1,0 +1,8 @@
+{{ $toc := .TableOfContents }}
+{{ if and $toc (ne $toc "<nav id=\"TableOfContents\"></nav>") }}
+<hr style="margin: 1rem 0; opacity: 0.3;">
+<div class="book-toc-inline">
+  <strong style="font-size: 0.75rem; text-transform: uppercase; opacity: 0.6; padding: 0 1rem; display: block; margin-bottom: 0.5rem;">このページの目次</strong>
+  {{ $toc }}
+</div>
+{{ end }}

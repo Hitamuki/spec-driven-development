@@ -1,0 +1,9 @@
+{{ $image := resources.Get (printf "images/%s" (.Get "src")) }}
+{{ if $image }}
+  {{ if strings.HasPrefix $image.MediaType.Type "image/svg" }}
+    <img src="{{ $image.RelPermalink }}" alt="{{ .Get "alt" }}">
+  {{ else }}
+    {{ $processed := $image.Resize "800x" }}
+    <img src="{{ $processed.RelPermalink }}" alt="{{ .Get "alt" }}">
+  {{ end }}
+{{ end }}

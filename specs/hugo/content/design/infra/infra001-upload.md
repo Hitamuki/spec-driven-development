@@ -9,13 +9,14 @@ infra001-upload
 
 ## 関連仕様・設計
 
-- [req001-upload](/requirements/req001-upload/)
-- [ia001-upload](/interaction/ia001-upload/)
-- [システム構成図](/common/システム構成図/)
+- [req001-upload]({{< relref "req001-upload.md" >}})
+- [ia001-upload]({{< relref "ia001-upload.md" >}})
+- [システム構成図]({{< relref "システム構成図.md" >}})
 
 ---
 
 ## 使用リソース
+...
 
 | リソース | 用途 |
 |---|---|

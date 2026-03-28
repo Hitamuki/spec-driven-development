@@ -12,11 +12,12 @@ scr001-upload
 
 | 種別 | ドキュメント |
 |:---|:---|
-| 要件 | [req001-upload](/requirements/req001-upload/) |
-| 相互作用 | [ia001-upload](/interaction/ia001-upload/) |
-| API | [api001-upload](/api/images/api001-upload/) / [api002-upload](/api/images/api002-upload/) / [api003-upload](/api/images/api003-upload/) / [api004-upload](/api/images/api004-upload/) |
+| 要件 | [req001-upload]({{< relref "req001-upload.md" >}}) |
+| 相互作用 | [ia001-upload]({{< relref "ia001-upload.md" >}}) |
+| API | [api001-upload]({{< relref "api001-upload.md" >}}) / [api002-upload]({{< relref "api002-upload.md" >}}) / [api003-upload]({{< relref "api003-upload.md" >}}) / [api004-upload]({{< relref "api004-upload.md" >}}) |
 
 ## 概要
+...
 
 - ユーザーがローカル端末から画像を選択・プレビューし、S3へアップロードする
 - アップロード済み画像のファイル名一覧を表示し、選択した画像をプレビュー閲覧できる
