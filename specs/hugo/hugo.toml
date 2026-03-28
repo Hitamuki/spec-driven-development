@@ -1,0 +1,8 @@
+baseURL = "https://Hitamuki.github.io/spec-driven-development/"
+languageCode = "ja"
+title = "設計書"
+theme = "book"
+
+[params]
+  BookToC = true
+  BookSection = "*"

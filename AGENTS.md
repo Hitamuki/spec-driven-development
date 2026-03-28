@@ -13,7 +13,7 @@
 
 ```txt
 repo/
-├── specs/
+├── specs/hugo/content
 │   └── requirements/             # ビジネス要件・非機能要件 (req-*)
 │   └── common/                   # 全体構造・設計思想
 │   ├── interaction/              # 相互作用設計（シーケンス図等）

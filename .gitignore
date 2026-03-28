@@ -191,3 +191,23 @@ override.tf.json
 terraform.rc
 
 # End of https://www.toptal.com/developers/gitignore/api/react,node,terraform
+
+# Created by https://www.toptal.com/developers/gitignore/api/hugo
+# Edit at https://www.toptal.com/developers/gitignore?templates=hugo
+
+### Hugo ###
+# Generated files by hugo
+specs/hugo/public/
+specs/hugo/resources/_gen/
+specs/hugo/assets/jsconfig.json
+specs/hugo/hugo_stats.json
+
+# Executable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
+
+# Temporary lock file while building
+specs/hugo/.hugo_build.lock
+
+# End of https://www.toptal.com/developers/gitignore/api/hugo
