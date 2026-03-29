@@ -1,5 +1,5 @@
 {
-  "name": "spec-driven-development",
+  "name": "image-upload",
   "private": true,
   "packageManager": "pnpm@9.5.0",
   "scripts": {
