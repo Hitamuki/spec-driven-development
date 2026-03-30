@@ -4,11 +4,35 @@ info:
   version: 1.0.0
   description: API for uploading and managing images with S3.
 
+servers:
+  - url: /api/v1
+    description: API base path
+
+components:
+  parameters:
+    TraceId:
+      name: X-Trace-ID
+      in: header
+      required: false
+      schema:
+        type: string
+      description: Trace ID for request tracking
+    RequestId:
+      name: X-Request-ID
+      in: header
+      required: false
+      schema:
+        type: string
+      description: Request ID for idempotency
+
 paths:
-  /api/v1/images/presigned-url:
+  /images/presigned-url:
     post:
       summary: Get a presigned URL for S3 upload
       operationId: getPresignedUrl
+      parameters:
+        - $ref: '#/components/parameters/TraceId'
+        - $ref: '#/components/parameters/RequestId'
       requestBody:
         required: true
         content:
@@ -42,10 +66,13 @@ paths:
         '429':
           description: Rate limit exceeded
 
-  /api/v1/images/complete:
+  /images:
     post:
       summary: Notify backend that upload to S3 is complete
       operationId: completeUpload
+      parameters:
+        - $ref: '#/components/parameters/TraceId'
+        - $ref: '#/components/parameters/RequestId'
       requestBody:
         required: true
         content:
@@ -79,10 +106,12 @@ paths:
         '422':
           description: Magic number validation failed
 
-  /api/v1/images:
     get:
       summary: List uploaded images (metadata only)
       operationId: listImages
+      parameters:
+        - $ref: '#/components/parameters/TraceId'
+        - $ref: '#/components/parameters/RequestId'
       responses:
         '200':
           description: OK
@@ -101,7 +130,7 @@ paths:
                       type: string
                       format: date-time
 
-  /api/v1/images/{id}:
+  /images/{id}:
     get:
       summary: Get a viewing presigned URL for an image
       operationId: getImage
@@ -111,6 +140,8 @@ paths:
           required: true
           schema:
             type: string
+        - $ref: '#/components/parameters/TraceId'
+        - $ref: '#/components/parameters/RequestId'
       responses:
         '200':
           description: OK
@@ -121,5 +152,8 @@ paths:
                 properties:
                   url:
                     type: string
+                  expiresAt:
+                    type: string
+                    format: date-time
         '404':
           description: Image not found

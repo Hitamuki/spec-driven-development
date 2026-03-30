@@ -1,0 +1,112 @@
+/**
+ * セキュリティポリシーとバリデーションルール
+ */
+
+// 許可されるMIMEタイプとマジックナンバー
+export const ALLOWED_MIME_TYPES = {
+  'image/jpeg': {
+    magicNumbers: [0xFF, 0xD8, 0xFF],
+    extensions: ['.jpg', '.jpeg'],
+  },
+  'image/png': {
+    magicNumbers: [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A],
+    extensions: ['.png'],
+  },
+  'image/gif': {
+    magicNumbers: [0x47, 0x49, 0x46, 0x38],
+    extensions: ['.gif'],
+  },
+  'image/webp': {
+    magicNumbers: [0x52, 0x49, 0x46, 0x46], // RIFF
+    extensions: ['.webp'],
+  },
+} as const;
+
+// ファイルサイズ制限（バイト単位）
+export const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+
+// アップロード枚数制限
+export const MAX_UPLOAD_COUNT = 5;
+
+// Presigned URLの有効期限（秒単位）
+export const PRESIGNED_URL_EXPIRY = {
+  upload: 5 * 60, // 5分
+  view: 60 * 60, // 1時間
+} as const;
+
+// レート制限
+export const RATE_LIMITS = {
+  perMinute: 10, // 1分あたりのリクエスト数
+  perHour: 100,  // 1時間あたりのリクエスト数
+} as const;
+
+/**
+ * マジックナンバーによるファイル形式検証
+ */
+export function validateFileMagicNumber(buffer: ArrayBuffer, expectedMimeType: string): boolean {
+  const bytes = new Uint8Array(buffer);
+  const expectedMagicNumbers = ALLOWED_MIME_TYPES[expectedMimeType as keyof typeof ALLOWED_MIME_TYPES]?.magicNumbers;
+  
+  if (!expectedMagicNumbers) {
+    return false;
+  }
+  
+  // WebPの場合はRIFFヘッダーとWEBP識別子をチェック
+  if (expectedMimeType === 'image/webp') {
+    if (bytes.length < 12) return false;
+    
+    // RIFFヘッダー (0x52, 0x49, 0x46, 0x46)
+    const isRiff = bytes[0] === 0x52 && bytes[1] === 0x49 && bytes[2] === 0x46 && bytes[3] === 0x46;
+    
+    // WEBP識別子 (0x57, 0x45, 0x42, 0x50)
+    const isWebp = bytes[8] === 0x57 && bytes[9] === 0x45 && bytes[10] === 0x42 && bytes[11] === 0x50;
+    
+    return isRiff && isWebp;
+  }
+  
+  // その他の形式は先頭バイト列をチェック
+  for (let i = 0; i < expectedMagicNumbers.length; i++) {
+    if (bytes[i] !== expectedMagicNumbers[i]) {
+      return false;
+    }
+  }
+  
+  return true;
+}
+
+/**
+ * ファイル名の安全性検証
+ */
+export function validateFileName(fileName: string): boolean {
+  // パス traversl攻撃防止
+  if (fileName.includes('..') || fileName.includes('/') || fileName.includes('\\')) {
+    return false;
+  }
+  
+  // 特殊文字チェック
+  const invalidChars = /[<>:"|?*\x00-\x1f]/;
+  if (invalidChars.test(fileName)) {
+    return false;
+  }
+  
+  // 長さチェック
+  if (fileName.length > 255) {
+    return false;
+  }
+  
+  return true;
+}
+
+/**
+ * Content-Typeと拡張子の整合性チェック
+ */
+export function validateContentTypeExtension(fileName: string, contentType: string): boolean {
+  const extension = fileName.toLowerCase().substring(fileName.lastIndexOf('.'));
+  const allowedExtensions = ALLOWED_MIME_TYPES[contentType as keyof typeof ALLOWED_MIME_TYPES]?.extensions;
+  
+  if (!allowedExtensions) {
+    return false;
+  }
+  
+  return allowedExtensions.includes(extension);
+}

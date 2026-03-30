@@ -1,0 +1,30 @@
+{
+  "name": "@hitamuki/db",
+  "version": "0.1.0",
+  "description": "DBアクセス層：PrismaとRepository",
+  "main": "src/index.ts",
+  "scripts": {
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
+    "build": "bun build src/index.ts --outdir dist --target bun",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.16.2",
+    "@image-upload/domain": "workspace:*",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@types/node": "^20.14.11",
+    "prisma": "^5.16.2",
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.4"
+  }
+}
