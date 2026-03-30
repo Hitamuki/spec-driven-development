@@ -1,0 +1,33 @@
+{
+  "name": "@image-upload/frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "biome lint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@image-upload/ui": "workspace:*",
+    "@tailwindcss/vite": "catalog:frontend",
+    "@tanstack/react-query": "^5.0.0",
+    "lucide-react": "catalog:frontend",
+    "react": "catalog:frontend",
+    "react-dom": "catalog:frontend",
+    "react-router": "^7.0.0",
+    "sonner": "^1.4.0",
+    "tailwindcss": "catalog:frontend",
+    "zod": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:frontend",
+    "@types/react-dom": "catalog:frontend",
+    "@vitejs/plugin-react": "^6.0.1",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "typescript": "catalog:default",
+    "vite": "^8.0.1"
+  }
+}

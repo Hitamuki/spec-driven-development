@@ -4,6 +4,7 @@ packages:
 
 catalogs:
   default:
+    "@types/node": "^22"
     typescript: "^5.4.0"
     biome: "^1.7.0"
     turbo: "latest"
@@ -13,3 +14,6 @@ catalogs:
     react-dom: "^19.0.0"
     "@types/react": "^19.0.0"
     "@types/react-dom": "^19.0.0"
+    tailwindcss: "^4.2.2"
+    "@tailwindcss/vite": "^4.2.2"
+    lucide-react: "^0.474.0"
