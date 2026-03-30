@@ -1,11 +1,11 @@
 import { Toaster } from "@image-upload/ui";
-import { HomePage } from "../pages/home/ui/HomePage";
+import { UploadPage } from "@/pages/upload-page";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-background">
-      <HomePage />
-      <Toaster />
-    </div>
+    <>
+      <Toaster position="top-right" />
+      <UploadPage />
+    </>
   );
 }

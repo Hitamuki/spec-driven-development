@@ -1,7 +1,6 @@
-export * from "./lib/utils"
-export * from "./components/ui/card"
-export * from "./components/ui/button"
-export * from "./components/ui/input"
-export * from "./components/ui/label"
-export * from "./components/ui/sonner"
-export * from "./components/ui/skeleton"
+export * from "./lib/utils";
+// Components will be added here via CLI
+export * from "./components/ui/button";
+export * from "./components/ui/card";
+export * from "./components/ui/alert";
+export * from "./components/ui/sonner";

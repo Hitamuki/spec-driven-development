@@ -9,11 +9,12 @@
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.0.2",
-    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-slot": "^1.2.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "catalog:frontend",
-    "sonner": "^1.4.0",
+    "next-themes": "^0.4.6",
+    "sonner": "^1.7.4",
     "tailwind-merge": "^3.0.0",
     "tailwindcss-animate": "^1.0.7"
   },

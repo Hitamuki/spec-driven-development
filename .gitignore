@@ -211,3 +211,12 @@ hugo.linux
 specs/hugo/.hugo_build.lock
 
 # End of https://www.toptal.com/developers/gitignore/api/hugo
+
+# Created by https://www.toptal.com/developers/gitignore/api/turbo
+# Edit at https://www.toptal.com/developers/gitignore?templates=turbo
+
+### Turbo ###
+# Turborepo task cache
+.turbo
+
+# End of https://www.toptal.com/developers/gitignore/api/turbo
