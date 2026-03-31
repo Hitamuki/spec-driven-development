@@ -4,7 +4,6 @@
   "description": "ドメイン層：ビジネスロジックとセキュリティポリシーの中核",
   "main": "src/index.ts",
   "scripts": {
-    "build": "bun build src/index.ts --outdir dist --target bun",
     "test": "vitest",
     "test:watch": "vitest --watch",
     "lint": "biome check .",
@@ -12,12 +11,12 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "zod": "^3.23.8"
+    "zod": "catalog:default"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
-    "@types/node": "^20.14.11",
-    "typescript": "^5.5.3",
-    "vitest": "^2.0.4"
+    "@biomejs/biome": "catalog:default",
+    "@types/node": "catalog:default",
+    "typescript": "catalog:default",
+    "vitest": "catalog:default"
   }
 }

@@ -11,6 +11,7 @@
     "bierner.markdown-mermaid",
     "humao.rest-client",
     "vstirbu.vscode-mermaid-preview",
-    "mermaidchart.vscode-mermaid-chart"
+    "mermaidchart.vscode-mermaid-chart",
+    "oven.bun-vscode"
   ]
 }

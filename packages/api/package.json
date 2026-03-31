@@ -5,19 +5,23 @@
   "main": "src/index.ts",
   "scripts": {
     "generate": "orval",
-    "build": "bun build src/index.ts --outdir dist --target bun",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@tanstack/react-query": "catalog:frontend",
     "axios": "^1.7.2",
-    "zod": "^3.23.8"
+    "zod": "catalog:default"
+  },
+  "peerDependencies": {
+    "react": ">=18"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
-    "@types/node": "^20.14.11",
+    "@biomejs/biome": "catalog:default",
+    "@types/node": "catalog:default",
     "orval": "^7.4.0",
-    "typescript": "^5.5.3"
+    "typescript": "catalog:default"
   }
 }
+

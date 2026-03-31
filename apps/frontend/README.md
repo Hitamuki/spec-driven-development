@@ -1,4 +1,4 @@
-# @hitamuki/frontend
+# @image-upload/frontend
 
 画像アップロード機能のフロントエンドSPA
 

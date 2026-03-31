@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Web API 起動",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/apps/backend/src/index.ts",
+      "runtimeExecutable": "bun",
+      "runtimeArgs": [
+        "--watch"
+      ],
+      "cwd": "${workspaceFolder}/apps/backend",
+      "env": {
+        "PORT": "3001"
+      },
+      "sourceMaps": true,
+      "console": "integratedTerminal",
+      "presentation": {
+        "group": "backend"
+      }
+    },
+    {
+      "name": "Web画面 起動",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/apps/frontend",
+      "sourceMaps": true,
+      "preLaunchTask": "Frontend: dev",
+      "presentation": {
+        "group": "frontend"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "フルスタック起動",
+      "configurations": [
+        "Web API 起動",
+        "Web画面 起動"
+      ]
+    }
+  ]
+}

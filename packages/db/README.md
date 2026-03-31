@@ -1,4 +1,4 @@
-# @hitamuki/db
+# @image-upload/db
 
 DBアクセス層：PrismaとRepository
 

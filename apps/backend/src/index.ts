@@ -5,10 +5,15 @@ import { imagesRoutes } from './routes/images';
 
 const app = new Hono();
 
+const port = Number(process.env.PORT) || 3001;
+
 // ミドルウェア設定
 app.use('*', logger());
 app.use('*', cors({
-  origin: ['http://localhost:3000'],
+  origin: [
+    'http://localhost:5173', // Vite dev server
+    'http://localhost:3000', // 本番 or preview
+  ],
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type', 'X-Trace-ID', 'X-Request-ID'],
 }));
@@ -21,4 +26,9 @@ app.get('/health', (c) => {
   return c.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-export default app;
+console.log(`🚀 Backend server running on http://localhost:${port}`);
+
+export default {
+  port,
+  fetch: app.fetch,
+};

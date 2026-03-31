@@ -1,4 +1,4 @@
-# @hitamuki/backend
+# @image-upload/backend
 
 画像アップロード機能のバックエンドAPI
 

@@ -10,16 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@image-upload/api": "workspace:*",
     "@image-upload/ui": "workspace:*",
     "@tailwindcss/vite": "catalog:frontend",
-    "@tanstack/react-query": "^5.0.0",
+    "@tanstack/react-query": "catalog:frontend",
+    "axios": "^1.7.2",
     "lucide-react": "catalog:frontend",
     "react": "catalog:frontend",
     "react-dom": "catalog:frontend",
     "react-router": "^7.0.0",
     "sonner": "^1.4.0",
     "tailwindcss": "catalog:frontend",
-    "zod": "^3.0.0"
+    "zod": "catalog:default"
   },
   "devDependencies": {
     "@types/react": "catalog:frontend",

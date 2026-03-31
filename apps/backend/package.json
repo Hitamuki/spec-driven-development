@@ -1,11 +1,11 @@
 {
-  "name": "@hitamuki/backend",
+  "name": "@image-upload/backend",
   "version": "0.1.0",
   "description": "画像アップロード機能のバックエンドAPI",
   "main": "src/index.ts",
   "scripts": {
     "dev": "bun --watch src/index.ts",
-    "build": "bun build src/index.ts --outdir dist --target bun",
+    "build": "bun build src/index.ts --outdir dist --target bun --external @image-upload/domain --external @image-upload/db --external @image-upload/shared --external @image-upload/api --external @aws-sdk/client-s3 --external @aws-sdk/s3-request-presigner",
     "start": "bun dist/index.js",
     "test": "vitest",
     "test:watch": "vitest --watch",
@@ -14,22 +14,22 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.600.0",
-    "@aws-sdk/s3-request-presigner": "^3.600.0",
-    "@hono/zod-validator": "^0.2.2",
+    "@aws-sdk/client-s3": "catalog:backend",
+    "@aws-sdk/s3-request-presigner": "catalog:backend",
+    "@hono/zod-validator": "catalog:backend",
     "@image-upload/domain": "workspace:*",
-    "@hitamuki/db": "workspace:*",
-    "@hitamuki/shared": "workspace:*",
+    "@image-upload/db": "workspace:*",
+    "@image-upload/shared": "workspace:*",
     "@image-upload/api": "workspace:*",
-    "hono": "^4.4.13",
-    "pino": "^9.3.2",
-    "zod": "^3.23.8"
+    "hono": "catalog:backend",
+    "pino": "catalog:backend",
+    "zod": "catalog:default"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
-    "@types/node": "^20.14.11",
-    "typescript": "^5.5.3",
-    "vitest": "^2.0.4"
+    "@biomejs/biome": "catalog:default",
+    "@types/node": "catalog:default",
+    "typescript": "catalog:default",
+    "vitest": "catalog:default"
   },
   "engines": {
     "bun": ">=1.1.0"

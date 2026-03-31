@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Backend: dev",
+      "type": "shell",
+      "isBackground": true,
+      "command": "pnpm",
+      "args": [
+        "-F",
+        "@image-upload/backend",
+        "dev"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "Frontend: dev",
+      "type": "shell",
+      "isBackground": true,
+      "problemMatcher": [
+        {
+          "base": "$tsc-watch",
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "^\\s*VITE\\s+v\\d",
+            "endsPattern": "^\\s*➜\\s+Local:\\s+https?://.+$"
+          }
+        }
+      ],
+      "command": "pnpm",
+      "args": [
+        "-F",
+        "@image-upload/frontend",
+        "dev"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "DB: studio",
+      "type": "shell",
+      "isBackground": true,
+      "command": "pnpm",
+      "args": [
+        "-F",
+        "@image-upload/db",
+        "studio"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "フルスタック起動",
+      "type": "shell",
+      "command": "echo",
+      "args": [
+        "フルスタック起動開始..."
+      ],
+      "dependsOn": [
+        "Backend: dev",
+        "Frontend: dev"
+      ]
+    }
+  ]
+}

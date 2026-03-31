@@ -1,6 +1,16 @@
+import { createRoot } from 'react-dom/client';
+import { RouterProvider, createBrowserRouter } from 'react-router';
+import { Providers } from './app/providers';
+import { routes } from './app/routes-config';
+import './styles/index.css';
 
-  import { createRoot } from "react-dom/client";
-  import App from "./app/App.tsx";
-  import "./styles/index.css";
+const router = createBrowserRouter(routes);
 
-  createRoot(document.getElementById("root")!).render(<App />);
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  createRoot(rootElement).render(
+    <Providers>
+      <RouterProvider router={router} />
+    </Providers>,
+  );
+}

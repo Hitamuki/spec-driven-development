@@ -8,7 +8,7 @@ import {
   validateFileMagicNumber,
   validateFileName
 } from '@image-upload/domain';
-import { ImageRepository } from '@hitamuki/db';
+import { ImageRepository } from '@image-upload/db';
 import { S3Client, PutObjectCommand, GetObjectCommand, HeadObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
@@ -32,7 +32,7 @@ export class ImageService {
    */
   async createPresignedUrl(request: CreatePresignedUrlRequest, traceId: string): Promise<PresignedUrlInfo> {
     // アップロード枚数上限チェック
-    const repository = new ImageRepository((await import('@hitamuki/db')).prisma);
+    const repository = new ImageRepository((await import('@image-upload/db')).prisma);
     const currentCount = await repository.count();
 
     if (currentCount >= MAX_UPLOAD_COUNT) {
@@ -72,7 +72,7 @@ export class ImageService {
    * api002-upload: アップロード完了・メタデータ登録
    */
   async createImageMetadata(request: CreateImageMetadataRequest, traceId: string): Promise<{ id: string; url: string }> {
-    const repository = new ImageRepository((await import('@hitamuki/db')).prisma);
+    const repository = new ImageRepository((await import('@image-upload/db')).prisma);
 
     // S3ファイルの存在確認
     const headCommand = new HeadObjectCommand({
@@ -136,7 +136,7 @@ export class ImageService {
    * api003-upload: 画像一覧取得
    */
   async getImageList(traceId: string): Promise<{ id: string; fileName: string; createdAt: string }[]> {
-    const repository = new ImageRepository((await import('@hitamuki/db')).prisma);
+    const repository = new ImageRepository((await import('@image-upload/db')).prisma);
     const images = await repository.findAll();
 
     return images.map(image => ({
@@ -150,7 +150,7 @@ export class ImageService {
    * api004-upload: 画像閲覧用URL取得
    */
   async getImageUrl(id: string, traceId: string): Promise<ImageUrlInfo> {
-    const repository = new ImageRepository((await import('@hitamuki/db')).prisma);
+    const repository = new ImageRepository((await import('@image-upload/db')).prisma);
     const image = await repository.findById(id);
 
     if (!image) {

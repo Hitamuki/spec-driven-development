@@ -5,10 +5,13 @@ packages:
 catalogs:
   default:
     "@types/node": "^22"
-    typescript: "^5.4.0"
-    biome: "^1.7.0"
+    "@biomejs/biome": "^1.8.3"
+    typescript: "^5.5.3"
     turbo: "latest"
-  # You can add more catalogs here as needed
+    vitest: "^2.0.4"
+    zod: "^3.23.8"
+    biome: "^1.8.3"
+
   frontend:
     react: "^19.0.0"
     react-dom: "^19.0.0"
@@ -17,3 +20,11 @@ catalogs:
     tailwindcss: "^4.2.2"
     "@tailwindcss/vite": "^4.2.2"
     lucide-react: "^0.474.0"
+    "@tanstack/react-query": "^5.0.0"
+
+  backend:
+    hono: "^4.4.13"
+    pino: "^9.3.2"
+    "@hono/zod-validator": "^0.2.2"
+    "@aws-sdk/client-s3": "^3.600.0"
+    "@aws-sdk/s3-request-presigner": "^3.600.0"

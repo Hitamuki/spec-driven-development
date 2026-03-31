@@ -1,9 +1,11 @@
 import { useState, useRef, ChangeEvent } from "react";
 import { Upload, Image as ImageIcon, X, CheckCircle2, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
+import axios from "axios";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@image-upload/ui";
 import { Button } from "@image-upload/ui";
 import { Alert, AlertDescription } from "@image-upload/ui";
+import { useGetPresignedUrl, useCompleteUpload } from "@image-upload/api";
 import { 
   MESSAGES, 
   UI_TEXT,
@@ -11,7 +13,7 @@ import {
   ALLOWED_EXTENSIONS, 
   ALLOWED_MIME_TYPES 
 } from "@/shared/config/constants";
-import { UploadedImage, StatusMessage } from "@/entities/image/types";
+import type { UploadedImage, StatusMessage } from "@/entities/image/types";
 
 interface UploadFormProps {
   uploadedCount: number;
@@ -25,6 +27,9 @@ export function UploadForm({ uploadedCount, maxCount, onUploadSuccess }: UploadF
   const [statusMessage, setStatusMessage] = useState<StatusMessage | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const presignedUrlMutation = useGetPresignedUrl();
+  const completeUploadMutation = useCompleteUpload();
 
   const isMaxUploaded = uploadedCount >= maxCount;
 
@@ -63,20 +68,44 @@ export function UploadForm({ uploadedCount, maxCount, onUploadSuccess }: UploadF
     setStatusMessage(null);
 
     try {
-      // Mock upload process
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // Step 1: 署名付きURL取得
+      const presignedResult = await presignedUrlMutation.mutateAsync({
+        data: {
+          fileName: selectedFile.name,
+          fileSize: selectedFile.size,
+          contentType: selectedFile.type,
+        },
+      });
+
+      const { uploadUrl, key } = presignedResult.data;
+
+      if (!uploadUrl || !key) {
+        throw new Error("署名付きURLの取得に失敗しました");
+      }
+
+      // Step 2: S3に直接アップロード（presigned URLを使用）
+      await axios.put(uploadUrl, selectedFile, {
+        headers: {
+          "Content-Type": selectedFile.type,
+        },
+        // baseURL を使わず絶対URLでリクエスト
+        baseURL: "",
+      });
+
+      // Step 3: バックエンドにアップロード完了を通知
+      const completeResult = await completeUploadMutation.mutateAsync({
+        data: {
+          key,
+          fileName: selectedFile.name,
+          fileSize: selectedFile.size,
+          contentType: selectedFile.type,
+        },
+      });
 
       const newImage: UploadedImage = {
-        id: Date.now(),
-        filename: selectedFile.name,
-        uploadedAt: new Date().toLocaleString("ja-JP", {
-          year: "numeric",
-          month: "2-digit",
-          day: "2-digit",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-        }),
+        id: completeResult.data.id,
+        fileName: selectedFile.name,
+        createdAt: new Date().toISOString(),
       };
 
       onUploadSuccess(newImage);
@@ -85,7 +114,22 @@ export function UploadForm({ uploadedCount, maxCount, onUploadSuccess }: UploadF
 
       clearPreview();
     } catch (error) {
-      setStatusMessage({ type: "error", text: MESSAGES["MSG-UI-C004"] });
+      console.error("アップロードエラー:", error);
+
+      if (axios.isAxiosError(error)) {
+        const status = error.response?.status;
+        if (status === 409) {
+          setStatusMessage({ type: "error", text: MESSAGES["MSG-UI-006"] });
+        } else if (status === 429) {
+          setStatusMessage({ type: "error", text: MESSAGES["MSG-UI-003"] });
+        } else if (status && status >= 500) {
+          setStatusMessage({ type: "error", text: MESSAGES["MSG-UI-C005"] });
+        } else {
+          setStatusMessage({ type: "error", text: MESSAGES["MSG-UI-C004"] });
+        }
+      } else {
+        setStatusMessage({ type: "error", text: MESSAGES["MSG-UI-C004"] });
+      }
       toast.error(UI_TEXT.UPLOAD_FORM.FAILURE_TOAST);
     } finally {
       setIsUploading(false);

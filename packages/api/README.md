@@ -1,4 +1,4 @@
-# @hitamuki/api
+# @image-upload/api
 
 API Client（Orvalによる型・Client生成）
 
@@ -36,7 +36,7 @@ pnpm generate
 ### 3. 利用方法
 
 ```typescript
-import { getPresignedUrl, completeUpload, listImages, getImage } from '@hitamuki/api';
+import { getPresignedUrl, completeUpload, listImages, getImage } from '@image-upload/api';
 
 // 署名付きURL発行
 const result = await getPresignedUrl({
