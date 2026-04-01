@@ -1,0 +1,23 @@
+# AWS Configuration
+aws_region   = "ap-northeast-1"
+environment  = "production"
+project_name = "image-upload"
+
+# Database Configuration
+db_name     = "imageupload"
+db_username = "postgres"
+db_password = "CHANGE_THIS_SECURE_PASSWORD"
+
+# CORS Configuration
+# CloudFront デプロイ後、生成されたドメインを追加してください
+allowed_origins = [
+  "http://localhost:3000",
+  "https://localhost:3000"
+]
+
+# Optional: Domain Name (if using custom domain)
+# デプロイ後にCloudFrontで生成されるドメイン名を使用
+# domain_name = "d123abc456.cloudfront.net"
+
+# Optional: Alarm Email (for notifications)
+# alarm_email = "admin@yourdomain.com"
