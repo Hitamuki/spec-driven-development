@@ -85,7 +85,7 @@ export function validateFileMagicNumber(buffer: ArrayBuffer, expectedMimeType: s
  * @returns 安全なファイル名の場合は `true`、不正な場合は `false`
  */
 export function validateFileName(fileName: string): boolean {
-  // パス traversl攻撃防止
+  // パストラバーサル攻撃防止
   if (fileName.includes('..') || fileName.includes('/') || fileName.includes('\\')) {
     return false;
   }
