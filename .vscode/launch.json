@@ -3,10 +3,10 @@
   "configurations": [
     {
       "name": "Web API 起動",
-      "type": "node",
+      "type": "bun",
       "request": "launch",
+      "runtime": "${env:HOME}/.local/share/mise/shims/bun",
       "program": "${workspaceFolder}/apps/backend/src/index.ts",
-      "runtimeExecutable": "bun",
       "runtimeArgs": [
         "--watch"
       ],
