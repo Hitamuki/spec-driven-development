@@ -2,6 +2,8 @@ import { z } from 'zod';
 
 /**
  * 環境変数のスキーマ定義
+ * 起動時にZodでバリデーションし、型安全なアクセスを保証する
+ * 必須変数が未設定の場合はプロセスが起動しない（Fail Fast）
  */
 const envSchema = z.object({
   // データベース
@@ -26,12 +28,14 @@ const envSchema = z.object({
 });
 
 /**
- * 環境変数の型安全なアクセス
+ * バリデーション済みの環境変数オブジェクト
+ * 型安全に環境変数へアクセスするために使用する
  */
 export const env = envSchema.parse(process.env);
 
 /**
- * アプリケーション設定
+ * アプリケーション設定オブジェクト
+ * env をラップし、意味のある名前でグルーピングしたアクセスポイントを提供する
  */
 export const config = {
   port: env.PORT,

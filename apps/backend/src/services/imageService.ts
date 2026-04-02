@@ -12,6 +12,11 @@ import { ImageRepository } from '@image-upload/db';
 import { S3Client, PutObjectCommand, GetObjectCommand, HeadObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
+/**
+ * 画像アップロードのユースケースを実装するサービスクラス
+ * S3との連携・Presigned URL生成・メタデータ管理など、
+ * APIレイヤーとインフラ（S3/DB）の橋渡し役を担う
+ */
 export class ImageService {
   private s3Client: S3Client;
   private bucketName: string;
@@ -29,6 +34,13 @@ export class ImageService {
 
   /**
    * api001-upload: 署名付きURL発行
+   * クライアントがS3に直接アップロードするためのPresigned URLを生成する
+   * アップロード上限チェックとファイル名検証もここで行う
+   * @async
+   * @param request - ファイル名・サイズ・Content-Typeを含むリクエスト
+   * @param traceId - トレーサビリティのためのトレースID
+   * @returns アップロード先URL（uploadUrl）とS3オブジェクトキー（key）
+   * @throws アップロード枚数が上限に達した場合、またはファイル名が不正な場合
    */
   async createPresignedUrl(request: CreatePresignedUrlRequest, traceId: string): Promise<PresignedUrlInfo> {
     // アップロード枚数上限チェック
@@ -70,6 +82,13 @@ export class ImageService {
 
   /**
    * api002-upload: アップロード完了・メタデータ登録
+   * S3へのアップロード完了後にマジックナンバー検証を行い、
+   * 正当なファイルのみDBに登録する
+   * @async
+   * @param request - S3キー・ファイル名・サイズ・Content-Typeを含むリクエスト
+   * @param traceId - トレーサビリティのためのトレースID
+   * @returns 登録した画像のIDと閲覧用URL
+   * @throws S3にファイルが存在しない場合、またはマジックナンバー検証が失敗した場合
    */
   async createImageMetadata(request: CreateImageMetadataRequest, traceId: string): Promise<{ id: string; url: string }> {
     const repository = new ImageRepository((await import('@image-upload/db')).prisma);
@@ -134,6 +153,10 @@ export class ImageService {
 
   /**
    * api003-upload: 画像一覧取得
+   * DBから全画像のメタデータを取得する
+   * @async
+   * @param traceId - トレーサビリティのためのトレースID
+   * @returns ID・ファイル名・作成日時の配列
    */
   async getImageList(traceId: string): Promise<{ id: string; fileName: string; createdAt: string }[]> {
     const repository = new ImageRepository((await import('@image-upload/db')).prisma);
@@ -148,6 +171,12 @@ export class ImageService {
 
   /**
    * api004-upload: 画像閲覧用URL取得
+   * IDで画像を検索し、有効期限付きの閲覧用Presigned URLを返す
+   * @async
+   * @param id - 取得する画像のID
+   * @param traceId - トレーサビリティのためのトレースID
+   * @returns 閲覧用URLと有効期限
+   * @throws 指定したIDの画像が存在しない場合
    */
   async getImageUrl(id: string, traceId: string): Promise<ImageUrlInfo> {
     const repository = new ImageRepository((await import('@image-upload/db')).prisma);
@@ -168,6 +197,10 @@ export class ImageService {
 
   /**
    * S3オブジェクトキーを生成する
+   * タイムスタンプとトレースIDを組み合わせて一意なキーを作る
+   * @param fileName - 元のファイル名（英数字以外はアンダースコアに変換される）
+   * @param traceId - トレーサビリティのためのトレースID
+   * @returns `images/{timestamp}/{traceId}/{sanitizedFileName}` 形式のキー
    */
   private generateS3Key(fileName: string, traceId: string): string {
     const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
@@ -177,6 +210,9 @@ export class ImageService {
 
   /**
    * 閲覧用Presigned URLを生成する
+   * @async
+   * @param s3Key - 対象のS3オブジェクトキー
+   * @returns 有効期限付きの閲覧用URL
    */
   private async generateViewUrl(s3Key: string): Promise<string> {
     const command = new GetObjectCommand({

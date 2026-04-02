@@ -3,6 +3,10 @@ import { logger } from 'hono/logger';
 import { cors } from 'hono/cors';
 import { imagesRoutes } from './routes/images';
 
+/**
+ * Honoアプリケーションインスタンス
+ * ミドルウェアとルートを登録し、Bunサーバーに渡す
+ */
 const app = new Hono();
 
 const port = Number(process.env.PORT) || 3001;
@@ -21,7 +25,10 @@ app.use('*', cors({
 // ルート設定
 app.route('/api/v1/images', imagesRoutes);
 
-// ヘルスチェック
+/**
+ * ヘルスチェックエンドポイント
+ * ロードバランサーやモニタリングツールがサーバーの稼働を確認するために使用する
+ */
 app.get('/health', (c) => {
   return c.json({ status: 'ok', timestamp: new Date().toISOString() });
 });

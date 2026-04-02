@@ -15,12 +15,24 @@ import {
 } from "@/shared/config/constants";
 import type { UploadedImage, StatusMessage } from "@/entities/image/types";
 
+/**
+ * UploadFormコンポーネントのProps
+ */
 interface UploadFormProps {
+  /** 現在のアップロード済み枚数 */
   uploadedCount: number;
+  /** アップロード可能な最大枚数 */
   maxCount: number;
+  /** アップロード成功時のコールバック */
   onUploadSuccess: (image: UploadedImage) => void;
 }
 
+/**
+ * 画像アップロードフォームコンポーネント
+ * ファイル選択・プレビュー・S3へのアップロードを一元管理する
+ * Presigned URLを使ってクライアントからS3に直接アップロードする3ステップを実行する
+ * @param props - {@link UploadFormProps}
+ */
 export function UploadForm({ uploadedCount, maxCount, onUploadSuccess }: UploadFormProps) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string>("");
@@ -33,6 +45,11 @@ export function UploadForm({ uploadedCount, maxCount, onUploadSuccess }: UploadF
 
   const isMaxUploaded = uploadedCount >= maxCount;
 
+  /**
+   * ファイル選択時のバリデーションハンドラ
+   * 拡張子・MIMEタイプ・ファイルサイズを検証してプレビューを生成する
+   * @param e - ファイル入力のChangeイベント
+   */
   const handleFileSelect = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -61,6 +78,12 @@ export function UploadForm({ uploadedCount, maxCount, onUploadSuccess }: UploadF
     setPreviewUrl(objectUrl);
   };
 
+  /**
+   * アップロード実行ハンドラ（3ステップ）
+   * 1. Presigned URL取得 → 2. S3へ直接PUT → 3. バックエンドに完了通知
+   * @async
+   * @remarks 副作用: S3へのファイルアップロード・DBへのメタデータ登録
+   */
   const handleUpload = async () => {
     if (!selectedFile) return;
 
@@ -136,6 +159,10 @@ export function UploadForm({ uploadedCount, maxCount, onUploadSuccess }: UploadF
     }
   };
 
+  /**
+   * 選択ファイルとプレビューをリセットする
+   * @remarks 副作用: fileInputのvalueをクリアする
+   */
   const clearPreview = () => {
     setSelectedFile(null);
     setPreviewUrl("");

@@ -19,10 +19,19 @@ import type {
   GetImage200
 } from '@image-upload/api';
 
+/**
+ * 画像APIのルート定義
+ * /api/v1/images 配下のエンドポイントを管理し、
+ * リクエストの入力バリデーションとエラーレスポンスのマッピングを担う
+ */
 const images = new Hono();
 const imageService = new ImageService();
 
-// api001-upload: 署名付きURL発行
+/**
+ * api001-upload: 署名付きURL発行
+ * クライアントがS3に直接アップロードするためのPresigned URLを返す
+ * アップロード枚数上限（409）やバリデーションエラー（400）を処理する
+ */
 images.post(
   '/presigned-url',
   zValidator('json', createPresignedUrlSchema),
@@ -45,7 +54,11 @@ images.post(
   }
 );
 
-// api002-upload: アップロード完了・メタデータ登録
+/**
+ * api002-upload: アップロード完了・メタデータ登録
+ * S3アップロード後にマジックナンバー検証を行い、正当な画像のみDBに登録する
+ * ファイル不正（422）やS3未存在（404）をエラーとして返す
+ */
 images.post(
   '/',
   zValidator('json', createImageMetadataSchema),
@@ -71,7 +84,10 @@ images.post(
   }
 );
 
-// api003-upload: 画像一覧取得
+/**
+ * api003-upload: 画像一覧取得
+ * DBに登録されているすべての画像のメタデータを返す
+ */
 images.get(
   '/',
   async (c) => {
@@ -89,7 +105,11 @@ images.get(
   }
 );
 
-// api004-upload: 画像閲覧用URL取得
+/**
+ * api004-upload: 画像閲覧用URL取得
+ * 指定IDの画像に対して有効期限付きPresigned URLを発行する
+ * 画像が存在しない場合は404を返す
+ */
 images.get(
   '/:id',
   async (c) => {

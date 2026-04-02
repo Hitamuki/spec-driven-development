@@ -15,6 +15,11 @@ import { ImageList } from "@/features/image-list/ui/ImageList";
 import type { UploadedImage } from "@/entities/image/types";
 import { MAX_UPLOAD_COUNT, UI_TEXT } from "@/shared/config/constants";
 
+/**
+ * 画像アップロード管理ページ
+ * UploadFormとImageListを組み合わせ、アップロード・一覧表示・プレビューを統括する
+ * React Router Loaderによる初期データの先読みとTanStack Queryのキャッシュを連携させる
+ */
 export function UploadPage() {
   const [selectedImageId, setSelectedImageId] = useState<string>("");
   const [selectedImageName, setSelectedImageName] = useState<string>("");
@@ -37,11 +42,21 @@ export function UploadPage() {
   });
   const galleryPreviewUrl = imageUrlResponse?.data?.url ?? "";
 
+  /**
+   * アップロード成功時に画像一覧を再取得する
+   * @param _newImage - アップロードされた画像（未使用、キャッシュ無効化で一覧を更新）
+   * @remarks 副作用: TanStack Queryの画像一覧キャッシュを無効化する
+   */
   const handleUploadSuccess = (_newImage: UploadedImage) => {
     // 一覧を再取得して最新状態に同期
     queryClient.invalidateQueries({ queryKey: getListImagesQueryKey() });
   };
 
+  /**
+   * 画像クリック時にプレビューエリアに表示する画像を切り替える
+   * @param id - クリックされた画像のID
+   * @param fileName - クリックされた画像のファイル名
+   */
   const handleImageClick = (id: string, fileName: string) => {
     setSelectedImageId(id);
     setSelectedImageName(fileName);

@@ -7,6 +7,7 @@ import "@/shared/lib/api";
 /**
  * グローバルQueryClientインスタンス
  * Loaderからもアクセスされるため、モジュール外で定義
+ * staleTime 30秒で不要なリフェッチを抑制する
  */
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,10 +19,19 @@ export const queryClient = new QueryClient({
   },
 });
 
+/**
+ * ProvidersコンポーネントのProps
+ */
 interface ProvidersProps {
   children: ReactNode;
 }
 
+/**
+ * アプリケーション全体のProviderをまとめるコンポーネント
+ * 現在はTanStack QueryのQueryClientProviderを提供する
+ * 将来的にProviderが増えた場合もここに追加する
+ * @param props - {@link ProvidersProps}
+ */
 export function Providers({ children }: ProvidersProps) {
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>

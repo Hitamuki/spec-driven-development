@@ -1,11 +1,14 @@
 import { PrismaClient } from '@prisma/client';
 
-// PrismaClientのシングルトンインスタンス
+/**
+ * PrismaClientのシングルトンインスタンス
+ * アプリケーション全体で共有し、DB接続数の増加を防ぐ
+ */
 export const prisma = new PrismaClient({
   log: ['query', 'info', 'warn', 'error'],
 });
 
-// グローバル例外ハンドリング
+// プロセス終了前にDB接続を安全にクローズする
 process.on('beforeExit', async () => {
   await prisma.$disconnect();
 });

@@ -1,7 +1,14 @@
+/** ファイルサイズ上限（MB単位） */
 export const MAX_FILE_SIZE_MB = 5;
+/** ファイルサイズ上限の表示用文字列 */
 export const MAX_FILE_SIZE_DISPLAY = `${MAX_FILE_SIZE_MB}MB`;
+/** アップロード可能な最大枚数 */
 export const MAX_UPLOAD_COUNT = 5;
 
+/**
+ * UIに表示するエラー・成功メッセージ定義
+ * 仕様書のメッセージIDに対応している
+ */
 export const MESSAGES = {
   "MSG-UI-001": "対応していないファイル形式です。",
   "MSG-UI-002": `ファイルサイズが上限（${MAX_FILE_SIZE_DISPLAY}）を超えています。`,
@@ -14,6 +21,10 @@ export const MESSAGES = {
   "MSG-UI-C005": "サーバーエラーが発生しました。しばらくしてから再度お試しください。",
 } as const;
 
+/**
+ * UI上に表示するラベル・テキストの定数
+ * コンポーネント内にハードコードせず一元管理する
+ */
 export const UI_TEXT = {
   UPLOAD_FORM: {
     TITLE: "画像アップロード",
@@ -37,6 +48,9 @@ export const UI_TEXT = {
   }
 } as const;
 
+/** ファイルサイズ上限（バイト単位） */
 export const MAX_FILE_SIZE = MAX_FILE_SIZE_MB * 1024 * 1024;
+/** 許可するファイル拡張子の一覧 */
 export const ALLOWED_EXTENSIONS = [".jpg", ".jpeg", ".png", ".gif", ".webp"];
+/** 許可するMIMEタイプの一覧 */
 export const ALLOWED_MIME_TYPES = ["image/jpeg", "image/png", "image/gif", "image/webp"];

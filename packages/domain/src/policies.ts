@@ -2,7 +2,7 @@
  * セキュリティポリシーとバリデーションルール
  */
 
-// 許可されるMIMEタイプとマジックナンバー
+/** 許可されるMIMEタイプとマジックナンバー・拡張子のマッピング */
 export const ALLOWED_MIME_TYPES = {
   'image/jpeg': {
     magicNumbers: [0xFF, 0xD8, 0xFF],
@@ -22,19 +22,19 @@ export const ALLOWED_MIME_TYPES = {
   },
 } as const;
 
-// ファイルサイズ制限（バイト単位）
+/** ファイルサイズ制限（バイト単位） */
 export const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
-// アップロード枚数制限
+/** アップロード枚数制限 */
 export const MAX_UPLOAD_COUNT = 5;
 
-// Presigned URLの有効期限（秒単位）
+/** Presigned URLの有効期限（秒単位） */
 export const PRESIGNED_URL_EXPIRY = {
   upload: 5 * 60, // 5分
   view: 60 * 60, // 1時間
 } as const;
 
-// レート制限
+/** レート制限（リクエスト数の上限） */
 export const RATE_LIMITS = {
   perMinute: 10, // 1分あたりのリクエスト数
   perHour: 100,  // 1時間あたりのリクエスト数
@@ -42,6 +42,10 @@ export const RATE_LIMITS = {
 
 /**
  * マジックナンバーによるファイル形式検証
+ * Content-Typeと実際のバイナリ内容が一致するかチェックし、偽装アップロードを防ぐ
+ * @param buffer - 検証対象のファイルバイナリ（先頭数バイトで十分）
+ * @param expectedMimeType - 期待するMIMEタイプ
+ * @returns 形式が一致する場合は `true`、不正な場合は `false`
  */
 export function validateFileMagicNumber(buffer: ArrayBuffer, expectedMimeType: string): boolean {
   const bytes = new Uint8Array(buffer);
@@ -76,6 +80,9 @@ export function validateFileMagicNumber(buffer: ArrayBuffer, expectedMimeType: s
 
 /**
  * ファイル名の安全性検証
+ * パストラバーサル攻撃・特殊文字・過長ファイル名を拒否する
+ * @param fileName - 検証対象のファイル名
+ * @returns 安全なファイル名の場合は `true`、不正な場合は `false`
  */
 export function validateFileName(fileName: string): boolean {
   // パス traversl攻撃防止
@@ -99,6 +106,10 @@ export function validateFileName(fileName: string): boolean {
 
 /**
  * Content-Typeと拡張子の整合性チェック
+ * MIMEタイプに対応しない拡張子のファイルを拒否する
+ * @param fileName - 検証対象のファイル名（拡張子含む）
+ * @param contentType - 宣言されたMIMEタイプ
+ * @returns 整合性がある場合は `true`、不整合の場合は `false`
  */
 export function validateContentTypeExtension(fileName: string, contentType: string): boolean {
   const extension = fileName.toLowerCase().substring(fileName.lastIndexOf('.'));
