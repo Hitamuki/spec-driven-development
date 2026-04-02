@@ -8,7 +8,7 @@ catalogs:
     "@biomejs/biome": "^1.8.3"
     typescript: "^5.5.3"
     turbo: "latest"
-    vitest: "^2.0.4"
+    vitest: "^4.1.2"
     zod: "^3.23.8"
     biome: "^1.8.3"
 

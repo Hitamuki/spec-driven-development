@@ -12,22 +12,34 @@ const mockGetSignedUrl = vi.hoisted(() => vi.fn());
 
 vi.mock('@image-upload/db', () => ({
   prisma: {},
-  ImageRepository: vi.fn().mockImplementation(() => mockRepository),
+  ImageRepository: vi.fn(function MockImageRepository() {
+    return mockRepository;
+  }),
 }));
 
 vi.mock('@aws-sdk/client-s3', () => ({
-  S3Client: vi.fn().mockImplementation(() => ({ send: mockSend })),
-  PutObjectCommand: vi.fn().mockImplementation((args) => args),
-  GetObjectCommand: vi.fn().mockImplementation((args) => args),
-  HeadObjectCommand: vi.fn().mockImplementation((args) => args),
-  DeleteObjectCommand: vi.fn().mockImplementation((args) => args),
+  S3Client: vi.fn(function MockS3Client() {
+    return { send: mockSend };
+  }),
+  PutObjectCommand: vi.fn(function MockPutObjectCommand(args) {
+    return args;
+  }),
+  GetObjectCommand: vi.fn(function MockGetObjectCommand(args) {
+    return args;
+  }),
+  HeadObjectCommand: vi.fn(function MockHeadObjectCommand(args) {
+    return args;
+  }),
+  DeleteObjectCommand: vi.fn(function MockDeleteObjectCommand(args) {
+    return args;
+  }),
 }));
 
 vi.mock('@aws-sdk/s3-request-presigner', () => ({
   getSignedUrl: mockGetSignedUrl,
 }));
 
-import { ImageService } from '../../src/services/imageService';
+import { ImageService } from './imageService';
 
 const createMockS3Body = (bytes: number[]) => ({
   [Symbol.asyncIterator]: async function* () {
@@ -47,20 +59,32 @@ describe('ImageService', () => {
   // api001-upload: 署名付きURL発行
   describe('createPresignedUrl', () => {
     it('正常系: 署名付きURLとキーを返す', async () => {
+      // Arrange
       mockRepository.count.mockResolvedValue(0);
+
+      // Act
 
       const result = await service.createPresignedUrl(
         { fileName: 'test.jpg', fileSize: 1024, contentType: 'image/jpeg' },
         'trace-id-001',
       );
+      // Assert
+
 
       expect(result).toHaveProperty('uploadUrl', 'https://s3.amazonaws.com/bucket/key?signed');
+      // Assert
+
       expect(result).toHaveProperty('key');
+      // Assert
+
       expect(result.key).toContain('test.jpg');
     });
 
     it('アップロード上限エラー: 枚数が上限（5枚）に達している場合エラーをスローする', async () => {
+      // Arrange
       mockRepository.count.mockResolvedValue(5);
+
+      // Act
 
       await expect(
         service.createPresignedUrl(
@@ -71,7 +95,10 @@ describe('ImageService', () => {
     });
 
     it('ファイル名エラー: パストラバーサル文字を含む場合エラーをスローする', async () => {
+      // Arrange
       mockRepository.count.mockResolvedValue(0);
+
+      // Act
 
       await expect(
         service.createPresignedUrl(
@@ -82,7 +109,10 @@ describe('ImageService', () => {
     });
 
     it('ファイル名エラー: スラッシュを含む場合エラーをスローする', async () => {
+      // Arrange
       mockRepository.count.mockResolvedValue(0);
+
+      // Act
 
       await expect(
         service.createPresignedUrl(
@@ -96,6 +126,7 @@ describe('ImageService', () => {
   // api002-upload: アップロード完了・メタデータ登録
   describe('createImageMetadata', () => {
     it('正常系: メタデータを保存して画像IDとURLを返す', async () => {
+      // Arrange
       const jpegMagicBytes = [0xff, 0xd8, 0xff, 0xe0, 0x00, 0x10];
       mockSend
         .mockResolvedValueOnce({}) // HeadObjectCommand
@@ -112,6 +143,8 @@ describe('ImageService', () => {
         updatedAt: new Date(),
       });
 
+      // Act
+
       const result = await service.createImageMetadata(
         {
           key: 'images/test.jpg',
@@ -121,14 +154,23 @@ describe('ImageService', () => {
         },
         'trace-id-001',
       );
+      // Assert
+
 
       expect(result).toHaveProperty('id', 'image-id-001');
+      // Assert
+
       expect(result).toHaveProperty('url');
+      // Assert
+
       expect(mockRepository.create).toHaveBeenCalledOnce();
     });
 
     it('S3ファイル未存在エラー: HeadObjectが失敗した場合エラーをスローする', async () => {
+      // Arrange
       mockSend.mockRejectedValueOnce(new Error('NoSuchKey'));
+
+      // Act
 
       await expect(
         service.createImageMetadata(
@@ -144,11 +186,14 @@ describe('ImageService', () => {
     });
 
     it('マジックナンバーエラー: 不正なバイト列の場合エラーをスローしS3から削除する', async () => {
+      // Arrange
       const invalidBytes = [0x00, 0x00, 0x00, 0x00];
       mockSend
         .mockResolvedValueOnce({}) // HeadObjectCommand
         .mockResolvedValueOnce({ Body: createMockS3Body(invalidBytes) }) // GetObjectCommand
         .mockResolvedValueOnce({}); // DeleteObjectCommand
+
+      // Act
 
       await expect(
         service.createImageMetadata(
@@ -163,10 +208,13 @@ describe('ImageService', () => {
       ).rejects.toThrow('ファイル形式が不正です');
 
       // 不正なファイルがS3から削除されることを確認
+      // Assert
+
       expect(mockSend).toHaveBeenCalledTimes(3);
     });
 
     it('正常系: PNGマジックバイトで検証が通る', async () => {
+      // Arrange
       const pngMagicBytes = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
       mockSend
         .mockResolvedValueOnce({}) // HeadObjectCommand
@@ -183,6 +231,8 @@ describe('ImageService', () => {
         updatedAt: new Date(),
       });
 
+      // Act
+
       const result = await service.createImageMetadata(
         {
           key: 'images/test.png',
@@ -192,6 +242,8 @@ describe('ImageService', () => {
         },
         'trace-id-001',
       );
+      // Assert
+
 
       expect(result).toHaveProperty('id', 'image-id-002');
     });
@@ -200,6 +252,7 @@ describe('ImageService', () => {
   // api003-upload: 画像一覧取得
   describe('getImageList', () => {
     it('正常系: 画像一覧をISO文字列のcreatedAt付きで返す', async () => {
+      // Arrange
       const now = new Date('2024-01-15T10:00:00.000Z');
       mockRepository.findAll.mockResolvedValue([
         {
@@ -224,14 +277,22 @@ describe('ImageService', () => {
         },
       ]);
 
+      // Act
+
       const result = await service.getImageList('trace-id-001');
+      // Assert
+
 
       expect(result).toHaveLength(2);
+      // Assert
+
       expect(result[0]).toEqual({
         id: 'image-1',
         fileName: 'test1.jpg',
         createdAt: now.toISOString(),
       });
+      // Assert
+
       expect(result[1]).toEqual({
         id: 'image-2',
         fileName: 'test2.png',
@@ -240,9 +301,14 @@ describe('ImageService', () => {
     });
 
     it('正常系: 画像がない場合空配列を返す', async () => {
+      // Arrange
       mockRepository.findAll.mockResolvedValue([]);
 
+      // Act
+
       const result = await service.getImageList('trace-id-001');
+      // Assert
+
 
       expect(result).toHaveLength(0);
     });
@@ -251,6 +317,7 @@ describe('ImageService', () => {
   // api004-upload: 画像閲覧用URL取得
   describe('getImageUrl', () => {
     it('正常系: 閲覧用URLと有効期限を返す', async () => {
+      // Arrange
       const now = new Date();
       mockRepository.findById.mockResolvedValue({
         id: 'image-id-001',
@@ -263,15 +330,26 @@ describe('ImageService', () => {
         updatedAt: now,
       });
 
+      // Act
+
       const result = await service.getImageUrl('image-id-001', 'trace-id-001');
+      // Assert
+
 
       expect(result).toHaveProperty('url', 'https://s3.amazonaws.com/bucket/key?signed');
+      // Assert
+
       expect(result).toHaveProperty('expiresAt');
+      // Assert
+
       expect(result.expiresAt).toBeInstanceOf(Date);
     });
 
     it('404エラー: 画像が存在しない場合エラーをスローする', async () => {
+      // Arrange
       mockRepository.findById.mockResolvedValue(null);
+
+      // Act
 
       await expect(
         service.getImageUrl('non-existent-id', 'trace-id-001'),

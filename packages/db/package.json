@@ -8,7 +8,7 @@
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
-    "test": "vitest",
+    "test": "vitest --passWithNoTests",
     "test:watch": "vitest --watch",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
