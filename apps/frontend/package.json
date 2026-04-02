@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "biome lint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:watch": "vitest --watch"
   },
   "dependencies": {
     "@image-upload/api": "workspace:*",
@@ -24,12 +26,17 @@
     "zod": "catalog:default"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
     "@types/react": "catalog:frontend",
     "@types/react-dom": "catalog:frontend",
     "@vitejs/plugin-react": "^6.0.1",
     "autoprefixer": "^10.4.0",
+    "jsdom": "^25.0.0",
     "postcss": "^8.4.0",
     "typescript": "catalog:default",
-    "vite": "^8.0.1"
+    "vite": "^8.0.1",
+    "vitest": "catalog:default"
   }
 }
