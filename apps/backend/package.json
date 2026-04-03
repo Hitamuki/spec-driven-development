@@ -12,7 +12,7 @@
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "type-check": "tsc --noEmit",
-    "doc": "typedoc --entryPoints src/index.ts --out docs --skipErrorChecking"
+    "doc": "typedoc --entryPoints src/index.ts --entryPoints src/routes/images.ts --entryPoints src/services/imageService.ts --out docs --skipErrorChecking"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "catalog:backend",

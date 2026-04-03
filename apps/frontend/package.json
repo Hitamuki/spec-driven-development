@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:watch": "vitest --watch",
-    "doc": "typedoc --entryPoints src/main.tsx --out docs --skipErrorChecking"
+    "doc": "typedoc --entryPoints src/main.tsx --entryPoints src/pages/upload-page.tsx --entryPoints src/features/image-list --entryPoints src/features/upload-image --out docs --skipErrorChecking"
   },
   "dependencies": {
     "@image-upload/api": "workspace:*",
