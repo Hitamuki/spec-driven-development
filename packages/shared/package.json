@@ -8,7 +8,8 @@
     "test:watch": "vitest --watch",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "doc": "typedoc --entryPoints src/index.ts --out docs --skipErrorChecking"
   },
   "dependencies": {
     "pino": "catalog:backend",
@@ -17,6 +18,7 @@
   "devDependencies": {
     "@biomejs/biome": "catalog:default",
     "@types/node": "catalog:default",
+    "typedoc": "catalog:default",
     "typescript": "catalog:default",
     "vitest": "catalog:default"
   }

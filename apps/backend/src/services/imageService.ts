@@ -36,7 +36,6 @@ export class ImageService {
    * api001-upload: 署名付きURL発行
    * クライアントがS3に直接アップロードするためのPresigned URLを生成する
    * アップロード上限チェックとファイル名検証もここで行う
-   * @async
    * @param request - ファイル名・サイズ・Content-Typeを含むリクエスト
    * @param traceId - トレーサビリティのためのトレースID
    * @returns アップロード先URL（uploadUrl）とS3オブジェクトキー（key）
@@ -84,7 +83,6 @@ export class ImageService {
    * api002-upload: アップロード完了・メタデータ登録
    * S3へのアップロード完了後にマジックナンバー検証を行い、
    * 正当なファイルのみDBに登録する
-   * @async
    * @param request - S3キー・ファイル名・サイズ・Content-Typeを含むリクエスト
    * @param traceId - トレーサビリティのためのトレースID
    * @returns 登録した画像のIDと閲覧用URL
@@ -154,7 +152,6 @@ export class ImageService {
   /**
    * api003-upload: 画像一覧取得
    * DBから全画像のメタデータを取得する
-   * @async
    * @param traceId - トレーサビリティのためのトレースID
    * @returns ID・ファイル名・作成日時の配列
    */
@@ -172,7 +169,6 @@ export class ImageService {
   /**
    * api004-upload: 画像閲覧用URL取得
    * IDで画像を検索し、有効期限付きの閲覧用Presigned URLを返す
-   * @async
    * @param id - 取得する画像のID
    * @param traceId - トレーサビリティのためのトレースID
    * @returns 閲覧用URLと有効期限
@@ -210,7 +206,6 @@ export class ImageService {
 
   /**
    * 閲覧用Presigned URLを生成する
-   * @async
    * @param s3Key - 対象のS3オブジェクトキー
    * @returns 有効期限付きの閲覧用URL
    */

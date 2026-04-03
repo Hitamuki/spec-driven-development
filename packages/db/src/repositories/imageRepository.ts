@@ -10,7 +10,6 @@ export class ImageRepository {
 
   /**
    * 画像メタデータをDBに保存する
-   * @async
    * @param data - 保存する画像メタデータ
    * @returns 保存後の画像エンティティ（ID・日時含む）
    */
@@ -28,7 +27,6 @@ export class ImageRepository {
 
   /**
    * すべての画像を新しい順で取得する
-   * @async
    * @returns 画像エンティティの配列（createdAt降順）
    */
   async findAll(): Promise<Image[]> {
@@ -41,7 +39,6 @@ export class ImageRepository {
 
   /**
    * IDで画像を取得する
-   * @async
    * @param id - 検索対象の画像ID
    * @returns 画像エンティティ、存在しない場合は `null`
    */
@@ -53,7 +50,6 @@ export class ImageRepository {
 
   /**
    * S3キーで画像を取得する
-   * @async
    * @param s3Key - 検索対象のS3オブジェクトキー
    * @returns 画像エンティティ、存在しない場合は `null`
    */
@@ -66,7 +62,6 @@ export class ImageRepository {
   /**
    * DBに保存された画像の総数を取得する
    * アップロード上限チェックに使用する
-   * @async
    * @returns 画像の総件数
    */
   async count(): Promise<number> {
@@ -75,7 +70,6 @@ export class ImageRepository {
 
   /**
    * IDで画像を削除する
-   * @async
    * @param id - 削除対象の画像ID
    */
   async delete(id: string): Promise<void> {

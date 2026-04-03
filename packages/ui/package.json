@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "ui:add": "pnpm dlx shadcn@latest add"
+    "ui:add": "pnpm dlx shadcn@latest add",
+    "doc": "typedoc --entryPoints src/index.ts --out docs --skipErrorChecking"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.0.2",
@@ -26,6 +27,7 @@
     "react": "catalog:frontend",
     "react-dom": "catalog:frontend",
     "tailwindcss": "catalog:frontend",
+    "typedoc": "catalog:default",
     "typescript": "catalog:default"
   },
   "peerDependencies": {

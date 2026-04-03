@@ -81,7 +81,6 @@ export function UploadForm({ uploadedCount, maxCount, onUploadSuccess }: UploadF
   /**
    * アップロード実行ハンドラ（3ステップ）
    * 1. Presigned URL取得 → 2. S3へ直接PUT → 3. バックエンドに完了通知
-   * @async
    * @remarks 副作用: S3へのファイルアップロード・DBへのメタデータ登録
    */
   const handleUpload = async () => {
