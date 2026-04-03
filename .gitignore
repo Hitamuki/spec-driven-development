@@ -219,4 +219,7 @@ specs/hugo/.hugo_build.lock
 # Turborepo task cache
 .turbo
 
+# TypeDoc generated documentation
+**/docs/
+
 # End of https://www.toptal.com/developers/gitignore/api/turbo

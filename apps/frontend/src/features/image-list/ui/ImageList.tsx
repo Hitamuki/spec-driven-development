@@ -3,14 +3,28 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@imag
 import type { UploadedImage } from "@/entities/image/types";
 import { UI_TEXT } from "@/shared/config/constants";
 
+/**
+ * 画像一覧コンポーネントのProps
+ */
 interface ImageListProps {
+  /** 表示する画像リスト */
   images: UploadedImage[];
+  /** アップロード可能な最大枚数（タイトルに表示） */
   maxCount: number;
+  /** 現在選択中の画像ID（ハイライト表示に使用） */
   selectedImageId: string;
+  /** 画像クリック時のコールバック */
   onImageClick: (id: string, fileName: string) => void;
+  /** 読み込み中フラグ（trueの場合スピナーを表示） */
   isLoading?: boolean;
 }
 
+/**
+ * アップロード済み画像の一覧を表示するコンポーネント
+ * 各画像をクリックするとプレビューエリアに反映される
+ * ローディング状態・空状態・一覧表示の3つのUIを切り替える
+ * @param props - {@link ImageListProps}
+ */
 export function ImageList({ images, maxCount, selectedImageId, onImageClick, isLoading }: ImageListProps) {
   return (
     <Card>

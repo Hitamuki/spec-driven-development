@@ -7,7 +7,8 @@
     "generate": "orval",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "doc": "typedoc --entryPoints src/index.ts --out docs --skipErrorChecking"
   },
   "dependencies": {
     "@tanstack/react-query": "catalog:frontend",
@@ -21,6 +22,7 @@
     "@biomejs/biome": "catalog:default",
     "@types/node": "catalog:default",
     "orval": "^7.4.0",
+    "typedoc": "catalog:default",
     "typescript": "catalog:default"
   }
 }

@@ -11,7 +11,10 @@ import {
 
 /**
  * UploadPageのLoader
- * 画像一覧を先読み取得
+ * 画像一覧を先読み取得してTanStack Queryのキャッシュに乗せる
+ * キャッシュがある場合はAPIリクエストをスキップする
+ * @param _args - React RouterのLoaderFunctionArgs（未使用）
+ * @returns 画像一覧データ、またはキャッシュ済みデータ
  */
 export async function uploadPageLoader(_args: LoaderFunctionArgs) {
   const queryKey = getListImagesQueryKey();
@@ -38,7 +41,10 @@ export async function uploadPageLoader(_args: LoaderFunctionArgs) {
 
 /**
  * 画像のプレビューLoader
- * 特定の画像の閲覧用URLを取得
+ * 特定の画像の閲覧用URLをTanStack Queryキャッシュ経由で取得する
+ * @param params - `id` を含むルートパラメータ
+ * @returns 画像の閲覧用URLデータ
+ * @throws 画像IDが指定されていない場合（400）または画像が見つからない場合（404）
  */
 export async function getImageLoader({ params }: LoaderFunctionArgs) {
   const id = params.id;
@@ -62,7 +68,7 @@ export async function getImageLoader({ params }: LoaderFunctionArgs) {
 
 /**
  * Data Router のルート定義
- * createBrowserRouter で使用
+ * createBrowserRouter で使用するルートオブジェクトの配列
  */
 export const routes: RouteObject[] = [
   {

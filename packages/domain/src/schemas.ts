@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 /**
  * 画像アップロードに関するスキーマ定義
+ * Zodスキーマはバリデーションと型生成を兼ねる（Single Source of Truth）
  */
 
 // api001-upload: 署名付きURL発行リクエスト
@@ -46,10 +47,15 @@ export const getImageUrlResponse = z.object({
   expiresAt: z.string(),
 });
 
-// 型エクスポート
+/** api001-upload: 署名付きURL発行リクエストの型 */
 export type CreatePresignedUrlRequest = z.infer<typeof createPresignedUrlSchema>;
+/** api002-upload: メタデータ登録リクエストの型 */
 export type CreateImageMetadataRequest = z.infer<typeof createImageMetadataSchema>;
+/** api001-upload: 署名付きURL発行レスポンスの型 */
 export type CreatePresignedUrlResponse = z.infer<typeof createPresignedUrlResponse>;
+/** api002-upload: メタデータ登録レスポンスの型 */
 export type CreateImageMetadataResponse = z.infer<typeof createImageMetadataResponse>;
+/** api003-upload: 画像一覧取得レスポンスの型 */
 export type GetImageListResponse = z.infer<typeof getImageListResponse>;
+/** api004-upload: 画像閲覧用URL取得レスポンスの型 */
 export type GetImageUrlResponse = z.infer<typeof getImageUrlResponse>;
