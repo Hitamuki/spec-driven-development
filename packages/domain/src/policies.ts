@@ -119,5 +119,5 @@ export function validateContentTypeExtension(fileName: string, contentType: stri
     return false;
   }
   
-  return (allowedExtensions as readonly string[]).includes(extension);
+  return allowedExtensions.some((ext) => ext === extension);
 }
