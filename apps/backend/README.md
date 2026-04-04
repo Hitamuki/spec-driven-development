@@ -69,21 +69,23 @@ curl http://localhost:3001/health
 
 ### 必須項目
 
-| 変数名 | 説明 | 例 |
-|:---|:---|:---|
-| `DATABASE_URL` | PostgreSQL接続文字列 | `postgresql://user:password@localhost:5434/image_upload` |
-| `AWS_ACCESS_KEY_ID` | AWSアクセスキー | `AKIA...` |
-| `AWS_SECRET_ACCESS_KEY` | AWSシークレットキー | `...` |
-| `S3_BUCKET_NAME` | S3バケット名 | `my-image-bucket` |
+| 変数名                  | 説明                 | 例                                                       |
+| :---------------------- | :------------------- | :------------------------------------------------------- |
+| `DATABASE_URL`          | PostgreSQL接続文字列 | `postgresql://user:password@localhost:5434/image_upload` |
+| `AWS_ACCESS_KEY_ID`     | AWSアクセスキー      | `AKIA...`                                                |
+| `AWS_SECRET_ACCESS_KEY` | AWSシークレットキー  | `...`                                                    |
+| `S3_BUCKET_NAME`        | S3バケット名         | `my-image-bucket`                                        |
 
 ### オプション項目
 
-| 変数名 | 説明 | デフォルト値 |
-|:---|:---|:---|
-| `PORT` | サーバーポート | `3001` |
-| `NODE_ENV` | 実行環境 | `development` |
-| `AWS_REGION` | AWSリージョン | `us-east-1` |
-| `LOG_LEVEL` | ログレベル | `info` |
+| 変数名               | 説明                                    | デフォルト値     |
+| :------------------- | :-------------------------------------- | :--------------- |
+| `PORT`               | サーバーポート                          | `3001`           |
+| `NODE_ENV`           | 実行環境                                | `development`    |
+| `AWS_REGION`         | AWSリージョン                           | `ap-northeast-1` |
+| `S3_PRESIGN_MODE`    | Presigned URL生成モード（`aws`/`mock`） | `aws`            |
+| `S3_VALIDATION_MODE` | S3検証モード（`strict`/`skip`）         | `strict`         |
+| `LOG_LEVEL`          | ログレベル                              | `info`           |
 
 ## 🧪 開発
 

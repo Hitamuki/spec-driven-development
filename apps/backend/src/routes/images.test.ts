@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { Hono } from 'hono';
+import { idempotencyStore } from '../services/idempotencyStore';
 
 const mocks = vi.hoisted(() => ({
   createPresignedUrl: vi.fn(),
@@ -21,6 +22,7 @@ describe('imagesRoutes', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
+    idempotencyStore.clear();
     app = new Hono();
     app.route('/api/v1/images', imagesRoutes);
   });
@@ -95,7 +97,7 @@ describe('imagesRoutes', () => {
     it('アップロード上限エラー: 上限に達したとき409を返す', async () => {
       // Arrange
       mocks.createPresignedUrl.mockRejectedValue(
-        new Error('アップロード枚数の上限（5枚）に達しています'),
+        new Error('アップロード可能な枚数の上限（5枚）に達しています'),
       );
 
       // Act
@@ -234,6 +236,83 @@ describe('imagesRoutes', () => {
 
       expect(res.status).toBe(422);
     });
+
+    it('冪等性: 同一X-Request-IDの再送時は同じレスポンスを返し、サービスは1回だけ呼ばれる', async () => {
+      // Arrange
+      mocks.createImageMetadata.mockResolvedValue({
+        id: 'test-image-id',
+        url: 'https://s3.amazonaws.com/test-bucket/images/test.jpg?signed',
+      });
+
+      const body = JSON.stringify({
+        key: 'images/test.jpg',
+        fileName: 'test.jpg',
+        fileSize: 1024,
+        contentType: 'image/jpeg',
+      });
+      const headers = {
+        'Content-Type': 'application/json',
+        'X-Request-ID': 'request-id-001',
+      };
+
+      // Act
+      const first = await app.request('/api/v1/images', {
+        method: 'POST',
+        headers,
+        body,
+      });
+      const second = await app.request('/api/v1/images', {
+        method: 'POST',
+        headers,
+        body,
+      });
+
+      // Assert
+      expect(first.status).toBe(201);
+      expect(second.status).toBe(201);
+      expect(await first.json()).toEqual(await second.json());
+      expect(mocks.createImageMetadata).toHaveBeenCalledTimes(1);
+    });
+
+    it('冪等性: 同一X-Request-IDで異なるボディの場合は409を返す', async () => {
+      // Arrange
+      mocks.createImageMetadata.mockResolvedValue({
+        id: 'test-image-id',
+        url: 'https://s3.amazonaws.com/test-bucket/images/test.jpg?signed',
+      });
+
+      const headers = {
+        'Content-Type': 'application/json',
+        'X-Request-ID': 'request-id-002',
+      };
+
+      // Act
+      const first = await app.request('/api/v1/images', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          key: 'images/test-a.jpg',
+          fileName: 'test-a.jpg',
+          fileSize: 1024,
+          contentType: 'image/jpeg',
+        }),
+      });
+      const second = await app.request('/api/v1/images', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({
+          key: 'images/test-b.jpg',
+          fileName: 'test-b.jpg',
+          fileSize: 1024,
+          contentType: 'image/jpeg',
+        }),
+      });
+
+      // Assert
+      expect(first.status).toBe(201);
+      expect(second.status).toBe(409);
+      expect(mocks.createImageMetadata).toHaveBeenCalledTimes(1);
+    });
   });
 
   // api003-upload: 画像一覧取得
@@ -320,7 +399,9 @@ describe('imagesRoutes', () => {
 
     it('404: 画像が存在しないとき404を返す', async () => {
       // Arrange
-      mocks.getImageUrl.mockRejectedValue(new Error('画像が存在しません'));
+      mocks.getImageUrl.mockRejectedValue(
+        new Error('指定された画像が存在しません（id: non-existent-id）'),
+      );
 
       // Act
 

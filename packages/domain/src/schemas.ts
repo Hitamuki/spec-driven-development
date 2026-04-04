@@ -1,4 +1,11 @@
 import { z } from 'zod';
+import { API_MESSAGES, API_MESSAGE_CODES, DOMAIN_VALIDATION_MESSAGES } from './messages';
+import {
+  ALLOWED_CONTENT_TYPES,
+  ALLOWED_CONTENT_TYPES_DISPLAY,
+  MAX_FILE_SIZE,
+  MAX_FILE_SIZE_DISPLAY,
+} from './policies';
 
 /**
  * 画像アップロードに関するスキーマ定義
@@ -7,19 +14,27 @@ import { z } from 'zod';
 
 // api001-upload: 署名付きURL発行リクエスト
 export const createPresignedUrlSchema = z.object({
-  fileName: z.string().min(1, 'ファイル名は必須です'),
-  fileSize: z.number().min(1, 'ファイルサイズは必須です').max(5 * 1024 * 1024, 'ファイルサイズは5MB以下である必要があります'),
-  contentType: z.enum(['image/jpeg', 'image/png', 'image/gif', 'image/webp'], {
-    errorMap: () => ({ message: '対応していないファイル形式です' })
+  fileName: z.string().min(1, DOMAIN_VALIDATION_MESSAGES.FILE_NAME_REQUIRED),
+  fileSize: z.number()
+    .min(1, DOMAIN_VALIDATION_MESSAGES.FILE_SIZE_REQUIRED)
+    .max(MAX_FILE_SIZE, API_MESSAGES[API_MESSAGE_CODES.INVALID_FILE_SIZE](MAX_FILE_SIZE_DISPLAY)),
+  contentType: z.enum(ALLOWED_CONTENT_TYPES, {
+    errorMap: () => ({
+      message: API_MESSAGES[API_MESSAGE_CODES.INVALID_CONTENT_TYPE](ALLOWED_CONTENT_TYPES_DISPLAY)
+    })
   }),
 });
 
 // api002-upload: アップロード完了・メタデータ登録リクエスト
 export const createImageMetadataSchema = z.object({
-  key: z.string().min(1, 'S3オブジェクトキーは必須です'),
-  fileName: z.string().min(1, 'ファイル名は必須です'),
-  fileSize: z.number().min(1, 'ファイルサイズは必須です'),
-  contentType: z.enum(['image/jpeg', 'image/png', 'image/gif', 'image/webp']),
+  key: z.string().min(1, DOMAIN_VALIDATION_MESSAGES.S3_KEY_REQUIRED),
+  fileName: z.string().min(1, DOMAIN_VALIDATION_MESSAGES.FILE_NAME_REQUIRED),
+  fileSize: z.number().min(1, DOMAIN_VALIDATION_MESSAGES.FILE_SIZE_REQUIRED),
+  contentType: z.enum(ALLOWED_CONTENT_TYPES, {
+    errorMap: () => ({
+      message: API_MESSAGES[API_MESSAGE_CODES.INVALID_CONTENT_TYPE](ALLOWED_CONTENT_TYPES_DISPLAY)
+    })
+  }),
 });
 
 // api001-upload: 署名付きURL発行レスポンス

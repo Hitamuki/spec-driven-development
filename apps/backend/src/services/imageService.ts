@@ -6,11 +6,33 @@ import {
   MAX_UPLOAD_COUNT,
   PRESIGNED_URL_EXPIRY,
   validateFileMagicNumber,
-  validateFileName
+  validateFileName,
+  API_MESSAGES,
+  API_MESSAGE_CODES,
+  DOMAIN_ERROR_MESSAGES,
+  S3_VALIDATION_MODES,
+  S3_PRESIGN_MODES,
+  S3ValidationMode,
+  S3PresignMode,
 } from '@image-upload/domain';
 import { ImageRepository } from '@image-upload/db';
 import { S3Client, PutObjectCommand, GetObjectCommand, HeadObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
+
+const getEnv = (key: string): string | undefined => {
+  const runtime = globalThis as typeof globalThis & {
+    process?: { env?: Record<string, string | undefined> };
+  };
+  return runtime.process?.env?.[key];
+};
+
+const requireEnv = (key: string): string => {
+  const value = getEnv(key);
+  if (!value) {
+    throw new Error(`${key} is required`);
+  }
+  return value;
+};
 
 /**
  * 画像アップロードのユースケースを実装するサービスクラス
@@ -20,16 +42,26 @@ import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 export class ImageService {
   private s3Client: S3Client;
   private bucketName: string;
+  private s3ValidationMode: S3ValidationMode;
+  private s3PresignMode: S3PresignMode;
 
   constructor() {
+    const awsRegion = requireEnv('AWS_REGION');
+
     this.s3Client = new S3Client({
-      region: process.env.AWS_REGION || 'us-east-1',
+      region: awsRegion,
       credentials: {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID || '',
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || '',
+        accessKeyId: getEnv('AWS_ACCESS_KEY_ID') || '',
+        secretAccessKey: getEnv('AWS_SECRET_ACCESS_KEY') || '',
       },
     });
-    this.bucketName = process.env.S3_BUCKET_NAME || 'image-upload-bucket';
+    this.bucketName = getEnv('S3_BUCKET_NAME') || 'image-upload-bucket';
+    this.s3ValidationMode = getEnv('S3_VALIDATION_MODE') === S3_VALIDATION_MODES.skip
+      ? S3_VALIDATION_MODES.skip
+      : S3_VALIDATION_MODES.strict;
+    this.s3PresignMode = getEnv('S3_PRESIGN_MODE') === S3_PRESIGN_MODES.mock
+      ? S3_PRESIGN_MODES.mock
+      : S3_PRESIGN_MODES.aws;
   }
 
   /**
@@ -47,16 +79,23 @@ export class ImageService {
     const currentCount = await repository.count();
 
     if (currentCount >= MAX_UPLOAD_COUNT) {
-      throw new Error(`アップロード枚数の上限（${MAX_UPLOAD_COUNT}枚）に達しています`);
+      throw new Error(API_MESSAGES[API_MESSAGE_CODES.UPLOAD_LIMIT_EXCEEDED](MAX_UPLOAD_COUNT));
     }
 
     // ファイル名の安全性検証
     if (!validateFileName(request.fileName)) {
-      throw new Error('ファイル名が不正です');
+      throw new Error(DOMAIN_ERROR_MESSAGES.INVALID_FILE_NAME);
     }
 
     // S3オブジェクトキーの生成
     const key = this.generateS3Key(request.fileName, traceId);
+
+    if (this.s3PresignMode === S3_PRESIGN_MODES.mock) {
+      return {
+        uploadUrl: `http://localhost:4566/mock-upload/${encodeURIComponent(key)}`,
+        key,
+      };
+    }
 
     // Presigned URLの生成
     const command = new PutObjectCommand({
@@ -91,44 +130,52 @@ export class ImageService {
   async createImageMetadata(request: CreateImageMetadataRequest, traceId: string): Promise<{ id: string; url: string }> {
     const repository = new ImageRepository((await import('@image-upload/db')).prisma);
 
-    // S3ファイルの存在確認
-    const headCommand = new HeadObjectCommand({
-      Bucket: this.bucketName,
-      Key: request.key,
-    });
-
-    try {
-      await this.s3Client.send(headCommand);
-    } catch (error) {
-      throw new Error('S3上にファイルが存在しません');
-    }
-
-    // マジックナンバー検証
-    const getObjectCommand = new GetObjectCommand({
-      Bucket: this.bucketName,
-      Key: request.key,
-    });
-
-    const response = await this.s3Client.send(getObjectCommand);
-    const chunks: Uint8Array[] = [];
-
-    // @ts-ignore - BodyはReadableStream
-    for await (const chunk of response.Body) {
-      chunks.push(chunk);
-      // 先頭16バイトのみで十分なので、それ以上は読まない
-      if (chunks.length >= 2) break;
-    }
-
-    const headerBuffer = new Uint8Array(chunks.reduce((acc, chunk) => [...acc, ...chunk], []));
-
-    if (!validateFileMagicNumber(headerBuffer.buffer, request.contentType)) {
-      // マジックナンバー検証失敗時はS3ファイルを削除
-      await this.s3Client.send(new DeleteObjectCommand({
+    if (this.s3ValidationMode === S3_VALIDATION_MODES.strict) {
+      // S3ファイルの存在確認
+      const headCommand = new HeadObjectCommand({
         Bucket: this.bucketName,
         Key: request.key,
-      }));
+      });
 
-      throw new Error('ファイル形式が不正です');
+      try {
+        await this.s3Client.send(headCommand);
+      } catch (error) {
+        throw new Error(API_MESSAGES[API_MESSAGE_CODES.FILE_NOT_FOUND_ON_S3]);
+      }
+
+      // マジックナンバー検証
+      const getObjectCommand = new GetObjectCommand({
+        Bucket: this.bucketName,
+        Key: request.key,
+      });
+
+      const response = await this.s3Client.send(getObjectCommand);
+      const chunks: Uint8Array[] = [];
+
+      // @ts-ignore - BodyはReadableStream
+      for await (const chunk of response.Body) {
+        chunks.push(chunk);
+        // 先頭16バイトのみで十分なので、それ以上は読まない
+        if (chunks.length >= 2) break;
+      }
+
+      const totalLength = chunks.reduce((sum, chunk) => sum + chunk.length, 0);
+      const headerBuffer = new Uint8Array(totalLength);
+      let offset = 0;
+      for (const chunk of chunks) {
+        headerBuffer.set(chunk, offset);
+        offset += chunk.length;
+      }
+
+      if (!validateFileMagicNumber(headerBuffer.buffer, request.contentType)) {
+        // マジックナンバー検証失敗時はS3ファイルを削除
+        await this.s3Client.send(new DeleteObjectCommand({
+          Bucket: this.bucketName,
+          Key: request.key,
+        }));
+
+        throw new Error(DOMAIN_ERROR_MESSAGES.INVALID_FILE_FORMAT);
+      }
     }
 
     // メタデータをDBに保存
@@ -137,7 +184,6 @@ export class ImageService {
       fileSize: request.fileSize,
       contentType: request.contentType,
       s3Key: request.key,
-      traceId,
     });
 
     // 閲覧用URLを生成
@@ -179,7 +225,7 @@ export class ImageService {
     const image = await repository.findById(id);
 
     if (!image) {
-      throw new Error('画像が存在しません');
+      throw new Error(API_MESSAGES[API_MESSAGE_CODES.IMAGE_NOT_FOUND](id));
     }
 
     const url = await this.generateViewUrl(image.s3Key);

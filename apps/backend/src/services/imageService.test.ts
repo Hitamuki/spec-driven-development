@@ -41,6 +41,21 @@ vi.mock('@aws-sdk/s3-request-presigner', () => ({
 
 import { ImageService } from './imageService';
 
+const setEnv = (key: string, value: string): void => {
+  const runtime = globalThis as typeof globalThis & {
+    process?: { env?: Record<string, string | undefined> };
+  };
+
+  if (!runtime.process) {
+    runtime.process = { env: {} };
+  }
+
+  runtime.process.env = {
+    ...(runtime.process.env ?? {}),
+    [key]: value,
+  };
+};
+
 const createMockS3Body = (bytes: number[]) => ({
   [Symbol.asyncIterator]: async function* () {
     yield new Uint8Array(bytes);
@@ -52,6 +67,9 @@ describe('ImageService', () => {
 
   beforeEach(() => {
     vi.clearAllMocks();
+    setEnv('AWS_REGION', 'ap-northeast-1');
+    setEnv('S3_PRESIGN_MODE', 'aws');
+    setEnv('S3_VALIDATION_MODE', 'strict');
     service = new ImageService();
     mockGetSignedUrl.mockResolvedValue('https://s3.amazonaws.com/bucket/key?signed');
   });
@@ -138,7 +156,6 @@ describe('ImageService', () => {
         fileSize: 1024,
         contentType: 'image/jpeg',
         s3Key: 'images/test.jpg',
-        traceId: 'trace-id-001',
         createdAt: new Date(),
         updatedAt: new Date(),
       });
@@ -226,7 +243,6 @@ describe('ImageService', () => {
         fileSize: 2048,
         contentType: 'image/png',
         s3Key: 'images/test.png',
-        traceId: 'trace-id-001',
         createdAt: new Date(),
         updatedAt: new Date(),
       });
@@ -261,7 +277,6 @@ describe('ImageService', () => {
           fileSize: 1024,
           contentType: 'image/jpeg',
           s3Key: 'key1',
-          traceId: 'trace1',
           createdAt: now,
           updatedAt: now,
         },
@@ -271,7 +286,6 @@ describe('ImageService', () => {
           fileSize: 2048,
           contentType: 'image/png',
           s3Key: 'key2',
-          traceId: 'trace2',
           createdAt: now,
           updatedAt: now,
         },
@@ -325,7 +339,6 @@ describe('ImageService', () => {
         fileSize: 1024,
         contentType: 'image/jpeg',
         s3Key: 'images/test.jpg',
-        traceId: 'trace1',
         createdAt: now,
         updatedAt: now,
       });
@@ -353,7 +366,7 @@ describe('ImageService', () => {
 
       await expect(
         service.getImageUrl('non-existent-id', 'trace-id-001'),
-      ).rejects.toThrow('画像が存在しません');
+      ).rejects.toThrow('指定された画像が存在しません（id: non-existent-id）');
     });
   });
 });

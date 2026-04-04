@@ -4,7 +4,7 @@
 
 /**
  * DBに永続化される画像エンティティ
- * S3オブジェクトキーとトレースIDを保持し、アップロード経路を追跡可能にする
+ * S3オブジェクトキーを保持し、アップロードデータを管理する
  */
 export interface Image {
   id: string;
@@ -12,7 +12,6 @@ export interface Image {
   s3Key: string;
   fileSize: number;
   contentType: string;
-  traceId: string;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -26,7 +25,6 @@ export interface ImageMetadata {
   fileSize: number;
   contentType: string;
   s3Key: string;
-  traceId: string;
 }
 
 /**

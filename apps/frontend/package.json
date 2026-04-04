@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "biome lint .",
     "preview": "vite preview",
-    "test": "vitest",
+    "test": "vitest run",
     "test:watch": "vitest --watch",
     "doc": "typedoc --entryPoints src/main.tsx --entryPoints src/pages/upload-page.tsx --entryPoints src/features/image-list --entryPoints src/features/upload-image --out docs --skipErrorChecking"
   },

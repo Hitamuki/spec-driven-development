@@ -13,9 +13,12 @@ import { getTraceId } from './trace';
 axios.defaults.baseURL = '/api/v1';
 
 /**
- * リクエストインターセプターで X-Trace-ID を自動付与する
+ * リクエストインターセプターで X-Trace-ID / X-Request-ID を自動付与する
  */
 axios.interceptors.request.use((config) => {
   config.headers['X-Trace-ID'] = getTraceId();
+  if (!config.headers['X-Request-ID']) {
+    config.headers['X-Request-ID'] = crypto.randomUUID();
+  }
   return config;
 });

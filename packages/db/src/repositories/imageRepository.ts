@@ -20,7 +20,6 @@ export class ImageRepository {
         fileSize: data.fileSize,
         contentType: data.contentType,
         s3Key: data.s3Key,
-        traceId: data.traceId,
       },
     });
   }

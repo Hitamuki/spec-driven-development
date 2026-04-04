@@ -2,7 +2,8 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import * as React from "react";
 import { UploadForm } from "@/features/upload-image/ui/UploadForm";
-import { MESSAGES } from "@/shared/config/constants";
+import { MESSAGES, UI_TEXT } from "@/shared/config/constants";
+import { toast } from "sonner";
 
 vi.mock("@image-upload/ui", async () => {
   const ReactMod = await import("react");
@@ -214,7 +215,7 @@ describe("UploadForm", () => {
     expect(warning).toBeInTheDocument();
   });
 
-  it("正常系: アップロード成功後にsuccessメッセージが表示される", async () => {
+  it("正常系: アップロード成功後はトーストで成功を通知する", async () => {
     // Arrange
     const onUploadSuccess = vi.fn();
     const { container } = render(
@@ -237,9 +238,12 @@ describe("UploadForm", () => {
 
     // Assert
     await waitFor(() => {
-      expect(screen.getByText(MESSAGES["MSG-UI-C001"])).toBeInTheDocument();
+      expect(onUploadSuccess).toHaveBeenCalledOnce();
     });
-    expect(onUploadSuccess).toHaveBeenCalledOnce();
+    expect(toast.success).toHaveBeenCalledWith(
+      UI_TEXT.UPLOAD_FORM.SUCCESS_TOAST,
+    );
+    expect(screen.queryByText(MESSAGES["MSG-UI-C001"])).not.toBeInTheDocument();
   });
 
   it("エラー系: アップロード上限(409)エラー時にMSG-UI-006が表示される", async () => {
@@ -265,6 +269,27 @@ describe("UploadForm", () => {
     // Assert
     await waitFor(() => {
       expect(screen.getByText(MESSAGES["MSG-UI-006"])).toBeInTheDocument();
+    });
+  });
+
+  it("エラー系: 署名付きURLレスポンス不正時にMSG-UI-007が表示される", async () => {
+    // Arrange
+    mockPresignedUrlMutateAsync.mockResolvedValue({
+      data: {
+        uploadUrl: "",
+        key: "",
+      },
+    });
+    const { container } = render(<UploadForm {...defaultProps} />);
+    const file = new File(["content"], "photo.jpg", { type: "image/jpeg" });
+    selectFile(file, container);
+
+    // Act
+    fireEvent.click(screen.getByRole("button", { name: /アップロード/ }));
+
+    // Assert
+    await waitFor(() => {
+      expect(screen.getByText(MESSAGES["MSG-UI-007"])).toBeInTheDocument();
     });
   });
 });

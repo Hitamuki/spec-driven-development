@@ -16,6 +16,7 @@ export const MESSAGES = {
   "MSG-UI-004": "アップロードに失敗しました。URLの有効期限が切れている可能性があります。",
   "MSG-UI-005": "ファイルアクセス権限がありません。",
   "MSG-UI-006": "最大アップロード数に達しました。",
+  "MSG-UI-007": "署名付きURLの取得に失敗しました。再度お試しください。",
   "MSG-UI-C001": "画像を登録しました。",
   "MSG-UI-C004": "通信エラーが発生しました。再度お試しください。",
   "MSG-UI-C005": "サーバーエラーが発生しました。しばらくしてから再度お試しください。",
@@ -35,6 +36,7 @@ export const UI_TEXT = {
     UPLOADING_BUTTON: "アップロード中...",
     SUCCESS_TOAST: "登録完了",
     FAILURE_TOAST: "登録エラー",
+    ERROR_LOG_PREFIX: "アップロードエラー:",
   },
   IMAGE_LIST: {
     TITLE: (count: number, max: number) => `アップロード済み画像 (${count}/${max})`,

@@ -2,13 +2,18 @@ import { Hono } from 'hono';
 import { zValidator } from '@hono/zod-validator';
 import { z } from 'zod';
 import { ImageService } from '../services/imageService';
+import { idempotencyStore } from '../services/idempotencyStore';
 import {
   createPresignedUrlSchema,
   createImageMetadataSchema,
   getImageListResponse,
   createPresignedUrlResponse,
   createImageMetadataResponse,
-  getImageUrlResponse
+  getImageUrlResponse,
+  MAX_UPLOAD_COUNT,
+  API_MESSAGES,
+  API_MESSAGE_CODES,
+  DOMAIN_ERROR_MESSAGES,
 } from '@image-upload/domain';
 import type {
   GetPresignedUrlBody,
@@ -27,6 +32,10 @@ import type {
 const images = new Hono();
 const imageService = new ImageService();
 
+const getIdempotencyKey = (method: string, path: string, requestId: string): string => {
+  return `${method}:${path}:${requestId}`;
+};
+
 /**
  * api001-upload: 署名付きURL発行
  * クライアントがS3に直接アップロードするためのPresigned URLを返す
@@ -38,18 +47,30 @@ images.post(
   async (c) => {
     const data = c.req.valid('json');
     const traceId = c.req.header('X-Trace-ID') || crypto.randomUUID();
+    const requestId = c.req.header('X-Request-ID') || crypto.randomUUID();
+
+    const key = getIdempotencyKey('POST', '/images/presigned-url', requestId);
+    const payload = JSON.stringify(data);
 
     try {
-      const result = await imageService.createPresignedUrl(data, traceId);
-      return c.json<GetPresignedUrl200>(result, 200);
+      const result = await idempotencyStore.execute(key, payload, async () => {
+        const response = await imageService.createPresignedUrl(data, traceId);
+        return { status: 200, body: response };
+      });
+
+      if ('conflict' in result) {
+        return c.json({ error: 'X-Request-IDが別リクエストで再利用されています' }, 409);
+      }
+
+      return c.json<GetPresignedUrl200>(result.body as GetPresignedUrl200, result.status as 200);
     } catch (error) {
       if (error instanceof Error) {
-        if (error.message.includes('上限')) {
+        if (error.message === API_MESSAGES[API_MESSAGE_CODES.UPLOAD_LIMIT_EXCEEDED](MAX_UPLOAD_COUNT)) {
           return c.json({ error: error.message }, 409);
         }
         return c.json({ error: error.message }, 400);
       }
-      return c.json({ error: 'Internal server error' }, 500);
+      return c.json({ error: API_MESSAGES[API_MESSAGE_CODES.INTERNAL_SERVER_ERROR] }, 500);
     }
   }
 );
@@ -65,21 +86,33 @@ images.post(
   async (c) => {
     const data = c.req.valid('json');
     const traceId = c.req.header('X-Trace-ID') || crypto.randomUUID();
+    const requestId = c.req.header('X-Request-ID') || crypto.randomUUID();
+
+    const key = getIdempotencyKey('POST', '/images', requestId);
+    const payload = JSON.stringify(data);
 
     try {
-      const result = await imageService.createImageMetadata(data, traceId);
-      return c.json<CompleteUpload201>(result, 201);
+      const result = await idempotencyStore.execute(key, payload, async () => {
+        const response = await imageService.createImageMetadata(data, traceId);
+        return { status: 201, body: response };
+      });
+
+      if ('conflict' in result) {
+        return c.json({ error: 'X-Request-IDが別リクエストで再利用されています' }, 409);
+      }
+
+      return c.json<CompleteUpload201>(result.body as CompleteUpload201, result.status as 201);
     } catch (error) {
       if (error instanceof Error) {
-        if (error.message.includes('存在しません')) {
+        if (error.message === API_MESSAGES[API_MESSAGE_CODES.FILE_NOT_FOUND_ON_S3]) {
           return c.json({ error: error.message }, 404);
         }
-        if (error.message.includes('不正です')) {
+        if (error.message === DOMAIN_ERROR_MESSAGES.INVALID_FILE_FORMAT) {
           return c.json({ error: error.message }, 422);
         }
         return c.json({ error: error.message }, 400);
       }
-      return c.json({ error: 'Internal server error' }, 500);
+      return c.json({ error: API_MESSAGES[API_MESSAGE_CODES.INTERNAL_SERVER_ERROR] }, 500);
     }
   }
 );
@@ -100,7 +133,7 @@ images.get(
       if (error instanceof Error) {
         return c.json({ error: error.message }, 400);
       }
-      return c.json({ error: 'Internal server error' }, 500);
+      return c.json({ error: API_MESSAGES[API_MESSAGE_CODES.INTERNAL_SERVER_ERROR] }, 500);
     }
   }
 );
@@ -121,12 +154,12 @@ images.get(
       return c.json<GetImage200>(result, 200);
     } catch (error) {
       if (error instanceof Error) {
-        if (error.message.includes('存在しません')) {
+        if (error.message === API_MESSAGES[API_MESSAGE_CODES.IMAGE_NOT_FOUND](id)) {
           return c.json({ error: error.message }, 404);
         }
         return c.json({ error: error.message }, 400);
       }
-      return c.json({ error: 'Internal server error' }, 500);
+      return c.json({ error: API_MESSAGES[API_MESSAGE_CODES.INTERNAL_SERVER_ERROR] }, 500);
     }
   }
 );
