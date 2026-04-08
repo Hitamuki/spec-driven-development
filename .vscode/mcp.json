@@ -13,6 +13,15 @@
         "-y",
         "@upstash/context7-mcp@latest"
       ]
+    },
+    "awslabs.aws-diagram-mcp-server": {
+      "command": "/home/kuma/.local/bin/uvx",
+      "args": [
+        "awslabs.aws-diagram-mcp-server"
+      ],
+      "env": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
     }
   }
 }
