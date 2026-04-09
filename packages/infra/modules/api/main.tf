@@ -89,7 +89,7 @@ resource "aws_lambda_function" "api" {
   handler         = "index.fetch" # Honoのハンドラー名に合わせる
   runtime         = "nodejs20.x"
   timeout         = 30
-  memory_size     = 256
+  memory_size     = 128
 
   vpc_config {
     subnet_ids         = var.private_subnet_ids
@@ -206,6 +206,111 @@ resource "aws_api_gateway_stage" "main" {
   tags = {
     Name = "${var.project_name}-api-stage"
   }
+}
+
+# WAF Web ACL for API Gateway stage
+resource "aws_wafv2_web_acl" "api" {
+  name  = "${var.project_name}-api-waf"
+  scope = "REGIONAL"
+
+  default_action {
+    allow {}
+  }
+
+  # CloudFront 経由リクエストのみ許可（X-Origin-Verify ヘッダー検証）
+  rule {
+    name     = "RequireOriginVerifyHeader"
+    priority = 0
+
+    action {
+      block {}
+    }
+
+    statement {
+      not_statement {
+        statement {
+          byte_match_statement {
+            search_string = var.origin_verify_secret
+            field_to_match {
+              single_header {
+                name = "x-origin-verify"
+              }
+            }
+            text_transformation {
+              priority = 0
+              type     = "NONE"
+            }
+            positional_constraint = "EXACTLY"
+          }
+        }
+      }
+    }
+
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "${var.project_name}-api-origin-verify"
+      sampled_requests_enabled   = true
+    }
+  }
+
+  rule {
+    name     = "AWSManagedRulesCommonRuleSet"
+    priority = 1
+
+    override_action {
+      none {}
+    }
+
+    statement {
+      managed_rule_group_statement {
+        name        = "AWSManagedRulesCommonRuleSet"
+        vendor_name = "AWS"
+      }
+    }
+
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "${var.project_name}-api-common-rules"
+      sampled_requests_enabled   = true
+    }
+  }
+
+  rule {
+    name     = "RateLimitPerIp"
+    priority = 2
+
+    action {
+      block {}
+    }
+
+    statement {
+      rate_based_statement {
+        limit              = 2000
+        aggregate_key_type = "IP"
+      }
+    }
+
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "${var.project_name}-api-rate-limit"
+      sampled_requests_enabled   = true
+    }
+  }
+
+  visibility_config {
+    cloudwatch_metrics_enabled = true
+    metric_name                = "${var.project_name}-api-waf"
+    sampled_requests_enabled   = true
+  }
+
+  tags = {
+    Name = "${var.project_name}-api-waf"
+  }
+}
+
+resource "aws_wafv2_web_acl_association" "api_stage" {
+  resource_arn = aws_api_gateway_stage.main.arn
+  web_acl_arn  = aws_wafv2_web_acl.api.arn
 }
 
 # Lambda Permission for API Gateway

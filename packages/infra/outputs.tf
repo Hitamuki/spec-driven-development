@@ -58,3 +58,14 @@ output "db_secret_arn" {
   description = "Database credentials secret ARN"
   value       = module.secrets.db_secret_arn
 }
+
+# Bastion Outputs
+output "bastion_instance_id" {
+  description = "Bastion instance ID"
+  value       = module.bastion.bastion_instance_id
+}
+
+output "bastion_public_ip" {
+  description = "Bastion public IP address"
+  value       = module.bastion.bastion_public_ip
+}

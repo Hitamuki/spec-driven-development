@@ -3,7 +3,7 @@ module "api" {
   source = "./modules/api"
 
   project_name                = var.project_name
-  lambda_security_group_id    = aws_security_group.lambda.id
+  lambda_security_group_id    = module.security_groups.lambda_security_group_id
   private_subnet_ids          = module.vpc.private_subnet_ids
   aws_region                  = var.aws_region
   image_storage_bucket_name   = module.s3.image_storage_bucket_name
@@ -14,4 +14,5 @@ module "api" {
   db_password                 = var.db_password
   db_endpoint                 = module.rds.db_instance_endpoint
   db_name                     = var.db_name
+  origin_verify_secret        = random_password.origin_verify_secret.result
 }

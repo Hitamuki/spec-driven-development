@@ -7,10 +7,12 @@
 システム構成図に基づき、以下のAWSリソースを構築します：
 
 - **VPC**: プライベート/パブリックサブネット、NAT Gateway、Internet Gateway
+- **Security Groups**: Lambda/Bastion用セキュリティグループ
 - **S3**: 静的アセット用バケット、画像ストレージ用バケット
-- **CloudFront + WAF**: CDN配信、Webアプリケーションファイアウォール
-- **API Gateway + Lambda**: サーバーレスAPIバックエンド
+- **CloudFront**: CDN配信、SPA配信、APIルーティング
+- **API Gateway + Lambda + WAF**: サーバーレスAPIバックエンドとWAFによる防御
 - **RDS PostgreSQL**: マネージドデータベース
+- **Bastion (EC2)**: RDS接続用踏み台サーバー
 - **Secrets Manager**: 秘密情報管理
 - **CloudWatch**: ログ管理、監視、アラート
 
@@ -18,22 +20,25 @@
 
 ```
 packages/infra/
-├── main.tf              # プロバイダー設定
-├── variables.tf         # 入力変数定義
-├── outputs.tf           # 出力値定義
-├── network.tf           # VPCモジュール呼び出し
-├── storage.tf           # S3モジュール呼び出し
-├── database.tf          # RDSモジュール呼び出し
-├── api.tf              # API Gateway/Lambdaモジュール呼び出し
-├── cloudfront.tf       # CloudFrontモジュール呼び出し
-├── secrets.tf          # Secrets Managerモジュール呼び出し
-└── modules/            # 各サービスモジュール
-    ├── vpc/
-    ├── s3/
-    ├── rds/
-    ├── api/
-    ├── cloudfront/
-    └── secrets/
+├── main.tf                 # プロバイダー設定、共通リソース、SG/Bastionモジュール呼び出し
+├── variables.tf            # 入力変数定義
+├── outputs.tf              # 出力値定義
+├── network.tf              # VPCモジュール呼び出し
+├── storage.tf              # S3モジュール呼び出し
+├── database.tf             # RDSモジュール呼び出し
+├── api.tf                  # API Gateway/Lambdaモジュール呼び出し
+├── cloudfront.tf           # CloudFrontモジュール呼び出し
+├── secrets.tf              # Secrets Managerモジュール呼び出し
+└── modules/                # 各サービスモジュール
+   ├── vpc/
+   ├── security-groups/
+   ├── s3/
+   ├── rds/
+   ├── api/
+   ├── cloudfront/
+   ├── bastion/
+   ├── secrets/
+   └── waf/
 ```
 
 ## デプロイ

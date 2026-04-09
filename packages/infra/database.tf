@@ -8,6 +8,6 @@ module "rds" {
   db_name            = var.db_name
   db_username        = var.db_username
   db_password        = var.db_password
-  lambda_security_group_id = aws_security_group.lambda.id
-  bastion_security_group_id = aws_security_group.bastion.id
+  lambda_security_group_id = module.security_groups.lambda_security_group_id
+  bastion_security_group_id = module.security_groups.bastion_security_group_id
 }

@@ -58,3 +58,9 @@ variable "db_name" {
   description = "Database name"
   type        = string
 }
+
+variable "origin_verify_secret" {
+  description = "CloudFront から API Gateway へのリクエスト検証用シークレット"
+  type        = string
+  sensitive   = true
+}

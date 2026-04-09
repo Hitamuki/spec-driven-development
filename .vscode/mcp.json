@@ -15,7 +15,7 @@
       ]
     },
     "awslabs.aws-diagram-mcp-server": {
-      "command": "/home/kuma/.local/bin/uvx",
+      "command": "uvx",
       "args": [
         "awslabs.aws-diagram-mcp-server"
       ],

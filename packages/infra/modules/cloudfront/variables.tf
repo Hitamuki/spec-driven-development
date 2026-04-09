@@ -22,3 +22,9 @@ variable "api_gateway_domain_name" {
   description = "API Gateway domain name"
   type        = string
 }
+
+variable "origin_verify_secret" {
+  description = "CloudFront から API Gateway へ送信する Origin 検証用シークレット"
+  type        = string
+  sensitive   = true
+}
