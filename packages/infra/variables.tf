@@ -4,6 +4,18 @@ variable "aws_region" {
   default     = "ap-northeast-1"
 }
 
+variable "assume_role_arn" {
+  description = "クロスアカウント実行に使用するIAMロールARN"
+  type        = string
+  default     = "arn:aws:iam::866645635048:role/Hitamuki"
+}
+
+variable "assume_role_session_name" {
+  description = "AssumeRole実行時のセッション名"
+  type        = string
+  default     = "local-actions"
+}
+
 variable "environment" {
   description = "環境名"
   type        = string
@@ -14,6 +26,34 @@ variable "project_name" {
   description = "プロジェクト名"
   type        = string
   default     = "image-upload"
+}
+
+variable "key_name" {
+  description = "踏み台サーバー接続用のEC2キーペア名（任意）"
+  type        = string
+  default     = ""
+}
+
+variable "lambda_artifact_bucket" {
+  description = "Lambdaデプロイ用アーティファクトを格納するS3バケット名"
+  type        = string
+}
+
+variable "lambda_artifact_key" {
+  description = "Lambdaデプロイ用アーティファクトのS3キー（zip）"
+  type        = string
+}
+
+variable "lambda_artifact_object_version" {
+  description = "Lambdaデプロイ用アーティファクトのS3オブジェクトバージョン（任意）"
+  type        = string
+  default     = null
+}
+
+variable "lambda_source_code_hash" {
+  description = "Lambda更新検知用のBase64エンコード済みSHA-256ハッシュ（任意）"
+  type        = string
+  default     = null
 }
 
 variable "domain_name" {
@@ -37,7 +77,7 @@ variable "db_name" {
 variable "db_username" {
   description = "データベースユーザー名"
   type        = string
-  default     = "postgres"
+  default     = "hitamuki"
 }
 
 variable "db_password" {

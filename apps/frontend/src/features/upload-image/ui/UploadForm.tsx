@@ -1,13 +1,12 @@
-import { useState, useRef, ChangeEvent } from "react";
+import type { StatusMessage, UploadedImage } from "@/entities/image/types";
 import {
-  Upload,
-  Image as ImageIcon,
-  X,
-  CheckCircle2,
-  AlertCircle,
-} from "lucide-react";
-import { toast } from "sonner";
-import axios from "axios";
+  ALLOWED_EXTENSIONS,
+  ALLOWED_MIME_TYPES,
+  MAX_FILE_SIZE,
+  MESSAGES,
+  UI_TEXT,
+} from "@/shared/config/constants";
+import { useCompleteUpload, useGetPresignedUrl } from "@image-upload/api";
 import {
   Card,
   CardContent,
@@ -17,15 +16,17 @@ import {
 } from "@image-upload/ui";
 import { Button } from "@image-upload/ui";
 import { Alert, AlertDescription } from "@image-upload/ui";
-import { useGetPresignedUrl, useCompleteUpload } from "@image-upload/api";
+import axios from "axios";
 import {
-  MESSAGES,
-  UI_TEXT,
-  MAX_FILE_SIZE,
-  ALLOWED_EXTENSIONS,
-  ALLOWED_MIME_TYPES,
-} from "@/shared/config/constants";
-import type { UploadedImage, StatusMessage } from "@/entities/image/types";
+  AlertCircle,
+  CheckCircle2,
+  Image as ImageIcon,
+  Upload,
+  X,
+} from "lucide-react";
+import { useRef, useState } from "react";
+import type { ChangeEvent } from "react";
+import { toast } from "sonner";
 
 /**
  * UploadFormコンポーネントのProps
@@ -60,7 +61,9 @@ export function UploadForm({
 
   const presignedUrlMutation = useGetPresignedUrl();
   const completeUploadMutation = useCompleteUpload();
-  const skipS3Upload = import.meta.env.VITE_SKIP_S3_UPLOAD === "true";
+  // 安全策: S3アップロードのスキップは開発時のみ許可する
+  const skipS3Upload =
+    import.meta.env.DEV && import.meta.env.VITE_SKIP_S3_UPLOAD === "true";
 
   const isMaxUploaded = uploadedCount >= maxCount;
 

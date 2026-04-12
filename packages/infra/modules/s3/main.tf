@@ -77,7 +77,8 @@ resource "aws_s3_bucket_cors_configuration" "image_storage" {
   cors_rule {
     allowed_headers = ["*"]
     allowed_methods = ["GET", "PUT", "POST", "DELETE", "HEAD"]
-    allowed_origins = var.allowed_origins
+    # S3のCORS判定は厳密一致のため、末尾スラッシュを除去して保存する
+    allowed_origins = [for origin in var.allowed_origins : trimsuffix(origin, "/")]
     expose_headers  = ["ETag"]
     max_age_seconds = 3000
   }

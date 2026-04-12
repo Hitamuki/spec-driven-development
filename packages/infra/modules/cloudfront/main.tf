@@ -7,6 +7,45 @@ resource "aws_cloudfront_origin_access_control" "static_assets" {
   signing_protocol                  = "sigv4"
 }
 
+# SPAルーティング用: 非APIかつ拡張子なしパスはindex.htmlへ書き換える
+resource "aws_cloudfront_function" "spa_rewrite" {
+  name    = "${var.project_name}-spa-rewrite"
+  runtime = "cloudfront-js-1.0"
+  comment = "Rewrite SPA routes to /index.html while excluding API paths"
+  publish = true
+
+  code = <<-EOT
+function handler(event) {
+  var request = event.request;
+  var uri = request.uri;
+
+  if (uri.indexOf('/api/') === 0) {
+    return request;
+  }
+
+  if (uri === '/' || uri === '') {
+    request.uri = '/index.html';
+    return request;
+  }
+
+  var hasExtension = uri.lastIndexOf('.') > uri.lastIndexOf('/');
+  if (!hasExtension) {
+    request.uri = '/index.html';
+  }
+
+  return request;
+}
+EOT
+}
+
+data "aws_cloudfront_cache_policy" "caching_disabled" {
+  name = "Managed-CachingDisabled"
+}
+
+data "aws_cloudfront_origin_request_policy" "all_viewer_except_host_header" {
+  name = "Managed-AllViewerExceptHostHeader"
+}
+
 # CloudFront Distribution
 resource "aws_cloudfront_distribution" "main" {
   enabled             = true
@@ -61,6 +100,11 @@ resource "aws_cloudfront_distribution" "main" {
     min_ttl     = 0
     default_ttl = 86400
     max_ttl     = 31536000
+
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.spa_rewrite.arn
+    }
   }
 
   # Cache Behavior for API
@@ -72,30 +116,8 @@ resource "aws_cloudfront_distribution" "main" {
     compress               = true
     viewer_protocol_policy = "https-only"
 
-    forwarded_values {
-      query_string = true
-      headers      = ["*"]
-      cookies {
-        forward = "all"
-      }
-    }
-
-    min_ttl     = 0
-    default_ttl = 0
-    max_ttl     = 0
-  }
-
-  # SPA サポート: 403/404 エラーを index.html へ転送して React Router に処理させます
-  custom_error_response {
-    error_code            = 403
-    response_code         = 200
-    response_page_path    = "/index.html"
-  }
-
-  custom_error_response {
-    error_code            = 404
-    response_code         = 200
-    response_page_path    = "/index.html"
+    cache_policy_id          = data.aws_cloudfront_cache_policy.caching_disabled.id
+    origin_request_policy_id = data.aws_cloudfront_origin_request_policy.all_viewer_except_host_header.id
   }
 
   restrictions {

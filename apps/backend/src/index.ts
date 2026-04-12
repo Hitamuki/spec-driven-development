@@ -1,6 +1,7 @@
 import { Hono } from 'hono';
-import { logger } from 'hono/logger';
+import { handle } from 'hono/aws-lambda';
 import { cors } from 'hono/cors';
+import { logger } from 'hono/logger';
 import { imagesRoutes } from './routes/images';
 
 /**
@@ -13,14 +14,17 @@ const port = Number(process.env.PORT) || 3001;
 
 // ミドルウェア設定
 app.use('*', logger());
-app.use('*', cors({
-  origin: [
-    'http://localhost:5173', // Vite dev server
-    'http://localhost:3000', // 本番 or preview
-  ],
-  allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowHeaders: ['Content-Type', 'X-Trace-ID', 'X-Request-ID'],
-}));
+app.use(
+  '*',
+  cors({
+    origin: [
+      'http://localhost:5173', // Vite dev server
+      'http://localhost:3000', // 本番 or preview
+    ],
+    allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowHeaders: ['Content-Type', 'X-Trace-ID', 'X-Request-ID'],
+  }),
+);
 
 // ルート設定
 app.route('/api/v1/images', imagesRoutes);
@@ -35,7 +39,11 @@ app.get('/health', (c) => {
 
 console.log(`🚀 Backend server running on http://localhost:${port}`);
 
+export const handler = handle(app);
+export { port };
+export const fetch = app.fetch;
+
 export default {
   port,
-  fetch: app.fetch,
+  fetch,
 };

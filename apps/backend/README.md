@@ -94,8 +94,11 @@ curl http://localhost:3001/health
 # 開発サーバー起動
 pnpm run dev
 
-# ビルド
+# Bun実行向けビルド
 pnpm build
+
+# Lambda(Node.js)向け本番ビルド
+pnpm run build:lambda
 
 # 型チェック
 pnpm type-check
@@ -111,8 +114,8 @@ pnpm test
 
 ### 本番環境
 ```bash
-# ビルド
-pnpm build
+# Lambda(Node.js)向けビルド
+pnpm run build:lambda
 
 # 環境変数設定
 export NODE_ENV=production

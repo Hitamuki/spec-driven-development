@@ -22,7 +22,7 @@ variable "db_name" {
 variable "db_username" {
   description = "Database username"
   type        = string
-  default     = "postgres"
+  default     = "hitamuki"
 }
 
 variable "db_password" {

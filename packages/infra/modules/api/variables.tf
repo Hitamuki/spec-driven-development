@@ -3,6 +3,28 @@ variable "project_name" {
   type        = string
 }
 
+variable "lambda_artifact_bucket" {
+  description = "Lambdaデプロイ用アーティファクトを格納するS3バケット名"
+  type        = string
+}
+
+variable "lambda_artifact_key" {
+  description = "Lambdaデプロイ用アーティファクトのS3キー（zip）"
+  type        = string
+}
+
+variable "lambda_artifact_object_version" {
+  description = "Lambdaデプロイ用アーティファクトのS3オブジェクトバージョン（任意）"
+  type        = string
+  default     = null
+}
+
+variable "lambda_source_code_hash" {
+  description = "Lambda更新検知用のBase64エンコード済みSHA-256ハッシュ（任意）"
+  type        = string
+  default     = null
+}
+
 variable "lambda_security_group_id" {
   description = "Security group ID for the Lambda function"
   type        = string

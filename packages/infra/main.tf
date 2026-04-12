@@ -9,15 +9,16 @@ terraform {
       source  = "hashicorp/random"
       version = "~> 3.5"
     }
-    archive = {
-      source  = "hashicorp/archive"
-      version = "~> 2.4"
-    }
   }
 }
 
 provider "aws" {
   region = var.aws_region
+
+  assume_role {
+    role_arn     = var.assume_role_arn
+    session_name = var.assume_role_session_name
+  }
 
   default_tags {
     tags = {
@@ -46,7 +47,8 @@ module "security_groups" {
 module "bastion" {
   source = "./modules/bastion"
 
-  project_name               = var.project_name
-  public_subnet_id           = module.vpc.public_subnet_ids[0]
-  bastion_security_group_id  = module.security_groups.bastion_security_group_id
+  project_name              = var.project_name
+  public_subnet_id          = module.vpc.public_subnet_ids[0]
+  bastion_security_group_id = module.security_groups.bastion_security_group_id
+  key_name                  = var.key_name
 }

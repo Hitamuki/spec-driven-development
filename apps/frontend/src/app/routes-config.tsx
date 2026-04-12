@@ -1,13 +1,13 @@
-import type { RouteObject, LoaderFunctionArgs } from 'react-router';
-import { RootLayout } from '@/app/root';
-import { UploadPage } from '@/pages/upload-page';
-import { queryClient } from '@/app/providers';
+import { queryClient } from "@/app/providers";
+import { RootLayout } from "@/app/root";
+import { UploadPage } from "@/pages/upload-page";
 import {
-  getListImagesQueryKey,
-  listImages,
   getGetImageQueryKey,
   getImage,
-} from '@image-upload/api';
+  getListImagesQueryKey,
+  listImages,
+} from "@image-upload/api";
+import type { LoaderFunctionArgs, RouteObject } from "react-router";
 
 /**
  * UploadPageのLoader
@@ -33,7 +33,7 @@ export async function uploadPageLoader(_args: LoaderFunctionArgs) {
     });
     return data;
   } catch (error) {
-    console.error('Failed to load images:', error);
+    console.error("Failed to load images:", error);
     // ローダーが失敗してもページは表示する（フォールバック）
     return { data: [] };
   }
@@ -49,7 +49,7 @@ export async function uploadPageLoader(_args: LoaderFunctionArgs) {
 export async function getImageLoader({ params }: LoaderFunctionArgs) {
   const id = params.id;
   if (!id) {
-    throw new Response('Image ID is required', { status: 400 });
+    throw new Response("Image ID is required", { status: 400 });
   }
 
   const queryKey = getGetImageQueryKey(id);
@@ -61,8 +61,8 @@ export async function getImageLoader({ params }: LoaderFunctionArgs) {
     });
     return data;
   } catch (error) {
-    console.error('Failed to load image:', error);
-    throw new Response('Image not found', { status: 404 });
+    console.error("Failed to load image:", error);
+    throw new Response("Image not found", { status: 404 });
   }
 }
 
@@ -73,9 +73,10 @@ export async function getImageLoader({ params }: LoaderFunctionArgs) {
 export const routes: RouteObject[] = [
   {
     element: <RootLayout />,
+    hydrateFallbackElement: <div>Loading...</div>,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <UploadPage />,
         loader: uploadPageLoader,
       },

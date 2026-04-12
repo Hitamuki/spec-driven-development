@@ -73,21 +73,16 @@ resource "aws_iam_role_policy_attachment" "lambda_vpc_access" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
 }
 
-# Archive backend dist directory
-data "archive_file" "lambda" {
-  type        = "zip"
-  source_dir  = "${path.module}/../../../../apps/backend/dist"
-  output_path = "${path.module}/lambda.zip"
-}
-
 # Lambda Function
 resource "aws_lambda_function" "api" {
-  filename         = data.archive_file.lambda.output_path
-  source_code_hash = data.archive_file.lambda.output_base64sha256
+  s3_bucket         = var.lambda_artifact_bucket
+  s3_key            = var.lambda_artifact_key
+  s3_object_version = var.lambda_artifact_object_version
+  source_code_hash  = var.lambda_source_code_hash
   function_name    = "${var.project_name}-api"
   role            = aws_iam_role.lambda.arn
-  handler         = "index.fetch" # Honoのハンドラー名に合わせる
-  runtime         = "nodejs20.x"
+  handler         = "index.handler" # AWS Lambdaアダプタのハンドラー
+  runtime         = "nodejs22.x"
   timeout         = 30
   memory_size     = 128
 

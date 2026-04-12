@@ -1,23 +1,29 @@
 import {
-  CreatePresignedUrlRequest,
-  CreateImageMetadataRequest,
-  PresignedUrlInfo,
-  ImageUrlInfo,
-  MAX_UPLOAD_COUNT,
-  PRESIGNED_URL_EXPIRY,
-  validateFileMagicNumber,
-  validateFileName,
+  DeleteObjectCommand,
+  GetObjectCommand,
+  HeadObjectCommand,
+  PutObjectCommand,
+  S3Client,
+} from '@aws-sdk/client-s3';
+import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
+import { ImageRepository } from '@image-upload/db';
+import {
   API_MESSAGES,
   API_MESSAGE_CODES,
+  type CreateImageMetadataRequest,
+  type CreatePresignedUrlRequest,
   DOMAIN_ERROR_MESSAGES,
-  S3_VALIDATION_MODES,
+  type ImageUrlInfo,
+  MAX_UPLOAD_COUNT,
+  PRESIGNED_URL_EXPIRY,
+  type PresignedUrlInfo,
+  type S3PresignMode,
+  type S3ValidationMode,
   S3_PRESIGN_MODES,
-  S3ValidationMode,
-  S3PresignMode,
+  S3_VALIDATION_MODES,
+  validateFileMagicNumber,
+  validateFileName,
 } from '@image-upload/domain';
-import { ImageRepository } from '@image-upload/db';
-import { S3Client, PutObjectCommand, GetObjectCommand, HeadObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3';
-import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
 const getEnv = (key: string): string | undefined => {
   const runtime = globalThis as typeof globalThis & {
@@ -50,18 +56,12 @@ export class ImageService {
 
     this.s3Client = new S3Client({
       region: awsRegion,
-      credentials: {
-        accessKeyId: getEnv('AWS_ACCESS_KEY_ID') || '',
-        secretAccessKey: getEnv('AWS_SECRET_ACCESS_KEY') || '',
-      },
     });
     this.bucketName = getEnv('S3_BUCKET_NAME') || 'image-upload-bucket';
-    this.s3ValidationMode = getEnv('S3_VALIDATION_MODE') === S3_VALIDATION_MODES.skip
-      ? S3_VALIDATION_MODES.skip
-      : S3_VALIDATION_MODES.strict;
-    this.s3PresignMode = getEnv('S3_PRESIGN_MODE') === S3_PRESIGN_MODES.mock
-      ? S3_PRESIGN_MODES.mock
-      : S3_PRESIGN_MODES.aws;
+    this.s3ValidationMode =
+      getEnv('S3_VALIDATION_MODE') === S3_VALIDATION_MODES.skip ? S3_VALIDATION_MODES.skip : S3_VALIDATION_MODES.strict;
+    this.s3PresignMode =
+      getEnv('S3_PRESIGN_MODE') === S3_PRESIGN_MODES.mock ? S3_PRESIGN_MODES.mock : S3_PRESIGN_MODES.aws;
   }
 
   /**
@@ -127,7 +127,10 @@ export class ImageService {
    * @returns 登録した画像のIDと閲覧用URL
    * @throws S3にファイルが存在しない場合、またはマジックナンバー検証が失敗した場合
    */
-  async createImageMetadata(request: CreateImageMetadataRequest, traceId: string): Promise<{ id: string; url: string }> {
+  async createImageMetadata(
+    request: CreateImageMetadataRequest,
+    traceId: string,
+  ): Promise<{ id: string; url: string }> {
     const repository = new ImageRepository((await import('@image-upload/db')).prisma);
 
     if (this.s3ValidationMode === S3_VALIDATION_MODES.strict) {
@@ -169,10 +172,12 @@ export class ImageService {
 
       if (!validateFileMagicNumber(headerBuffer.buffer, request.contentType)) {
         // マジックナンバー検証失敗時はS3ファイルを削除
-        await this.s3Client.send(new DeleteObjectCommand({
-          Bucket: this.bucketName,
-          Key: request.key,
-        }));
+        await this.s3Client.send(
+          new DeleteObjectCommand({
+            Bucket: this.bucketName,
+            Key: request.key,
+          }),
+        );
 
         throw new Error(DOMAIN_ERROR_MESSAGES.INVALID_FILE_FORMAT);
       }
@@ -205,7 +210,7 @@ export class ImageService {
     const repository = new ImageRepository((await import('@image-upload/db')).prisma);
     const images = await repository.findAll();
 
-    return images.map(image => ({
+    return images.map((image) => ({
       id: image.id,
       fileName: image.fileName,
       createdAt: image.createdAt.toISOString(),

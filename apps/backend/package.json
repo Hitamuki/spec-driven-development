@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "bun --watch src/index.ts",
     "build": "bun build src/index.ts --outdir dist --target bun --external @image-upload/domain --external @image-upload/db --external @image-upload/shared --external @image-upload/api --external @aws-sdk/client-s3 --external @aws-sdk/s3-request-presigner",
+    "build:lambda": "bun build src/index.ts --outfile dist/index.js --target node --format cjs",
     "start": "bun dist/index.js",
     "test": "vitest run",
     "test:watch": "vitest --watch",
