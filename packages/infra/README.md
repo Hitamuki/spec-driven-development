@@ -18,7 +18,7 @@
 
 ## モジュール構成
 
-```
+```text
 packages/infra/
 ├── main.tf                 # プロバイダー設定、共通リソース、SG/Bastionモジュール呼び出し
 ├── variables.tf            # 入力変数定義
@@ -145,23 +145,53 @@ terraform apply
 RDSはプライベートサブネットにあるため、踏み台サーバー経由でSSHトンネルを張る必要があります。
 踏み台サーバーへの接続方法は [「踏み台サーバーへの接続」](#踏み台サーバーへの接続) を参照してください。
 
-1. **SSHトンネルの作成**（別ターミナルで実行し、接続を維持したまま次の手順へ）
+踏み台EC2はデフォルトで停止状態を維持し、DB作業時のみ一時的に起動してください。
+
+1. **踏み台EC2の起動**
+
+   ```bash
+   cd packages/infra
+   terraform output bastion_instance_id
+   aws ec2 start-instances --instance-ids [bastion_instance_id]
+   aws ec2 wait instance-running --instance-ids [bastion_instance_id]
+   ```
+
+2. **踏み台サーバーのパブリックIPを確認**
+
+   ```bash
+   aws ec2 describe-instances \
+     --instance-ids [bastion_instance_id] \
+     --query "Reservations[0].Instances[0].PublicIpAddress" \
+     --output text
+   ```
+
+3. **SSHトンネルの作成**（別ターミナルで実行し、接続を維持したまま次の手順へ）
+
    ```bash
    ssh -i ~/.ssh/[pem名] -L 5433:[RDSインスタンスのエンドポイント]:5432 ubuntu@[踏み台サーバーのパブリックIP] -N
    ```
 
-2. **.env の設定**
+4. **.env の設定**
    `packages/db/.env` をローカル転送用のアドレスに書き換えます。
+
    ```text
    # パスワードは英数字のみ（記号なし）を使用してください
    DATABASE_URL="postgresql://<ユーザー名>:<パスワード>@localhost:5433/<DB名>"
    ```
 
-3. **マイグレーションの実行**
+5. **マイグレーションの実行**
+
    ```bash
    cd packages/db
    pnpm prisma migrate deploy
    pnpm prisma generate
+   ```
+
+6. **作業終了後は踏み台EC2を停止**
+
+   ```bash
+   aws ec2 stop-instances --instance-ids [bastion_instance_id]
+   aws ec2 wait instance-stopped --instance-ids [bastion_instance_id]
    ```
 
 ### 4. Frontendコードのビルドと配布
@@ -284,3 +314,24 @@ psql -h localhost -p 5433 -U hitamuki -d imageupload
 - 本番環境ではIAMロールとユーザーの権限を適切に設定してください
 - 個人開発のためローカル状態ファイルを使用します。チーム開発の場合はS3バックエンドの導入を検討してください
 - 秘密鍵（`.pem`）はバージョン管理に含めないでください（`.gitignore` に追加すること）
+
+## TBD
+
+### 踏み台サーバーを SSM Session Manager に移行する
+
+- 目的は、SSH公開を廃止して 22/TCP への到達性をなくし、秘密鍵配布と保管の運用を不要にすることです。
+- 移行後は、踏み台の接続手順を SSH ベースから SSM ベースへ置き換えます。
+- 移行完了後は、踏み台用セキュリティグループから 22/TCP の受信許可を削除します。
+
+### 現状のリスク
+
+- 現在の踏み台サーバーは SSH を前提としており、22/TCP の公開と公開IP付与に起因する攻撃面が残っています。
+- 踏み台を必要時のみ起動する運用は露出時間の短縮に有効ですが、構成上のリスク自体は解消しません。
+- DB作業で秘密鍵を扱うため、端末保護や鍵管理が不十分だと踏み台経由でRDSに到達される可能性があります。
+
+### 当面の運用上の注意
+
+- 踏み台EC2は原則 stopped を維持し、DB作業の直前にのみ起動してください。
+- 作業完了後は、SSHトンネルを終了したうえで EC2 を停止してください。
+- SSH接続元は可能であれば固定IPに制限し、鍵ファイルはローカル端末の安全な領域だけで管理してください。
+- 中長期的には、SSM Session Manager への移行を完了させて SSH 運用を廃止してください。

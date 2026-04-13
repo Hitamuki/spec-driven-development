@@ -13,6 +13,7 @@ lambda_artifact_key = "backend/main.zip"
 
 # Bastion Configuration (optional)
 key_name = "image-upload-bastion"
+bastion_instance_desired_state = "stopped"
 
 # Database Configuration
 db_name     = "imageupload"

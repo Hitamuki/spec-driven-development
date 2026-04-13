@@ -34,6 +34,17 @@ variable "key_name" {
   default     = ""
 }
 
+variable "bastion_instance_desired_state" {
+  description = "踏み台EC2の希望状態（running または stopped）"
+  type        = string
+  default     = "stopped"
+
+  validation {
+    condition     = contains(["running", "stopped"], var.bastion_instance_desired_state)
+    error_message = "bastion_instance_desired_state は running か stopped を指定してください。"
+  }
+}
+
 variable "lambda_artifact_bucket" {
   description = "Lambdaデプロイ用アーティファクトを格納するS3バケット名"
   type        = string

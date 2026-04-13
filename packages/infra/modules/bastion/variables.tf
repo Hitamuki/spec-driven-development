@@ -30,3 +30,14 @@ variable "key_name" {
   default     = ""
   description = "Key pair name for SSH access (optional)"
 }
+
+variable "instance_desired_state" {
+  type        = string
+  default     = "stopped"
+  description = "Desired EC2 state for Bastion Host: running or stopped"
+
+  validation {
+    condition     = contains(["running", "stopped"], var.instance_desired_state)
+    error_message = "instance_desired_state must be running or stopped."
+  }
+}

@@ -14,3 +14,8 @@ resource "aws_instance" "bastion" {
     Name = "${var.project_name}-bastion"
   }
 }
+
+resource "aws_ec2_instance_state" "bastion" {
+  instance_id = aws_instance.bastion.id
+  state       = var.instance_desired_state
+}

@@ -51,4 +51,5 @@ module "bastion" {
   public_subnet_id          = module.vpc.public_subnet_ids[0]
   bastion_security_group_id = module.security_groups.bastion_security_group_id
   key_name                  = var.key_name
+  instance_desired_state    = var.bastion_instance_desired_state
 }
